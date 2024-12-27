@@ -1,0 +1,93 @@
+{
+  "module": {
+    "megacorp-deploy-servers": {
+      "autostart": true,
+      "bridge": "br0",
+      "dhcp": true,
+      "memory": "4096",
+      "source": "git::https://gitea.megacorp.industries/megacorp/terraform-libvirt-module.git?ref=942853d0906d3678d368bd31cf15e1d4d201645f",
+      "system_volume": 300,
+      "vcpu": 2,
+      "vm_count": 1,
+      "vm_hostname_prefix": "MGC-DRS-"
+    },
+    "megacorp-gitea-servers": {
+      "autostart": true,
+      "bridge": "br0",
+      "dhcp": true,
+      "memory": "4096",
+      "source": "git::https://gitea.megacorp.industries/megacorp/terraform-libvirt-module.git?ref=942853d0906d3678d368bd31cf15e1d4d201645f",
+      "system_volume": 300,
+      "vcpu": 2,
+      "vm_count": 1,
+      "vm_hostname_prefix": "MGC-GIT-"
+    },
+    "megacorp-guacamole-servers": {
+      "autostart": true,
+      "bridge": "br0",
+      "dhcp": true,
+      "memory": "4096",
+      "source": "git::https://gitea.megacorp.industries/megacorp/terraform-libvirt-module.git?ref=942853d0906d3678d368bd31cf15e1d4d201645f",
+      "system_volume": 300,
+      "vcpu": 2,
+      "vm_count": 1,
+      "vm_hostname_prefix": "MGC-GUC-"
+    },
+    "megacorp-nextcloud-servers": {
+      "autostart": true,
+      "bridge": "br0",
+      "dhcp": true,
+      "memory": "4096",
+      "source": "git::https://gitea.megacorp.industries/megacorp/terraform-libvirt-module.git?ref=942853d0906d3678d368bd31cf15e1d4d201645f",
+      "system_volume": 300,
+      "vcpu": 2,
+      "vm_count": 1,
+      "vm_hostname_prefix": "MGC-NXC-"
+    },
+    "megacorp-password-servers": {
+      "autostart": true,
+      "bridge": "br0",
+      "dhcp": true,
+      "memory": "4096",
+      "source": "git::https://gitea.megacorp.industries/megacorp/terraform-libvirt-module.git?ref=942853d0906d3678d368bd31cf15e1d4d201645f",
+      "system_volume": 300,
+      "vcpu": 2,
+      "vm_count": 1,
+      "vm_hostname_prefix": "MGC-PWS-"
+    },
+    "megacorp-restic-servers": {
+      "autostart": true,
+      "bridge": "br0",
+      "dhcp": true,
+      "memory": "4096",
+      "source": "git::https://gitea.megacorp.industries/megacorp/terraform-libvirt-module.git?ref=942853d0906d3678d368bd31cf15e1d4d201645f",
+      "system_volume": 300,
+      "vcpu": 2,
+      "vm_count": 1,
+      "vm_hostname_prefix": "MGC-RST-"
+    },
+    "megacorp-reverse-proxies": {
+      "autostart": true,
+      "bridge": "br0",
+      "dhcp": true,
+      "memory": "4096",
+      "source": "git::https://gitea.megacorp.industries/megacorp/terraform-libvirt-module.git?ref=942853d0906d3678d368bd31cf15e1d4d201645f",
+      "system_volume": 300,
+      "vcpu": 2,
+      "vm_count": 1,
+      "vm_hostname_prefix": "MGC-RVP-"
+    }
+  },
+  "provider": {
+    "libvirt": {
+      "uri": "qemu+ssh://deploy@mgc-hvs-02/system"
+    }
+  },
+  "terraform": {
+    "required_providers": {
+      "libvirt": {
+        "source": "dmacvicar/libvirt"
+      }
+    }
+  }
+}

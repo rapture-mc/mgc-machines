@@ -1,0 +1,18 @@
+keys:
+  - &MGC-DRS-01 age1t5m8rsa560r88nex0rwycxjkdfhr9z9xz6x7kymzvaewqfrfvqxsaqf67a
+  - &MGC-DRS-02 age1suplh033nftdtj7krll4zp4r4v549c6wna2r6xlz4su9zjq9sfts4hrayk
+  - &MGC-GIT-01 age1e7kxmnjk0ryjecz62g5u5lmufwfepth9fa44ld889x2gpsdcvc5sqfrlxq
+  - &MGC-NXC-01 age158eqlx3gyrm92nhs87awg8xgd6rm7ujss80yavzjvglcskvdggest8tyry
+  - &MGC-BST-01 age1jgmhgf4g4h7f3uj5rqanmj8ha8kwf2ukk707gecwc9msnq87n9mssc5h7h 
+  - &MGC-LT-02 age1axz8g6j9t8rrtyphrrhwhp9fjpntttftjndwdq5regx2r3p8e3aswujypg
+
+creation_rules:
+  - path_regex: sops/secrets/default.yaml
+    key_groups:
+    - age:
+      - *MGC-DRS-01
+      - *MGC-DRS-02
+      - *MGC-GIT-01
+      - *MGC-NXC-01
+      - *MGC-BST-01
+      - *MGC-LT-02

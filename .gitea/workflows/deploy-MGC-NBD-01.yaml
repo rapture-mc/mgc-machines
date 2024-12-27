@@ -1,0 +1,28 @@
+# name: Deploy NixOS systems with Deploy-RS
+# on:
+#   push:
+#     paths:
+#       - 'machines/servers/MGC-NXC-01/**'
+#
+# jobs:
+#   call-deploy-template:
+#     uses: ./.gitea/workflows/deploy-template.yaml
+#     with:
+#       hostname: 'MGC-NXC-01'
+name: Deploy NixOS systems with Deploy-RS
+on:
+  push:
+    paths:
+      - 'machines/servers/MGC-NBD-01/**'
+
+jobs:
+  deploy-nixos:
+    runs-on: MGC-DRS-01
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "The ${{ gitea.repository }} repository has been cloned to the runner."
+      - run: echo "Ready to run deploy-rs on runner"
+      - name: Run deploy-rs on remote machine
+        run: deploy .#MGC-NBD-01 -s
+      - run: echo "This job's status is ${{ job.status }}."
