@@ -364,11 +364,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1735392523,
-        "narHash": "sha256-z7K3XEbPqZ2qLTMcy9rjPnr3o/qnV/z73d32OrgvvBs=",
+        "lastModified": 1735396673,
+        "narHash": "sha256-jX+zw24B1byGK3/CnErriMfihpjvwpd2cq5jOMxSjAE=",
         "ref": "refs/heads/main",
-        "rev": "d49cb453c1e4a0529df3dda5828fef8dd4f2a1af",
-        "revCount": 36,
+        "rev": "041b84343c5b1bdce41a197c17a178596d54adaf",
+        "revCount": 37,
         "type": "git",
         "url": "https://gitea.megacorp.industries/megacorp/nixos"
       },
@@ -481,11 +481,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1734784342,
-        "narHash": "sha256-uap4LcvjpTz5WTgDfQYtL3QCpGmtee7DuD5mB8AIiLw=",
+        "lastModified": 1735389157,
+        "narHash": "sha256-3co5A7PUEN+Bm7b3/6BxFsmvplg3XYUNR2MzWnheZoE=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "334947672f1eb05488e69657b9c412230bd658b4",
+        "rev": "c8fa65c6ac35dba157de0873d645ab398c370123",
         "type": "github"
       },
       "original": {
