@@ -20,4 +20,5 @@
 
   # Workstations
   MGC-LT01 = importMachineConfig "workstations" "MGC-LT01" "config";
+  MGC-LT02 = importMachineConfig "workstations" "MGC-LT02" "config";
 }

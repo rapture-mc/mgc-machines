@@ -289,11 +289,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1734366194,
-        "narHash": "sha256-vykpJ1xsdkv0j8WOVXrRFHUAdp9NXHpxdnn1F4pYgSw=",
+        "lastModified": 1735344290,
+        "narHash": "sha256-oJDtWPH1oJT34RJK1FSWjwX4qcGOBRkcNQPD0EbSfNM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "80b0fdf483c5d1cb75aaad909bd390d48673857f",
+        "rev": "613691f285dad87694c2ba1c9e6298d04736292d",
         "type": "github"
       },
       "original": {
@@ -312,11 +312,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1734366194,
-        "narHash": "sha256-vykpJ1xsdkv0j8WOVXrRFHUAdp9NXHpxdnn1F4pYgSw=",
+        "lastModified": 1735344290,
+        "narHash": "sha256-oJDtWPH1oJT34RJK1FSWjwX4qcGOBRkcNQPD0EbSfNM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "80b0fdf483c5d1cb75aaad909bd390d48673857f",
+        "rev": "613691f285dad87694c2ba1c9e6298d04736292d",
         "type": "github"
       },
       "original": {
@@ -364,11 +364,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1735364608,
-        "narHash": "sha256-opQ8mmnql5PpxlDjCyMAYrNvBRCuNeTaUPOhv+PdY2U=",
+        "lastModified": 1735376256,
+        "narHash": "sha256-q/JXoZB1AddJxQRw+aLE9jGo0xD6Y9sCuRKrkfTp8VU=",
         "ref": "refs/heads/main",
-        "rev": "a724c0dc0bc627be19c2876c4fd19fa53a121abf",
-        "revCount": 11,
+        "rev": "93ae3b8ac3f944495feb0f7828e11a0f4121ea00",
+        "revCount": 32,
         "type": "git",
         "url": "https://gitea.megacorp.industries/megacorp/nixos"
       },
