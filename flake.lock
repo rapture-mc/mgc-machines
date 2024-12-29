@@ -364,11 +364,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1735436845,
-        "narHash": "sha256-4xV4YlFObt0BKvWTzSYshWwF2DF9QYcz7hYsFRKVQsA=",
+        "lastModified": 1735437129,
+        "narHash": "sha256-Cd2jbCFVg3CcrYZXUDwrIBGgzVXE+WKXEJu1WCUq8Aw=",
         "ref": "refs/heads/main",
-        "rev": "05a007570026d8551557fcb51642b8dcfe805b37",
-        "revCount": 45,
+        "rev": "57445ea821ddf6f3768408e937fe75f4bc897232",
+        "revCount": 46,
         "type": "git",
         "url": "https://gitea.megacorp.industries/megacorp/nixos"
       },
