@@ -364,11 +364,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1735467288,
-        "narHash": "sha256-yFfdC5Jn+LsS+qiUMNMNttdiiQ1Rn4B/LcnDntSIR/g=",
+        "lastModified": 1735475415,
+        "narHash": "sha256-OurQMCEfjniMz7LQq9xr1PkeHSbsa/oQXQZbh9VoqzE=",
         "ref": "refs/heads/main",
-        "rev": "7b220ba34f05499dc34b76b1fb1953f0e27c0f7f",
-        "revCount": 50,
+        "rev": "92073271b331dda6137b3a60b4bc3808711a03d8",
+        "revCount": 51,
         "type": "git",
         "url": "https://gitea.megacorp.industries/megacorp/nixos"
       },
@@ -540,11 +540,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1734546875,
-        "narHash": "sha256-6OvJbqQ6qPpNw3CA+W8Myo5aaLhIJY/nNFDk3zMXLfM=",
+        "lastModified": 1735468296,
+        "narHash": "sha256-ZjUjbvS06jf4fElOF4ve8EHjbpbRVHHypStoY8HGzk8=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "ed091321f4dd88afc28b5b4456e0a15bd8374b4d",
+        "rev": "bcb8b65aa596866eb7e5c3e1a6cccbf5d1560b27",
         "type": "github"
       },
       "original": {
