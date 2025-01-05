@@ -14,6 +14,13 @@ nixpkgs.lib.nixosSystem {
         (import ./secrets.nix {inherit inputs;})
       ];
 
+      # services.syncthing = {
+      #   enable = true;
+      #   guiAddress = "${vars.networking.hostsAddr.MGC-DRS-01.ipv4}:8384";
+      # };
+      #
+      # networking.firewall.allowedTCPPorts = [ 8384 ];
+
       megacorp = {
         config = {
           system.hostname = "MGC-DRS-01";
