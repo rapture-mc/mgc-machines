@@ -3,16 +3,10 @@
 
   adminUser = "benny";
 
-  giteaFQDN = "gitea.megacorp.industries";
   guacamoleFQDN = "guacamole.megacorp.industries";
-  grafanaFQDN = "grafana.megacorp.industries";
-  nextcloudFQDN = "nextcloud.megacorp.industries";
-  semaphoreFQDN = "semaphore.megacorp.industries";
-  jenkinsFQDN = "jenkins.megacorp.industries";
 
   # The following keys are permitted to connect to remote hosts over SSH to run deploy-rs
   authorizedDeployPubKeys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILBbY2IFwCtrP1KZjL7D+fNA4kBKnkydS17oIJL9VxAl benny@MGC-DRS-02"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOT7JnanXvRKEuOkLzU3Suw/7KFAqUtlbUngDuCM6eXR benny@MGC-DRS-01"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDwT0RrqTnNKxuPTVIYTXlgUlsIAqf4TMVmpYf5IfnbK gitea-runner@MGC-DRS-01"
   ];

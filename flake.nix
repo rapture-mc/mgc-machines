@@ -10,16 +10,6 @@
       inputs.nixpkgs.follows = "megacorp/nixpkgs";
     };
 
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "megacorp/nixpkgs";
-    };
-
-    terranix = {
-      url = "github:terranix/terranix";
-      inputs.nixpkgs.follows = "megacorp/nixpkgs";
-    };
-
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "megacorp/nixpkgs";
@@ -30,9 +20,7 @@
     self,
     nixpkgs,
     megacorp,
-    nixos-generators,
     deploy-rs,
-    terranix,
     ...
   } @ inputs: let
     vars = import ./vars;
@@ -43,12 +31,6 @@
     importMachineConfig = machineType: machineName: configType:
       import ./machines/${machineType}/${machineName}/${configType}.nix {
         inherit inputs self vars megacorp nixpkgs deploy-rs pkgs;
-      };
-
-    # Helper function for importing different Terraform configurations
-    importTerraformConfig = machineName: action:
-      import ./terranix/${machineName}/terranix.nix {
-        inherit terranix pkgs system machineName action;
       };
   in {
     # Machines currently managed under this Flake
@@ -61,25 +43,5 @@
 
     # Check deploy-rs configuration beforehand (recommened by deploy-rs manual)
     checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
-
-    # Nix commands to create/destroy Terraform infrastructure
-    # Run with "nix run .#<machine-name>-apply"
-    apps.${system} = import ./terranix {inherit importTerraformConfig;};
-
-    # For generating NixOS QCOW EFI images for use with terraform + libvirt
-    # Build with "nix build .#qcow-efi"
-    packages.${system}.qcow-efi = nixos-generators.nixosGenerate {
-      system = "${system}";
-      format = "qcow-efi";
-      modules = [
-        megacorp.nixosModules.default
-        {
-          megacorp.config = {
-            users.admin-user = "benny";
-            bootloader.enable = false;
-          };
-        }
-      ];
-    };
   };
 }
