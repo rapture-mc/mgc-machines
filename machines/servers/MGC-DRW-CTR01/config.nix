@@ -38,7 +38,7 @@ nixpkgs.lib.nixosSystem {
         services = {
           rebuild-machine.enable = true;
 
-          deploy-rs.server = {
+          controller.server = {
             enable = true;
             logo = true;
           };

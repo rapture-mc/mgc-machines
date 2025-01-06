@@ -41,7 +41,7 @@ nixpkgs.lib.nixosSystem {
         };
 
         services = {
-          deploy-rs = {
+          controller = {
             agent.enable = true;
             server.public-key = vars.authorizedDeployPubKeys;
           };
