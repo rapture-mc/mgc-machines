@@ -1,6 +1,6 @@
 {
   defaultGateway = "192.168.1.99";
-  nameServers = ["192.168.1.35"];
+  nameServers = ["192.168.1.10"];
   internalDomain = "megacorp.industries";
 
   hostsAddr = {
