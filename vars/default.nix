@@ -5,10 +5,9 @@
 
   guacamoleFQDN = "guacamole.megacorp.industries";
 
-  # The following keys are permitted to connect to remote hosts over SSH to run deploy-rs
+  # The following keys are permitted to connect to remote hosts over SSH to run automated commands
   authorizedDeployPubKeys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOT7JnanXvRKEuOkLzU3Suw/7KFAqUtlbUngDuCM6eXR benny@MGC-DRS-01"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDwT0RrqTnNKxuPTVIYTXlgUlsIAqf4TMVmpYf5IfnbK gitea-runner@MGC-DRS-01"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBNHs6Q37Kt8G1aA0R610uRBPmhMrD/MwH9DB7aEyQ0E benny@MGC-DRW-CTR01"
   ];
 
   # The following keys are permitted to connect to the Restic server to upload backups
