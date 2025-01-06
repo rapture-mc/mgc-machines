@@ -9,7 +9,6 @@
     sshUser = "controller";
     user = "root";
     path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.MGC-RVP-01;
-    sshOpts = ["-i" "/var/lib/gitea-runner/default/.ssh/id_ed25519"];
     remoteBuild = true;
   };
 }
