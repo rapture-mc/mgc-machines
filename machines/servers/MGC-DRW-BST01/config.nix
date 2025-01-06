@@ -16,7 +16,7 @@ nixpkgs.lib.nixosSystem {
       ];
 
       networking.hosts = {
-        "${vars.networking.hostsAddr.MGC-DRW-HVS03.ipv4}" = ["MGC-DRW-HVS03"];
+        "${vars.networking.hostsAddr.MGC-DRW-HVS01.ipv4}" = ["MGC-DRW-HVS01"];
         "${vars.networking.hostsAddr.MGC-DRW-PWS01.ipv4}" = ["MGC-DRW-PWS01"];
         "${vars.networking.hostsAddr.MGC-DRW-CTR01.ipv4}" = ["MGC-DRW-CTR01"];
         "${vars.networking.hostsAddr.MGC-DRW-RST01.ipv4}" = ["MGC-DRW-RST01"];
