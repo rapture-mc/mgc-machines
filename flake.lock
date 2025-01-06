@@ -321,11 +321,11 @@
         "rev": "63af055892d9ea907788636546a51fdb350e1813",
         "revCount": 57,
         "type": "git",
-        "url": "https://gitea.megacorp.industries/megacorp/nixos"
+        "url": "https://github.com/rapture-mc/nixos-module"
       },
       "original": {
         "type": "git",
-        "url": "https://gitea.megacorp.industries/megacorp/nixos"
+        "url": "https://github.com/rapture-mc/nixos-module"
       }
     },
     "nix-darwin": {
