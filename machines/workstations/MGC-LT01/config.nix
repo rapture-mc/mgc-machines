@@ -17,6 +17,7 @@ nixpkgs.lib.nixosSystem {
       environment.systemPackages = with nixpkgs.legacyPackages.x86_64-linux; [
         go
         gnucash
+        pass
       ];
 
       # Ensures nixos-rebuild doesn't fail when acme certs fail to renew
