@@ -2,7 +2,6 @@
   nixpkgs,
   megacorp,
   vars,
-  inputs,
   ...
 }:
 nixpkgs.lib.nixosSystem {
@@ -11,7 +10,6 @@ nixpkgs.lib.nixosSystem {
     {
       imports = [
         ./hardware-config.nix
-        (import ./secrets.nix {inherit inputs;})
       ];
 
       environment.systemPackages = with nixpkgs.legacyPackages.x86_64-linux; [
@@ -19,9 +17,6 @@ nixpkgs.lib.nixosSystem {
         gnucash
         pass
       ];
-
-      # Ensures nixos-rebuild doesn't fail when acme certs fail to renew
-      systemd.services.acme-localhost.serviceConfig = { SuccessExitStatus = 10; };
 
       megacorp = {
         config = {
@@ -34,14 +29,7 @@ nixpkgs.lib.nixosSystem {
           desktop.enable = true;
         };
 
-        services = {
-          rebuild-machine.enable = true;
-
-          semaphore = {
-            enable = true;
-            fqdn = "localhost";
-          };
-        };
+        services.rebuild-machine.enable = true;
 
         virtualisation.whonix.enable = true;
       };
