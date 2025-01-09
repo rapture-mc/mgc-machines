@@ -55,7 +55,7 @@ nixpkgs.lib.nixosSystem {
           logo = true;
           libvirt-users = [
             "${vars.adminUser}"
-            "deploy"
+            "controller"
           ];
         };
       };
