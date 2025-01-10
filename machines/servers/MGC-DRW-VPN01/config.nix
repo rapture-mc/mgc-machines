@@ -16,13 +16,13 @@ nixpkgs.lib.nixosSystem {
         virtualisation.guest.qemuConsole.enable = true;
 
         config = {
-          system.hostname = "MGC-DRW-HDS01";
+          system.hostname = "MGC-DRW-VPN01";
           users.admin-user = "${vars.adminUser}";
           bootloader.efi.enable = true;
 
           networking.static-ip = {
             enable = true;
-            ipv4 = "${vars.networking.hostsAddr.MGC-DRW-HDS01.ipv4}";
+            ipv4 = "${vars.networking.hostsAddr.MGC-DRW-VPN01.ipv4}";
             gateway = "${vars.networking.defaultGateway}";
             nameservers = vars.networking.nameServers;
             lan-domain = "${vars.networking.internalDomain}";

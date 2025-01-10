@@ -4,7 +4,7 @@
   internalDomain = "megacorp.industries";
 
   hostsAddr = {
-    MGC-DRW-HDS01 = {
+    MGC-DRW-VPN01 = {
       ipv4 = "192.168.1.30";
     };
     MGC-DRW-PWS01 = {
