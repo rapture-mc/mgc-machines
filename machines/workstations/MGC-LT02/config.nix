@@ -19,10 +19,7 @@ nixpkgs.lib.nixosSystem {
 
           users.regular-user.enable = true;
 
-          desktop = {
-            enable = true;
-            hyprland.enable = true;
-          };
+          hyprland.enable = true;
         };
 
         services.rebuild-machine.enable = true;
