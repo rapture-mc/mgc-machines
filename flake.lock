@@ -310,11 +310,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1736577724,
-        "narHash": "sha256-L/lDfyHbRnpl+GfTzRlOpLam8QvD8HDS28QVkSeJ5V0=",
+        "lastModified": 1736577977,
+        "narHash": "sha256-qECFSaYQOtM7fn+s9HpYNl0417TmxfGFLG6CiSYeCRI=",
         "ref": "hyprland",
-        "rev": "b43ccab88ebfce01bcab3a0cbdb8f5033db2a9c0",
-        "revCount": 96,
+        "rev": "9e858813855d9de9c78572edff89cfd6991ab333",
+        "revCount": 97,
         "type": "git",
         "url": "https://github.com/rapture-mc/nixos-module"
       },
