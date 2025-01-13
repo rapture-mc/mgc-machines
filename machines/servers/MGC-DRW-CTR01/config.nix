@@ -12,13 +12,6 @@ nixpkgs.lib.nixosSystem {
         ./hardware-config.nix
       ];
 
-      # services.syncthing = {
-      #   enable = true;
-      #   guiAddress = "${vars.networking.hostsAddr.MGC-DRS-01.ipv4}:8384";
-      # };
-      #
-      # networking.firewall.allowedTCPPorts = [ 8384 ];
-
       megacorp = {
         config = {
           system.hostname = "MGC-DRW-CTR01";
