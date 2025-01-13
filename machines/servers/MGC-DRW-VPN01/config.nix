@@ -27,6 +27,8 @@ nixpkgs.lib.nixosSystem {
             nameservers = vars.networking.nameServers;
             lan-domain = "${vars.networking.internalDomain}";
           };
+
+          hyprland.enable = true;
         };
 
         services = {
