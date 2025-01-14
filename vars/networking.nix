@@ -29,6 +29,10 @@
       ipv4 = "192.168.1.17";
       int = "eno1";
     };
+    MGC-DRW-HVS02 = {
+      ipv4 = "192.168.1.16";
+      int = "eno1";
+    };
     MGC-DRW-HVS03 = {
       ipv4 = "192.168.1.15";
       int = "enp6s0";

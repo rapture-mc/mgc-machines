@@ -10,6 +10,7 @@
 
   # Hypervisors
   MGC-DRW-HVS01 = importMachineConfig "hypervisors" "MGC-DRW-HVS01" "config";
+  MGC-DRW-HVS02 = importMachineConfig "hypervisors" "MGC-DRW-HVS02" "config";
   MGC-DRW-HVS03 = importMachineConfig "hypervisors" "MGC-DRW-HVS03" "config";
 
   # Workstations
