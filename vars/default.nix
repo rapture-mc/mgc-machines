@@ -4,6 +4,7 @@
   adminUser = "benny";
 
   guacamoleFQDN = "guacamole.megacorp.industries";
+  nextcloudFQDN = "nextcloud.megacorp.industries";
 
   # The following keys are permitted to connect to remote hosts over SSH to run automated commands
   authorizedDeployPubKeys = [

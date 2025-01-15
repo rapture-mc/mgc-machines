@@ -47,6 +47,11 @@ nixpkgs.lib.nixosSystem {
               ipv4 = "${vars.networking.hostsAddr.MGC-DRW-GUC01.ipv4}";
               fqdn = "${vars.guacamoleFQDN}";
             };
+            nextcloud = {
+              enable = true;
+              ipv4 = "${vars.networking.hostsAddr.MGC-DRW-NXC01.ipv4}";
+              fqdn = "${vars.nextcloudFQDN}";
+            };
           };
         };
       };

@@ -39,6 +39,8 @@ nixpkgs.lib.nixosSystem {
             enable = true;
             logo = true;
             reverse-proxied = true;
+            package = nixpkgs.legacyPackages.x86_64-linux.nextcloud28;
+            fqdn = "${vars.nextcloudFQDN}";
             trusted-proxies = [
               "${vars.networking.hostsAddr.MGC-DRW-RVP01.ipv4}"
             ];
