@@ -7,6 +7,7 @@
   MGC-DRW-PWS01 = importMachineConfig "servers" "MGC-DRW-PWS01" "config";
   MGC-DRW-RST01 = importMachineConfig "servers" "MGC-DRW-RST01" "config";
   MGC-DRW-RVP01 = importMachineConfig "servers" "MGC-DRW-RVP01" "config";
+  MGC-DRW-SEM01 = importMachineConfig "servers" "MGC-DRW-SEM01" "config";
   MGC-DRW-VPN01 = importMachineConfig "servers" "MGC-DRW-VPN01" "config";
 
   # Hypervisors

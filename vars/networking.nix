@@ -31,6 +31,9 @@
     MGC-DRW-FBR01 = {
       ipv4 = "192.168.1.38";
     };
+    MGC-DRW-SEM01 = {
+      ipv4 = "192.168.1.39";
+    };
     MGC-DRW-HVS01 = {
       ipv4 = "192.168.1.17";
       int = "eno1";
