@@ -1,8 +1,10 @@
 keys:
-  - &server_MGC-DRW-CTR01 age175y4g497fsz5x8slf3udhmvj5yw53ju2nsn4x9dzrkv5kh42995s0fvrmd
+  - &server_MGC-DRW-CTR01 age13tw3g5x7jd6svaldh57un0xjy65yhxrpau8kkjag2afml83c39wsqy8lvy
+  - &server_MGC-DRW-SEM01 age1rd0y53lk5hxvwhay5gwx245yrcm8h57jppync6jf85r648xkaqksdey6nl
 
 creation_rules:
   - path_regex: sops/secrets/default.yaml
     key_groups:
     - age:
       - *server_MGC-DRW-CTR01
+      - *server_MGC-DRW-SEM01
