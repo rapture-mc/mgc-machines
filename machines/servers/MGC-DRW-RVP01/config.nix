@@ -52,6 +52,11 @@ nixpkgs.lib.nixosSystem {
               ipv4 = "${vars.networking.hostsAddr.MGC-DRW-NXC01.ipv4}";
               fqdn = "${vars.nextcloudFQDN}";
             };
+            file-browser = {
+              enable = true;
+              ipv4 = "${vars.networking.hostsAddr.MGC-DRW-FBR01.ipv4}";
+              fqdn = "${vars.file-browserFQDN}";
+            };
           };
         };
       };

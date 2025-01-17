@@ -37,8 +37,8 @@ nixpkgs.lib.nixosSystem {
 
           file-browser = {
             enable = true;
-            # reverse-proxied = true;
-            fqdn = "192.168.1.38";
+            reverse-proxied = true;
+            fqdn = "${vars.file-browserFQDN}";
           };
 
           prometheus = {

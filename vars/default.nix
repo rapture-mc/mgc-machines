@@ -5,6 +5,7 @@
 
   guacamoleFQDN = "guacamole.megacorp.industries";
   nextcloudFQDN = "nextcloud.megacorp.industries";
+  file-browserFQDN = "gitea.megacorp.industries";
 
   # The following keys are permitted to connect to remote hosts over SSH to run automated commands
   authorizedDeployPubKeys = [
