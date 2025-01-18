@@ -26,7 +26,7 @@ nixpkgs.lib.nixosSystem {
               privateKeyFile = "/home/benny/wireguard-keys/private";
               peers = [
                 {
-                  publicKey = "WybmIIlnKoaSpJZVLkw34RwhRhogfTbKXNEchGhrAXE=";
+                  publicKey = "CthODhxdRHTxTAdqcRlqYAYkRBXMuDFA7AkQfyIrTxY=";
                   allowedIPs = [ "0.0.0.0/0" ];
                   endpoint = "123.243.147.17:51820";
                   persistentKeepalive = 25;
