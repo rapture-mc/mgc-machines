@@ -3,14 +3,46 @@
   megacorp,
   vars,
   ...
-}:
-nixpkgs.lib.nixosSystem {
+}: let
+  pkgs = nixpkgs.legacyPackages.x86_64-linux;
+in nixpkgs.lib.nixosSystem {
   modules = [
     megacorp.nixosModules.default
     {
       imports = [
         ./hardware-config.nix
       ];
+
+      environment.systemPackages = [pkgs.wireguard-tools];
+
+      networking = {
+        firewall.allowedUDPPorts = [51820];
+        wireguard = {
+          enable = true;
+          interfaces.wg0 = {
+            ips = ["10.100.0.1/24"];
+            listenPort = 51820;
+            postSetup = ''
+              ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
+            '';
+            postShutdown = ''
+              ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
+            '';
+            privateKeyFile = "/home/benny/wireguard-keys/private";
+            peers = [
+              {
+                publicKey = "";
+                allowedIPs = ["10.100.0.2/32"];
+              }
+            ];
+          };
+        };
+        nat = {
+          enable = true;
+          internalInterfaces = ["wg0"];
+          externalInterface = "ens3";
+        };
+      };
 
       megacorp = {
         virtualisation.guest.qemuConsole.enable = true;
@@ -27,8 +59,6 @@ nixpkgs.lib.nixosSystem {
             nameservers = vars.networking.nameServers;
             lan-domain = "${vars.networking.internalDomain}";
           };
-
-          hyprland.enable = true;
         };
 
         services = {
