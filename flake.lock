@@ -310,11 +310,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1736925785,
-        "narHash": "sha256-Ywv7LUp9B0HGHOHm3yZP7wS04alDh3PnlzHRs6Yfv28=",
+        "lastModified": 1737163933,
+        "narHash": "sha256-yjf/ICQz96ElI5e9PaUjawuSfPhUy5NVyoPJqduKcxc=",
         "ref": "hyprland",
-        "rev": "d2bce96d6665abf3f9d231947cd95edc6564d88e",
-        "revCount": 164,
+        "rev": "ad8ad840a06d35c2fd5aaaaa7621263e50a76c8b",
+        "revCount": 165,
         "type": "git",
         "url": "https://github.com/rapture-mc/nixos-module"
       },
@@ -436,11 +436,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1736808430,
-        "narHash": "sha256-wlgdf/n7bJMLBheqt1jmPoxJFrUP6FByKQFXuM9YvIk=",
+        "lastModified": 1737107480,
+        "narHash": "sha256-GXUE9+FgxoZU8v0p6ilBJ8NH7k8nKmZjp/7dmMrCv3o=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "553c7cb22fed19fd60eb310423fdc93045c51ba8",
+        "rev": "4c4fb93f18b9072c6fa1986221f9a3d7bf1fe4b6",
         "type": "github"
       },
       "original": {

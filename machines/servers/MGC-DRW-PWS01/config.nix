@@ -19,6 +19,7 @@ nixpkgs.lib.nixosSystem {
           system.hostname = "MGC-DRW-PWS01";
           users.admin-user = "${vars.adminUser}";
           bootloader.efi.enable = true;
+          desktop.enable = true;
 
           networking.static-ip = {
             enable = true;
