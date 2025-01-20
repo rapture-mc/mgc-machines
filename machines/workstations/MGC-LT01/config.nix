@@ -13,7 +13,7 @@ nixpkgs.lib.nixosSystem {
       ];
 
       networking.firewall = {
-        allowedUDPPorts = [ 51820 ]; # Clients and peers can use the same port, see listenport
+        allowedUDPPorts = [ 51820 ];
       };
 
       networking = {
@@ -27,7 +27,7 @@ nixpkgs.lib.nixosSystem {
               peers = [
                 {
                   publicKey = "CthODhxdRHTxTAdqcRlqYAYkRBXMuDFA7AkQfyIrTxY=";
-                  allowedIPs = [ "0.0.0.0/0" ];
+                  allowedIPs = [ "10.100.0.0/24" ];
                   endpoint = "123.243.147.17:51820";
                   persistentKeepalive = 25;
                 }
