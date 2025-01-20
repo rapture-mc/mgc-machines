@@ -2,6 +2,7 @@
   defaultGateway = "192.168.1.99";
   nameServers = ["192.168.1.35"];
   wireguardSubnet = "10.100.0.0/24";
+  wireguardPublicIP = "123.243.147.17";
   internalDomain = "megacorp.industries";
 
   hostsAddr = {
@@ -12,7 +13,11 @@
       };
       wireguard = {
         ipv4 = "10.100.0.1";
-        name = "wg0";
+      };
+    };
+    MGC-LT01 = {
+      wireguard = {
+        ipv4 = "10.100.0.2";
       };
     };
     MGC-DRW-PWS01 = {

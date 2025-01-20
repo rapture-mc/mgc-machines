@@ -8,6 +8,11 @@
   file-browserFQDN = "gitea.megacorp.industries";
   semaphoreFQDN = "semaphore.megacorp.industries";
 
+  wireguardPubKeys = {
+    MGC-DRW-VPN01 = "CthODhxdRHTxTAdqcRlqYAYkRBXMuDFA7AkQfyIrTxY=";
+    MGC-LT01 = "WybmIIlnKoaSpJZVLkw34RwhRhogfTbKXNEchGhrAXE=";
+  };
+
   # The following keys are permitted to connect to remote hosts over SSH to run automated commands
   authorizedDeployPubKeys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBNHs6Q37Kt8G1aA0R610uRBPmhMrD/MwH9DB7aEyQ0E benny@MGC-DRW-CTR01"
