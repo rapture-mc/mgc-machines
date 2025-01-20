@@ -1,11 +1,19 @@
 {
   defaultGateway = "192.168.1.99";
   nameServers = ["192.168.1.35"];
+  wireguardSubnet = "10.100.0.0/24";
   internalDomain = "megacorp.industries";
 
   hostsAddr = {
     MGC-DRW-VPN01 = {
-      ipv4 = "192.168.1.30";
+      eth = {
+        ipv4 = "192.168.1.30";
+        name = "ens3";
+      };
+      wireguard = {
+        ipv4 = "10.100.0.1";
+        name = "wg0";
+      };
     };
     MGC-DRW-PWS01 = {
       ipv4 = "192.168.1.31";
