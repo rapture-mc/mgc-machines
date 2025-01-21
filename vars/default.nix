@@ -5,7 +5,7 @@
 
   guacamoleFQDN = "guacamole.megacorp.industries";
   nextcloudFQDN = "nextcloud.megacorp.industries";
-  file-browserFQDN = "gitea.megacorp.industries";
+  file-browserFQDN = "file-browser.megacorp.industries";
   semaphoreFQDN = "semaphore.megacorp.industries";
 
   wireguardPubKeys = {
