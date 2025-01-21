@@ -35,6 +35,7 @@ nixpkgs.lib.nixosSystem {
           wireguard-client = {
             enable = true;
             private-key-file = "/home/benny/wireguard-keys/private";
+            allowed-ips = ["192.168.1.0/24"];
             server = {
               ipv4 = "${vars.networking.wireguardPublicIP}";
               public-key = "${vars.wireguardPubKeys.MGC-DRW-VPN01}";
