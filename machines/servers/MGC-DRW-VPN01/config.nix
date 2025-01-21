@@ -42,6 +42,7 @@ nixpkgs.lib.nixosSystem {
 
           wireguard-server = {
             enable = true;
+            logo = true;
             private-key-file = "/home/benny/wireguard-keys/private";
             peers = [
               {
