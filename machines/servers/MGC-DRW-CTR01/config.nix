@@ -36,6 +36,16 @@ nixpkgs.lib.nixosSystem {
             logo = true;
           };
 
+          wireguard-server = {
+            enable = true;
+            peers = [
+              {
+                publicKey = "${vars.wireguardPubKeys.MGC-LT01}";
+                allowedIPs = ["${vars.networking.hostsAddr.MGC-LT01.wireguard.ipv4}/32"];
+              }
+            ];
+          };
+
           prometheus = {
             enable = true;
             node-exporter.enable = true;
