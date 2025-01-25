@@ -30,7 +30,10 @@ nixpkgs.lib.nixosSystem {
         };
 
         services = {
-          rebuild-machine.enable = true;
+          controller = {
+            agent.enable = true;
+            server.public-key = vars.authorizedDeployPubKeys;
+          };
 
           wireguard-client = {
             enable = true;
