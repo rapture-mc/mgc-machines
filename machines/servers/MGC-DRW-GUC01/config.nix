@@ -38,6 +38,7 @@ nixpkgs.lib.nixosSystem {
           guacamole = {
             enable = true;
             logo = true;
+            mfa = true;
             reverse-proxied = true;
           };
 
