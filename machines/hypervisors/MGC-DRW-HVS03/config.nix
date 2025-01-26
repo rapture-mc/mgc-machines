@@ -12,8 +12,6 @@ nixpkgs.lib.nixosSystem {
         ./hardware-config.nix
       ];
 
-      services.earlyoom.enable = true;
-
       megacorp = {
         config = {
           system.hostname = "MGC-DRW-HVS03";
