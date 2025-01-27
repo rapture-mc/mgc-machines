@@ -32,7 +32,7 @@ nixpkgs.lib.nixosSystem {
         services = {
           controller = {
             agent.enable = true;
-            server.public-key = vars.authorizedDeployPubKeys;
+            server.public-key = vars.keys.authorizedDeployPubKeys;
           };
 
           prometheus = {

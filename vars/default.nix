@@ -1,18 +1,14 @@
 {
   networking = import ./networking.nix;
 
+  keys = import ./keys.nix;
+
   adminUser = "benny";
 
   guacamoleFQDN = "guacamole.megacorp.industries";
   nextcloudFQDN = "nextcloud.megacorp.industries";
   file-browserFQDN = "file-browser.megacorp.industries";
   semaphoreFQDN = "semaphore.megacorp.industries";
-
-  wireguardPubKeys = {
-    MGC-DRW-VPN01 = "CthODhxdRHTxTAdqcRlqYAYkRBXMuDFA7AkQfyIrTxY=";
-    MGC-DRW-CTR01 = "Sgq3D3Kn8LDEB+d4/BqTetGZr07JwygYRELiuUNpVDI=";
-    MGC-LT01 = "WybmIIlnKoaSpJZVLkw34RwhRhogfTbKXNEchGhrAXE=";
-  };
 
   # The following keys are permitted to connect to remote hosts over SSH to run automated commands
   authorizedDeployPubKeys = [
