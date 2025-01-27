@@ -17,28 +17,29 @@ nixpkgs.lib.nixosSystem {
 
         config = {
           system.hostname = "MGC-DRW-FBR01";
-          users.admin-user = "${vars.adminUser}";
+          users.admin-user = vars.adminUser;
           bootloader.efi.enable = true;
 
           networking.static-ip = {
             enable = true;
-            ipv4 = "${vars.networking.hostsAddr.MGC-DRW-FBR01.ipv4}";
-            gateway = "${vars.networking.defaultGateway}";
+            ipv4 = vars.networking.hostsAddr.MGC-DRW-FBR01.eth.ipv4;
+            interface = vars.networking.hostsAddr.MGC-DRW-FBR01.eth.name;
+            gateway = vars.networking.defaultGateway;
             nameservers = vars.networking.nameServers;
-            lan-domain = "${vars.networking.internalDomain}";
+            lan-domain = vars.networking.internalDomain;
           };
         };
 
         services = {
           controller = {
             agent.enable = true;
-            server.public-key = vars.authorizedDeployPubKeys;
+            server.public-key = vars.keys.deployPubKeys;
           };
 
           file-browser = {
             enable = true;
             reverse-proxied = true;
-            fqdn = "${vars.file-browserFQDN}";
+            fqdn = vars.file-browserFQDN;
           };
 
           prometheus = {

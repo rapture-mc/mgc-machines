@@ -14,11 +14,8 @@ nixpkgs.lib.nixosSystem {
       megacorp = {
         config = {
           system.hostname = "MGC-LT02";
-
           bootloader.efi.enable = true;
-
           users.regular-user.enable = true;
-
           desktop.enable = true;
         };
 

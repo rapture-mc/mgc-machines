@@ -21,27 +21,24 @@ nixpkgs.lib.nixosSystem {
       megacorp = {
         config = {
           system.hostname = "MGC-LT01";
-
-          users.admin-user = "${vars.adminUser}";
-
+          users.admin-user = vars.adminUser;
           bootloader.efi.enable = true;
-
           desktop.enable = true;
         };
 
         services = {
           controller = {
             agent.enable = true;
-            server.public-key = vars.authorizedDeployPubKeys;
+            server.public-key = vars.keys.deployPubKeys;
           };
 
           wireguard-client = {
             enable = true;
-            private-key-file = "/home/benny/wireguard-keys/private";
-            allowed-ips = ["192.168.1.0/24"];
+            ipv4 = vars.networking.hostsAddr.MGC-LT01.wireguard.ipv4;
+            allowed-ips = ["${vars.networking.privateLANSubnet}"];
             server = {
-              ipv4 = "${vars.networking.wireguardPublicIP}";
-              public-key = "${vars.keys.wireguardPubKeys.MGC-DRW-CTR01}";
+              ipv4 = vars.networking.wireguardPublicIP;
+              public-key = vars.keys.wireguardPubKeys.MGC-DRW-CTR01;
             };
           };
         };

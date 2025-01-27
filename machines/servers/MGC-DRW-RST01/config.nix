@@ -17,22 +17,23 @@ nixpkgs.lib.nixosSystem {
 
         config = {
           system.hostname = "MGC-DRW-RST01";
-          users.admin-user = "${vars.adminUser}";
+          users.admin-user = vars.adminUser;
           bootloader.efi.enable = true;
 
           networking.static-ip = {
             enable = true;
-            ipv4 = "${vars.networking.hostsAddr.MGC-DRW-RST01.ipv4}";
-            gateway = "${vars.networking.defaultGateway}";
+            ipv4 = vars.networking.hostsAddr.MGC-DRW-RST01.eth.ipv4;
+            interface = vars.networking.hostsAddr.MGC-DRW-RST01.eth.name;
+            gateway = vars.networking.defaultGateway;
             nameservers = vars.networking.nameServers;
-            lan-domain = "${vars.networking.internalDomain}";
+            lan-domain = vars.networking.internalDomain;
           };
         };
 
         services = {
           controller = {
             agent.enable = true;
-            server.public-key = vars.keys.authorizedDeployPubKeys;
+            server.public-key = vars.keys.deployPubKeys;
           };
 
           prometheus = {
@@ -43,7 +44,7 @@ nixpkgs.lib.nixosSystem {
           restic.sftp-server = {
             enable = true;
             logo = true;
-            authorized-keys = vars.authorizedResticPubKeys;
+            authorized-keys = vars.keys.resticPubKeys;
           };
         };
       };

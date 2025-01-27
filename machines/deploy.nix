@@ -7,7 +7,6 @@
   MGC-DRW-RST01 = importMachineConfig "servers" "MGC-DRW-RST01" "deploy";
   MGC-DRW-RVP01 = importMachineConfig "servers" "MGC-DRW-RVP01" "deploy";
   MGC-DRW-SEM01 = importMachineConfig "servers" "MGC-DRW-SEM01" "deploy";
-  MGC-DRW-VPN01 = importMachineConfig "servers" "MGC-DRW-VPN01" "deploy";
 
   # Hypervisors
   MGC-DRW-HVS01 = importMachineConfig "hypervisors" "MGC-DRW-HVS01" "deploy";

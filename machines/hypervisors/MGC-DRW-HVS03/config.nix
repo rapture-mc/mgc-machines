@@ -15,17 +15,17 @@ nixpkgs.lib.nixosSystem {
       megacorp = {
         config = {
           system.hostname = "MGC-DRW-HVS03";
-          users.admin-user = "${vars.adminUser}";
+          users.admin-user = vars.adminUser;
           bootloader.efi.enable = true;
 
           networking = {
             static-ip = {
               enable = true;
-              interface = "${vars.networking.hostsAddr.MGC-DRW-HVS03.int}";
-              ipv4 = "${vars.networking.hostsAddr.MGC-DRW-HVS03.ipv4}";
-              gateway = "${vars.networking.defaultGateway}";
+              ipv4 = vars.networking.hostsAddr.MGC-DRW-HVS03.eth.ipv4;
+              interface = vars.networking.hostsAddr.MGC-DRW-HVS03.eth.name;
+              gateway = vars.networking.defaultGateway;
               nameservers = vars.networking.nameServers;
-              lan-domain = "${vars.networking.internalDomain}";
+              lan-domain = vars.networking.internalDomain;
             };
           };
 
@@ -38,7 +38,7 @@ nixpkgs.lib.nixosSystem {
         services = {
           controller = {
             agent.enable = true;
-            server.public-key = vars.authorizedDeployPubKeys;
+            server.public-key = vars.keys.deployPubKeys;
           };
 
           prometheus = {

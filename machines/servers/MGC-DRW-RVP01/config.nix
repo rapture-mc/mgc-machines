@@ -17,21 +17,22 @@ nixpkgs.lib.nixosSystem {
 
         config = {
           system.hostname = "MGC-DRW-RVP01";
-          users.admin-user = "${vars.adminUser}";
+          users.admin-user = vars.adminUser;
           bootloader.efi.enable = true;
           networking.static-ip = {
             enable = true;
-            ipv4 = "${vars.networking.hostsAddr.MGC-DRW-RVP01.ipv4}";
-            gateway = "${vars.networking.defaultGateway}";
+            ipv4 = vars.networking.hostsAddr.MGC-DRW-RVP01.eth.ipv4;
+            interface = vars.networking.hostsAddr.MGC-DRW-RVP01.eth.name;
+            gateway = vars.networking.defaultGateway;
             nameservers = vars.networking.nameServers;
-            lan-domain = "${vars.networking.internalDomain}";
+            lan-domain = vars.networking.internalDomain;
           };
         };
 
         services = {
           controller = {
             agent.enable = true;
-            server.public-key = vars.authorizedDeployPubKeys;
+            server.public-key = vars.keys.deployPubKeys;
           };
 
           prometheus = {
@@ -44,26 +45,20 @@ nixpkgs.lib.nixosSystem {
             logo = true;
             guacamole = {
               enable = true;
-              ipv4 = "${vars.networking.hostsAddr.MGC-DRW-GUC01.ipv4}";
-              fqdn = "${vars.guacamoleFQDN}";
-            };
-
-            nextcloud = {
-              enable = true;
-              ipv4 = "${vars.networking.hostsAddr.MGC-DRW-NXC01.ipv4}";
-              fqdn = "${vars.nextcloudFQDN}";
+              ipv4 = vars.networking.hostsAddr.MGC-DRW-GUC01.eth.ipv4;
+              fqdn = vars.guacamoleFQDN;
             };
 
             file-browser = {
               enable = true;
-              ipv4 = "${vars.networking.hostsAddr.MGC-DRW-FBR01.ipv4}";
-              fqdn = "${vars.file-browserFQDN}";
+              ipv4 = vars.networking.hostsAddr.MGC-DRW-FBR01.eth.ipv4;
+              fqdn = vars.file-browserFQDN;
             };
 
             semaphore = {
               enable = true;
-              ipv4 = "${vars.networking.hostsAddr.MGC-DRW-SEM01.ipv4}";
-              fqdn = "${vars.semaphoreFQDN}";
+              ipv4 = vars.networking.hostsAddr.MGC-DRW-SEM01.eth.ipv4;
+              fqdn = vars.semaphoreFQDN;
             };
           };
         };

@@ -4,7 +4,7 @@
   vars,
   ...
 }: {
-  hostname = "${vars.networking.hostsAddr.MGC-DRW-HVS03.ipv4}";
+  hostname = vars.networking.hostsAddr.MGC-DRW-HVS03.eth.ipv4;
   profiles.system = {
     sshUser = "controller";
     user = "root";

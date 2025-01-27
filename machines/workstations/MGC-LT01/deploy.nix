@@ -4,7 +4,7 @@
   vars,
   ...
 }: {
-  hostname = "${vars.networking.hostsAddr.MGC-LT01.wireguard.ipv4}";
+  hostname = vars.networking.hostsAddr.MGC-LT01.wireguard.ipv4;
   profiles.system = {
     sshUser = "controller";
     user = "root";

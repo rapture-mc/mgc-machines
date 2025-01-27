@@ -15,16 +15,17 @@ nixpkgs.lib.nixosSystem {
       megacorp = {
         config = {
           system.hostname = "MGC-DRW-CTR01";
-          users.admin-user = "${vars.adminUser}";
+          users.admin-user = vars.adminUser;
           bootloader.efi.enable = true;
           ssh.accept-host-key = true;
 
           networking.static-ip = {
             enable = true;
-            ipv4 = "${vars.networking.hostsAddr.MGC-DRW-CTR01.ipv4}";
-            gateway = "${vars.networking.defaultGateway}";
+            ipv4 = vars.networking.hostsAddr.MGC-DRW-CTR01.eth.ipv4;
+            interface = vars.networking.hostsAddr.MGC-DRW-CTR01.eth.name;
+            gateway = vars.networking.defaultGateway;
             nameservers = vars.networking.nameServers;
-            lan-domain = "${vars.networking.internalDomain}";
+            lan-domain = vars.networking.internalDomain;
           };
         };
 
@@ -40,7 +41,7 @@ nixpkgs.lib.nixosSystem {
             enable = true;
             peers = [
               {
-                publicKey = "${vars.keys.wireguardPubKeys.MGC-LT01}";
+                publicKey = vars.keys.wireguardPubKeys.MGC-LT01;
                 allowedIPs = ["${vars.networking.hostsAddr.MGC-LT01.wireguard.ipv4}/32"];
               }
             ];

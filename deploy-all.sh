@@ -7,4 +7,3 @@ deploy .#MGC-DRW-GUC01 -s
 deploy .#MGC-DRW-PWS01 -s
 deploy .#MGC-DRW-RST01 -s
 deploy .#MGC-DRW-RVP01 -s
-deploy .#MGC-DRW-VPN01 -s

@@ -14,37 +14,39 @@ nixpkgs.lib.nixosSystem {
       ];
 
       networking.hosts = {
-        "${vars.networking.hostsAddr.MGC-DRW-CTR01.ipv4}" = ["MGC-DRW-CTR01"];
-        "${vars.networking.hostsAddr.MGC-DRW-GUC01.ipv4}" = ["MGC-DRW-GUC01"];
-        "${vars.networking.hostsAddr.MGC-DRW-VPN01.eth.ipv4}" = ["MGC-DRW-VPN01"];
-        "${vars.networking.hostsAddr.MGC-DRW-PWS01.ipv4}" = ["MGC-DRW-PWS01"];
-        "${vars.networking.hostsAddr.MGC-DRW-RST01.ipv4}" = ["MGC-DRW-RST01"];
-        "${vars.networking.hostsAddr.MGC-DRW-RVP01.ipv4}" = ["MGC-DRW-RVP01"];
-        "${vars.networking.hostsAddr.MGC-DRW-HVS01.ipv4}" = ["MGC-DRW-HVS01"];
-        "${vars.networking.hostsAddr.MGC-DRW-HVS02.ipv4}" = ["MGC-DRW-HVS02"];
-        "${vars.networking.hostsAddr.MGC-DRW-HVS03.ipv4}" = ["MGC-DRW-HVS03"];
+        "${vars.networking.hostsAddr.MGC-DRW-CTR01.eth.ipv4}" = ["MGC-DRW-CTR01"];
+        "${vars.networking.hostsAddr.MGC-DRW-GUC01.eth.ipv4}" = ["MGC-DRW-GUC01"];
+        "${vars.networking.hostsAddr.MGC-DRW-PWS01.eth.ipv4}" = ["MGC-DRW-PWS01"];
+        "${vars.networking.hostsAddr.MGC-DRW-RST01.eth.ipv4}" = ["MGC-DRW-RST01"];
+        "${vars.networking.hostsAddr.MGC-DRW-FBR01.eth.ipv4}" = ["MGC-DRW-FBR01"];
+        "${vars.networking.hostsAddr.MGC-DRW-RVP01.eth.ipv4}" = ["MGC-DRW-RVP01"];
+        "${vars.networking.hostsAddr.MGC-DRW-SEM01.eth.ipv4}" = ["MGC-DRW-SEM01"];
+        "${vars.networking.hostsAddr.MGC-DRW-HVS01.eth.ipv4}" = ["MGC-DRW-HVS01"];
+        "${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4}" = ["MGC-DRW-HVS02"];
+        "${vars.networking.hostsAddr.MGC-DRW-HVS03.eth.ipv4}" = ["MGC-DRW-HVS03"];
         "192.168.1.99" = ["MGC-DRW-FRW01"];
       };
 
       megacorp = {
         config = {
           system.hostname = "MGC-DRW-BST01";
-          users.admin-user = "${vars.adminUser}";
+          users.admin-user = vars.adminUser;
           bootloader.efi.enable = true;
 
           networking.static-ip = {
             enable = true;
-            ipv4 = "${vars.networking.hostsAddr.MGC-DRW-BST01.ipv4}";
-            gateway = "${vars.networking.defaultGateway}";
+            ipv4 = vars.networking.hostsAddr.MGC-DRW-BST01.eth.ipv4;
+            interface = vars.networking.hostsAddr.MGC-DRW-BST01.eth.name;
+            gateway = vars.networking.defaultGateway;
             nameservers = ["127.0.0.1" "::1"];
-            lan-domain = "${vars.networking.internalDomain}";
+            lan-domain = vars.networking.internalDomain;
           };
         };
 
         services = {
           controller = {
             agent.enable = true;
-            server.public-key = vars.authorizedDeployPubKeys;
+            server.public-key = vars.keys.deployPubKeys;
           };
 
           dnsmasq.enable = true;
@@ -55,9 +57,7 @@ nixpkgs.lib.nixosSystem {
               logo = true;
             };
 
-            authorized-ssh-keys = [
-              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKhKBbO3gu8cbKQYOopVAA9gkSHHChkjMYPgfW2NIBrN MGC-LT01"
-            ];
+            authorized-ssh-keys = vars.keys.bastionPubKeys;
           };
 
           prometheus = {
