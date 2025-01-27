@@ -20,7 +20,7 @@
 
   ];
 
-  # Hosts whose public ssh key should be known always and trusted when connecting over SSH
+  # Hosts whose public SSH key should be trusted when client receives incoming SSH connections
   knownHosts = {
     MGC-RST-01.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMTd28ULgwqVMQZD44EUFzneJr1GDwzzsi0NF2qgLNAH";
   };
