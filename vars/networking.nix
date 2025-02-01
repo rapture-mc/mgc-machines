@@ -6,6 +6,33 @@
   wireguardPublicIP = "123.243.147.17";
 
   hostsAddr = {
+    MGC-DRW-DMC01 = {
+      eth = {
+        ipv4 = "192.168.1.5";
+      };
+    };
+    
+    MGC-DRW-HVS01 = {
+      eth = {
+        name = "eno1";
+        ipv4 = "192.168.1.17";
+      };
+    };
+
+    MGC-DRW-HVS02 = {
+      eth = {
+        name = "eno1";
+        ipv4 = "192.168.1.16";
+      };
+    };
+
+    MGC-DRW-HVS03 = {
+      eth = {
+        name = "enp6s0";
+        ipv4 = "192.168.1.15";
+      };
+    };
+
     MGC-DRW-PWS01 = {
       eth = {
         name = "ens3";
@@ -63,27 +90,6 @@
       eth = {
         name = "ens3";
         ipv4 = "192.168.1.39";
-      };
-    };
-    
-    MGC-DRW-HVS01 = {
-      eth = {
-        name = "eno1";
-        ipv4 = "192.168.1.17";
-      };
-    };
-
-    MGC-DRW-HVS02 = {
-      eth = {
-        name = "eno1";
-        ipv4 = "192.168.1.16";
-      };
-    };
-
-    MGC-DRW-HVS03 = {
-      eth = {
-        name = "enp6s0";
-        ipv4 = "192.168.1.15";
       };
     };
 
