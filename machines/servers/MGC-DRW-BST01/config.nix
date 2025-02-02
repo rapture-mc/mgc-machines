@@ -52,7 +52,10 @@ nixpkgs.lib.nixosSystem {
             server.public-key = vars.keys.deployPubKeys;
           };
 
-          dnsmasq.enable = true;
+          dnsmasq = {
+            enable = true;
+            domain = vars.networking.internalDomain;
+          };
 
           sshd = {
             bastion = {
