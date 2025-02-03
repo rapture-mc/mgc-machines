@@ -93,6 +93,13 @@
       };
     };
 
+    MGC-DRW-GRF01 = {
+      eth = {
+        name = "ens3";
+        ipv4 = "192.168.1.40";
+      };
+    };
+
     MGC-LT01 = {
       wireguard = {
         ipv4 = "10.100.0.2";

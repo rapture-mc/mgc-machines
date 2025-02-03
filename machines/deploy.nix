@@ -2,6 +2,7 @@
   # Servers
   MGC-DRW-BST01 = importMachineConfig "servers" "MGC-DRW-BST01" "deploy";
   MGC-DRW-GUC01 = importMachineConfig "servers" "MGC-DRW-GUC01" "deploy";
+  MGC-DRW-GRF01 = importMachineConfig "servers" "MGC-DRW-GRF01" "deploy";
   MGC-DRW-FBR01 = importMachineConfig "servers" "MGC-DRW-FBR01" "deploy";
   MGC-DRW-PWS01 = importMachineConfig "servers" "MGC-DRW-PWS01" "deploy";
   MGC-DRW-RST01 = importMachineConfig "servers" "MGC-DRW-RST01" "deploy";

@@ -2,7 +2,6 @@
   nixpkgs,
   megacorp,
   vars,
-  inputs,
   ...
 }:
 nixpkgs.lib.nixosSystem {
@@ -11,21 +10,20 @@ nixpkgs.lib.nixosSystem {
     {
       imports = [
         ./hardware-config.nix
-        (import ./secrets.nix {inherit inputs;})
       ];
 
       megacorp = {
         virtualisation.guest.qemuConsole.enable = true;
 
         config = {
-          system.hostname = "MGC-DRW-SEM01";
+          system.hostname = "MGC-DRW-GRF01";
           users.admin-user = vars.adminUser;
           bootloader.efi.enable = true;
 
           networking.static-ip = {
             enable = true;
-            ipv4 = vars.networking.hostsAddr.MGC-DRW-SEM01.eth.ipv4;
-            interface = vars.networking.hostsAddr.MGC-DRW-SEM01.eth.name;
+            ipv4 = vars.networking.hostsAddr.MGC-DRW-GRF01.eth.ipv4;
+            interface = vars.networking.hostsAddr.MGC-DRW-GRF01.eth.name;
             gateway = vars.networking.defaultGateway;
             nameservers = vars.networking.nameServers;
             lan-domain = vars.networking.internalDomain;
@@ -38,20 +36,15 @@ nixpkgs.lib.nixosSystem {
             server.public-key = vars.keys.deployPubKeys;
           };
 
+          grafana = {
+            enable = true;
+            logo = true;
+            reverse-proxied = true;
+          };
+
           prometheus = {
             enable = true;
             node-exporter.enable = true;
-          };
-
-          semaphore = {
-            enable = true;
-            reverse-proxied = true;
-            fqdn = vars.semaphoreFQDN;
-            kerberos = {
-              enable = true;
-              kdc = "mgc-drw-dmc01";
-              domain = "megacorp.industries";
-            };
           };
         };
       };
