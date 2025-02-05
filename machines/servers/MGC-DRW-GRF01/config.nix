@@ -45,6 +45,16 @@ nixpkgs.lib.nixosSystem {
           prometheus = {
             enable = true;
             node-exporter.enable = true;
+            scraper = {
+              enable = true;
+              targets = [
+                "${vars.networking.hostsAddr.MGC-DRW-BST01.eth.ipv4}:9002"
+                "MGC-DRW-HVS01:9002"
+                "MGC-DRW-HVS02:9002"
+                "MGC-DRW-HVS03:9002"
+                "MGC-DRW-DMC01:9182"
+              ];
+            };
           };
         };
       };

@@ -60,6 +60,12 @@ nixpkgs.lib.nixosSystem {
               ipv4 = vars.networking.hostsAddr.MGC-DRW-SEM01.eth.ipv4;
               fqdn = vars.semaphoreFQDN;
             };
+
+            grafana = {
+              enable = true;
+              ipv4 = vars.networking.hostsAddr.MGC-DRW-GRF01.eth.ipv4;
+              fqdn = vars.grafanaFQDN;
+            };
           };
         };
       };
