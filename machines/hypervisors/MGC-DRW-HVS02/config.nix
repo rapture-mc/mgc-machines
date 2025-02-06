@@ -46,6 +46,10 @@ nixpkgs.lib.nixosSystem {
             enable = true;
             node-exporter.enable = true;
           };
+
+          syncthing = {
+            enable = true;
+          };
         };
 
         virtualisation.hypervisor = {
