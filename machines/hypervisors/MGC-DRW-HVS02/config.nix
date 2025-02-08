@@ -49,6 +49,20 @@ nixpkgs.lib.nixosSystem {
 
           syncthing = {
             enable = true;
+            devices = {
+              MGC-DRW-CTR01 = {
+                id = vars.keys.syncthingIDs.MGC-DRW-CTR01;
+                autoAcceptFolders = true;
+              };
+            };
+            folders = {
+              "Sync" = {
+                path = "/home/${vars.adminUser}/Sync";
+                devices = [
+                  "MGC-DRW-CTR01"
+                ];
+              };
+            };
           };
         };
 

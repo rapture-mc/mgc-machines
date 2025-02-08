@@ -5,6 +5,11 @@
     MGC-LT01 = "WybmIIlnKoaSpJZVLkw34RwhRhogfTbKXNEchGhrAXE=";
   };
 
+  syncthingIDs = {
+    MGC-DRW-CTR01 = "LHBQWNB-OP6DESP-AYQ3MN7-J2UPXDN-UKXWBFT-PQTZKIM-IA3MY3A-M4WL5Q7";
+    MGC-DRW-HVS02 = "VGZKTPR-QCDTIDB-2AOG3Q3-XMOEYWT-XOP2GBO-NEMAUKK-ILCDONT-R2USHQJ";
+  };
+
   # The following keys are permitted to connect to the bastion server over SSH
   bastionPubKeys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKhKBbO3gu8cbKQYOopVAA9gkSHHChkjMYPgfW2NIBrN benny@MGC-LT01"

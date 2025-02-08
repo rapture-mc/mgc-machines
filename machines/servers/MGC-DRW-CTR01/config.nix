@@ -51,6 +51,24 @@ nixpkgs.lib.nixosSystem {
             enable = true;
             node-exporter.enable = true;
           };
+
+          syncthing = {
+            enable = true;
+            devices = {
+              MGC-DRW-HVS02 = {
+                id = vars.keys.syncthingIDs.MGC-DRW-HVS02;
+                autoAcceptFolders = true;
+              };
+            };
+            folders = {
+              "Sync" = {
+                path = "/home/${vars.adminUser}/Sync";
+                devices = [
+                  "MGC-DRW-HVS02"
+                ];
+              };
+            };
+          };
         };
       };
     }
