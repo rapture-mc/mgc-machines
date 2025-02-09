@@ -38,7 +38,7 @@ nixpkgs.lib.nixosSystem {
 
           comin = {
             enable = true;
-            repo = "https://github.com/rapture-mc/mgc-machines.git";
+            repo = "https://github.com/rapture-mc/mgc-machines";
           };
         };
 

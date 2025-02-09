@@ -50,6 +50,11 @@ nixpkgs.lib.nixosSystem {
             node-exporter.enable = true;
           };
 
+          comin = {
+            enable = true;
+            repo = "https://github.com/rapture-mc/mgc-machines";
+          };
+
           syncthing = {
             enable = true;
             devices = {
