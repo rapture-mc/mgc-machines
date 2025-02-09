@@ -30,8 +30,6 @@ nixpkgs.lib.nixosSystem {
         };
 
         services = {
-          rebuild-machine.enable = true;
-
           controller.server = {
             enable = true;
             logo = true;

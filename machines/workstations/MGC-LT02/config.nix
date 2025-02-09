@@ -19,8 +19,6 @@ nixpkgs.lib.nixosSystem {
           desktop.enable = true;
         };
 
-        services.rebuild-machine.enable = true;
-
         virtualisation.whonix.enable = true;
       };
     }
