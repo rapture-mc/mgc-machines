@@ -12,6 +12,8 @@ nixpkgs.lib.nixosSystem {
         ./hardware-config.nix
       ];
 
+      virtualisation.docker.enable = true;
+
       megacorp = {
         config = {
           system.hostname = "MGC-LT01";
