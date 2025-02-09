@@ -12,15 +12,6 @@ nixpkgs.lib.nixosSystem {
         ./hardware-config.nix
       ];
 
-      virtualisation.waydroid.enable = true;
-
-      environment.systemPackages = with nixpkgs.legacyPackages.x86_64-linux; [
-        go
-        gnucash
-        pass
-        cage
-      ];
-
       megacorp = {
         config = {
           system.hostname = "MGC-LT01";
