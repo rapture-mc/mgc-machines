@@ -12,10 +12,13 @@ nixpkgs.lib.nixosSystem {
         ./hardware-config.nix
       ];
 
+      virtualisation.waydroid.enable = true;
+
       environment.systemPackages = with nixpkgs.legacyPackages.x86_64-linux; [
         go
         gnucash
         pass
+        cage
       ];
 
       megacorp = {
@@ -40,6 +43,11 @@ nixpkgs.lib.nixosSystem {
               ipv4 = vars.networking.wireguardPublicIP;
               public-key = vars.keys.wireguardPubKeys.MGC-DRW-CTR01;
             };
+          };
+
+          comin = {
+            enable = true;
+            repo = "https://github.com/rapture-mc/mgc-machines.git";
           };
         };
 

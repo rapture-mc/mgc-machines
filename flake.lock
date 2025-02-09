@@ -23,6 +23,27 @@
         "type": "github"
       }
     },
+    "comin": {
+      "inputs": {
+        "nixpkgs": [
+          "megacorp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1738872933,
+        "narHash": "sha256-6JXcU1YPKqDu9SzRTRU1qym+xZuZr6zqDq97YwZX7tg=",
+        "owner": "nlewo",
+        "repo": "comin",
+        "rev": "fc4a395f2181b8f271087ff0e3938d99973d1122",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nlewo",
+        "repo": "comin",
+        "type": "github"
+      }
+    },
     "deploy-rs": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -305,16 +326,17 @@
     "megacorp": {
       "inputs": {
         "arion": "arion",
+        "comin": "comin",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1738982399,
-        "narHash": "sha256-g8tYvr7BQpzWX9G+g4rM3W4Vu+z7e/F+rEEwjKqtiCc=",
+        "lastModified": 1739083075,
+        "narHash": "sha256-hvcGuvZTIhJLen1T+SDE8z/IN+ERDbU9XR5BDQIqrq8=",
         "owner": "rapture-mc",
         "repo": "nixos-module",
-        "rev": "2bcf7dd484ef2a826d7d47a37831383e470d0980",
+        "rev": "6f53a0ee237a3b92758a6639b9af86ddcafe3a97",
         "type": "github"
       },
       "original": {

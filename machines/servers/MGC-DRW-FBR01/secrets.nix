@@ -6,5 +6,6 @@
     defaultSopsFormat = "yaml";
     sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
     secrets.restic-repo-password = {};
+    secrets.grub-admin-password = {};
   };
 }

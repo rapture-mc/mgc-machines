@@ -12,6 +12,8 @@ nixpkgs.lib.nixosSystem {
         ./hardware-config.nix
       ];
 
+      virtualisation.waydroid.enable = true;
+
       megacorp = {
         config = {
           system.hostname = "MGC-DRW-HVS02";
