@@ -34,8 +34,12 @@ nixpkgs.lib.nixosSystem {
             server.public-key = vars.keys.deployPubKeys;
           };
 
-          zabbix.server = {
-            enable = true;
+          zabbix = {
+            agent.enable = true;
+
+            server = {
+              enable = true;
+            };
           };
 
           prometheus = {
