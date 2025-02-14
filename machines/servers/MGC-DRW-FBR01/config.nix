@@ -10,28 +10,16 @@ nixpkgs.lib.nixosSystem {
     megacorp.nixosModules.default
     {
       imports = [
-        ./hardware-config.nix
+        (import ../../base-config.nix {inherit vars;})
         (import ./backup.nix {inherit vars;})
         (import ./secrets.nix {inherit inputs;})
+        ./hardware-config.nix
       ];
+
+      networking.hostName = "MGC-DRW-FBR01";
 
       megacorp = {
         config = {
-          system = {
-            enable = true;
-            hostname = "MGC-DRW-FBR01";
-          };
-
-          bootloader = {
-            enable = true;
-            efi.enable = true;
-          };
-
-          users = {
-            enable = true;
-            admin-user = vars.adminUser;
-          };
-
           openssh = {
             enable = true;
             authorized-ssh-keys = vars.keys.bastionPubKey;
@@ -57,11 +45,6 @@ nixpkgs.lib.nixosSystem {
             enable = true;
             reverse-proxied = true;
             fqdn = vars.file-browserFQDN;
-          };
-
-          prometheus = {
-            enable = true;
-            node-exporter.enable = true;
           };
         };
       };

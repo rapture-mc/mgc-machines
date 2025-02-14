@@ -9,25 +9,18 @@ nixpkgs.lib.nixosSystem {
     megacorp.nixosModules.default
     {
       imports = [
+        (import ../../base-config.nix {inherit vars;})
         ./hardware-config.nix
       ];
 
+      networking.hostName = "MGC-DRW-CTR01";
+
       megacorp = {
         config = {
-          system = {
-            enable = true;
-            hostname = "MGC-DRW-CTR01";
-          };
-
           openssh = {
             enable = true;
             auto-accept-server-keys = true;
             authorized-ssh-keys = vars.keys.bastionPubKey;
-          };
-
-          users = {
-            enable = true;
-            admin-user = vars.adminUser;
           };
 
           networking.static-ip = {
@@ -38,14 +31,6 @@ nixpkgs.lib.nixosSystem {
             nameservers = vars.networking.nameServers;
             lan-domain = vars.networking.internalDomain;
           };
-
-          bootloader = {
-            enable = true;
-            efi.enable = true;
-          };
-
-          packages.enable = true;
-          nixvim.enable = true;
         };
 
         services = {
@@ -64,11 +49,6 @@ nixpkgs.lib.nixosSystem {
             ];
           };
 
-          prometheus = {
-            enable = true;
-            node-exporter.enable = true;
-          };
-
           comin = {
             enable = true;
             repo = "https://github.com/rapture-mc/mgc-machines";
@@ -82,6 +62,7 @@ nixpkgs.lib.nixosSystem {
                 autoAcceptFolders = true;
               };
             };
+
             folders = {
               "Sync" = {
                 path = "/home/${vars.adminUser}/Sync";

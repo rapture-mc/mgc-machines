@@ -10,33 +10,16 @@ nixpkgs.lib.nixosSystem {
     megacorp.nixosModules.default
     {
       imports = [
-        ./hardware-config.nix
+        (import ../../base-config.nix {inherit vars;})
         (import ./backup.nix {inherit vars;})
         (import ./secrets.nix {inherit inputs;})
+        ./hardware-config.nix
       ];
+
+      networking.hostName = "MGC-DRW-HVS01";
 
       megacorp = {
         config = {
-          system = {
-            enable = true;
-            hostname = "MGC-DRW-HVS01";
-          };
-
-          bootloader = {
-            enable = true;
-            efi.enable = true;
-          };
-
-          users = {
-            enable = true;
-            admin-user = vars.adminUser;
-          };
-
-          openssh = {
-            enable = true;
-            authorized-ssh-keys = vars.keys.bastionPubKey;
-          };
-
           networking = {
             static-ip = {
               enable = true;
@@ -49,6 +32,11 @@ nixpkgs.lib.nixosSystem {
             };
           };
 
+          openssh = {
+            enable = true;
+            authorized-ssh-keys = vars.keys.bastionPubKey;
+          };
+
           desktop = {
             enable = true;
             xrdp = true;
@@ -59,11 +47,6 @@ nixpkgs.lib.nixosSystem {
           controller = {
             agent.enable = true;
             server.public-key = vars.keys.deployPubKeys;
-          };
-
-          prometheus = {
-            enable = true;
-            node-exporter.enable = true;
           };
         };
 

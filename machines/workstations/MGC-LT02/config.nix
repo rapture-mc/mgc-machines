@@ -1,6 +1,7 @@
 {
   nixpkgs,
   megacorp,
+  vars,
   ...
 }:
 nixpkgs.lib.nixosSystem {
@@ -8,25 +9,15 @@ nixpkgs.lib.nixosSystem {
     megacorp.nixosModules.default
     {
       imports = [
+        (import ../../base-config.nix {inherit vars;})
         ./hardware-config.nix
       ];
 
+      networking.hostName = "MGC-LT02";
+
       megacorp = {
         config = {
-          system = {
-            enable = true;
-            hostname = "MGC-LT02";
-          };
-
-          bootloader = {
-            enable = true;
-            efi.enable = true;
-          };
-
-          users = {
-            enable = true;
-            regular-user.enable = true;
-          };
+          users.regular-user.enable = true;
 
           desktop.enable = true;
         };

@@ -9,26 +9,14 @@ nixpkgs.lib.nixosSystem {
     megacorp.nixosModules.default
     {
       imports = [
+        (import ../../base-config.nix {inherit vars;})
         ./hardware-config.nix
       ];
 
+      networking.hostName = "MGC-DRW-GRF01";
+
       megacorp = {
         config = {
-          system = {
-            enable = true;
-            hostname = "MGC-DRW-GRF01";
-          };
-
-          bootloader = {
-            enable = true;
-            efi.enable = true;
-          };
-
-          users = {
-            enable = true;
-            admin-user = vars.adminUser;
-          };
-
           openssh = {
             enable = true;
             authorized-ssh-keys = vars.keys.bastionPubKey;
@@ -56,19 +44,15 @@ nixpkgs.lib.nixosSystem {
             reverse-proxied = true;
           };
 
-          prometheus = {
+          prometheus.scraper = {
             enable = true;
-            node-exporter.enable = true;
-            scraper = {
-              enable = true;
-              targets = [
-                "${vars.networking.hostsAddr.MGC-DRW-BST01.eth.ipv4}:9002"
-                "MGC-DRW-HVS01:9002"
-                "MGC-DRW-HVS02:9002"
-                "MGC-DRW-HVS03:9002"
-                "MGC-DRW-DMC01:9182"
-              ];
-            };
+            targets = [
+              "${vars.networking.hostsAddr.MGC-DRW-BST01.eth.ipv4}:9002"
+              "MGC-DRW-HVS01:9002"
+              "MGC-DRW-HVS02:9002"
+              "MGC-DRW-HVS03:9002"
+              "MGC-DRW-DMC01:9182"
+            ];
           };
         };
       };

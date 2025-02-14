@@ -10,40 +10,35 @@ nixpkgs.lib.nixosSystem {
     megacorp.nixosModules.default
     {
       imports = [
-        ./hardware-config.nix
+        (import ../../base-config.nix {inherit vars;})
         (import ./backup.nix {inherit vars;})
         (import ./secrets.nix {inherit inputs;})
+        ./hardware-config.nix
       ];
 
-      networking.hosts = {
-        "${vars.networking.hostsAddr.MGC-DRW-CTR01.eth.ipv4}" = ["MGC-DRW-CTR01"];
-        "${vars.networking.hostsAddr.MGC-DRW-GRF01.eth.ipv4}" = ["MGC-DRW-GRF01"];
-        "${vars.networking.hostsAddr.MGC-DRW-GUC01.eth.ipv4}" = ["MGC-DRW-GUC01"];
-        "${vars.networking.hostsAddr.MGC-DRW-PWS01.eth.ipv4}" = ["MGC-DRW-PWS01"];
-        "${vars.networking.hostsAddr.MGC-DRW-RST01.eth.ipv4}" = ["MGC-DRW-RST01"];
-        "${vars.networking.hostsAddr.MGC-DRW-FBR01.eth.ipv4}" = ["MGC-DRW-FBR01"];
-        "${vars.networking.hostsAddr.MGC-DRW-RVP01.eth.ipv4}" = ["MGC-DRW-RVP01"];
-        "${vars.networking.hostsAddr.MGC-DRW-SEM01.eth.ipv4}" = ["MGC-DRW-SEM01"];
-        "${vars.networking.hostsAddr.MGC-DRW-HVS01.eth.ipv4}" = ["MGC-DRW-HVS01"];
-        "${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4}" = ["MGC-DRW-HVS02"];
-        "${vars.networking.hostsAddr.MGC-DRW-HVS03.eth.ipv4}" = ["MGC-DRW-HVS03"];
-        "${vars.networking.hostsAddr.MGC-DRW-DMC01.eth.ipv4}" = ["MGC-DRW-DMC01"];
-        "${vars.networking.hostsAddr.MGC-DRW-ZBX01.eth.ipv4}" = ["MGC-DRW-ZBX01"];
-        "192.168.1.99" = ["MGC-DRW-FRW01"];
+      networking = {
+        hostName = "MGC-DRW-BST01";
+
+        hosts = {
+          "${vars.networking.hostsAddr.MGC-DRW-CTR01.eth.ipv4}" = ["MGC-DRW-CTR01"];
+          "${vars.networking.hostsAddr.MGC-DRW-GRF01.eth.ipv4}" = ["MGC-DRW-GRF01"];
+          "${vars.networking.hostsAddr.MGC-DRW-GUC01.eth.ipv4}" = ["MGC-DRW-GUC01"];
+          "${vars.networking.hostsAddr.MGC-DRW-PWS01.eth.ipv4}" = ["MGC-DRW-PWS01"];
+          "${vars.networking.hostsAddr.MGC-DRW-RST01.eth.ipv4}" = ["MGC-DRW-RST01"];
+          "${vars.networking.hostsAddr.MGC-DRW-FBR01.eth.ipv4}" = ["MGC-DRW-FBR01"];
+          "${vars.networking.hostsAddr.MGC-DRW-RVP01.eth.ipv4}" = ["MGC-DRW-RVP01"];
+          "${vars.networking.hostsAddr.MGC-DRW-SEM01.eth.ipv4}" = ["MGC-DRW-SEM01"];
+          "${vars.networking.hostsAddr.MGC-DRW-HVS01.eth.ipv4}" = ["MGC-DRW-HVS01"];
+          "${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4}" = ["MGC-DRW-HVS02"];
+          "${vars.networking.hostsAddr.MGC-DRW-HVS03.eth.ipv4}" = ["MGC-DRW-HVS03"];
+          "${vars.networking.hostsAddr.MGC-DRW-DMC01.eth.ipv4}" = ["MGC-DRW-DMC01"];
+          "${vars.networking.hostsAddr.MGC-DRW-ZBX01.eth.ipv4}" = ["MGC-DRW-ZBX01"];
+          "192.168.1.99" = ["MGC-DRW-FRW01"];
+        };
       };
 
       megacorp = {
         config = {
-          system = {
-            enable = true;
-            hostname = "MGC-DRW-BST01";
-          };
-
-          bootloader = {
-            enable = true;
-            efi.enable = true;
-          };
-
           networking.static-ip = {
             enable = true;
             ipv4 = vars.networking.hostsAddr.MGC-DRW-BST01.eth.ipv4;
@@ -61,11 +56,6 @@ nixpkgs.lib.nixosSystem {
               logo = true;
             };
           };
-
-          users = {
-            enable = true;
-            admin-user = vars.adminUser;
-          };
         };
 
         services = {
@@ -77,11 +67,6 @@ nixpkgs.lib.nixosSystem {
           dnsmasq = {
             enable = true;
             domain = vars.networking.internalDomain;
-          };
-
-          prometheus = {
-            enable = true;
-            node-exporter.enable = true;
           };
         };
       };

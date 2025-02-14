@@ -9,28 +9,16 @@ nixpkgs.lib.nixosSystem {
     megacorp.nixosModules.default
     {
       imports = [
+        (import ../../base-config.nix {inherit vars;})
         ./hardware-config.nix
       ];
+
+      networking.hostName = "MGC-LT01";
 
       virtualisation.docker.enable = true;
 
       megacorp = {
         config = {
-          system = {
-            enable = true;
-            hostname = "MGC-LT01";
-          };
-
-          bootloader = {
-            enable = true;
-            efi.enable = true;
-          };
-
-          users = {
-            enable = true;
-            admin-user = vars.adminUser;
-          };
-
           openssh = {
             enable = true;
             authorized-ssh-keys = vars.keys.bastionPubKeys;

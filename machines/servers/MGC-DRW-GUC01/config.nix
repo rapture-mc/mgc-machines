@@ -9,26 +9,14 @@ nixpkgs.lib.nixosSystem {
     megacorp.nixosModules.default
     {
       imports = [
+        (import ../../base-config.nix {inherit vars;})
         ./hardware-config.nix
       ];
 
+      networking.hostName = "MGC-DRW-GUC01";
+
       megacorp = {
         config = {
-          system = {
-            enable = true;
-            hostname = "MGC-DRW-GUC01";
-          };
-
-          bootloader = {
-            enable = true;
-            efi.enable = true;
-          };
-
-          users = {
-            enable = true;
-            admin-user = vars.adminUser;
-          };
-
           openssh = {
             enable = true;
             authorized-ssh-keys = vars.keys.bastionPubKey;
@@ -55,11 +43,6 @@ nixpkgs.lib.nixosSystem {
             logo = true;
             mfa = true;
             reverse-proxied = true;
-          };
-
-          prometheus = {
-            enable = true;
-            node-exporter.enable = true;
           };
         };
       };

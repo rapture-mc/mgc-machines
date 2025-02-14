@@ -9,23 +9,14 @@ nixpkgs.lib.nixosSystem {
     megacorp.nixosModules.default
     {
       imports = [
+        (import ../../base-config.nix {inherit vars;})
         ./hardware-config.nix
       ];
 
-      virtualisation.waydroid.enable = true;
+      networking.hostName = "MGC-DRW-HVS02";
 
       megacorp = {
         config = {
-          system = {
-            enable = true;
-            hostname = "MGC-DRW-HVS02";
-          };
-
-          bootloader = {
-            enable = true;
-            efi.enable = true;
-          };
-
           networking = {
             static-ip = {
               enable = true;
@@ -36,11 +27,6 @@ nixpkgs.lib.nixosSystem {
               lan-domain = vars.networking.internalDomain;
               bridge.enable = true;
             };
-          };
-
-          users = {
-            enable = true;
-            admin-user = vars.adminUser;
           };
 
           openssh = {
@@ -60,11 +46,6 @@ nixpkgs.lib.nixosSystem {
             server.public-key = vars.keys.deployPubKeys;
           };
 
-          prometheus = {
-            enable = true;
-            node-exporter.enable = true;
-          };
-
           syncthing = {
             enable = true;
             devices = {
@@ -73,6 +54,7 @@ nixpkgs.lib.nixosSystem {
                 autoAcceptFolders = true;
               };
             };
+
             folders = {
               "Sync" = {
                 path = "/home/${vars.adminUser}/Sync";
