@@ -11,7 +11,7 @@
         ipv4 = "192.168.1.5";
       };
     };
-    
+
     MGC-DRW-HVS01 = {
       eth = {
         name = "eno1";
