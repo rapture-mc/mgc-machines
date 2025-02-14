@@ -14,10 +14,20 @@ nixpkgs.lib.nixosSystem {
 
       megacorp = {
         config = {
-          system.hostname = "MGC-DRW-CTR01";
-          users.admin-user = vars.adminUser;
-          bootloader.efi.enable = true;
-          ssh.accept-host-key = true;
+          system = {
+            enable = true;
+            hostname = "MGC-DRW-CTR01";
+          };
+
+          openssh = {
+            enable = true;
+            auto-accept-server-keys = true;
+          };
+
+          users = {
+            enable = true;
+            admin-user = vars.adminUser;
+          };
 
           networking.static-ip = {
             enable = true;
@@ -27,6 +37,14 @@ nixpkgs.lib.nixosSystem {
             nameservers = vars.networking.nameServers;
             lan-domain = vars.networking.internalDomain;
           };
+
+          bootloader = {
+            enable = true;
+            efi.enable = true;
+          };
+
+          packages.enable = true;
+          nixvim.enable = true;
         };
 
         services = {

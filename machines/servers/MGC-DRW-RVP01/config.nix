@@ -13,12 +13,31 @@ nixpkgs.lib.nixosSystem {
       ];
 
       megacorp = {
-        virtualisation.guest.qemuConsole.enable = true;
-
         config = {
-          system.hostname = "MGC-DRW-RVP01";
-          users.admin-user = vars.adminUser;
-          bootloader.efi.enable = true;
+          system = {
+            enable = true;
+            hostname = "MGC-DRW-RVP01";
+          };
+
+          bootloader = {
+            enable = true;
+            efi.enable = true;
+          };
+
+          users = {
+            enable = true;
+            admin-user = vars.adminUser;
+          };
+
+          openssh = {
+            enable = true;
+            authorized-ssh-keys = vars.keys.bastionPubKeys;
+            bastion = {
+              enable = true;
+              logo = true;
+            };
+          };
+
           networking.static-ip = {
             enable = true;
             ipv4 = vars.networking.hostsAddr.MGC-DRW-RVP01.eth.ipv4;
@@ -65,6 +84,12 @@ nixpkgs.lib.nixosSystem {
               enable = true;
               ipv4 = vars.networking.hostsAddr.MGC-DRW-GRF01.eth.ipv4;
               fqdn = vars.grafanaFQDN;
+            };
+
+            zabbix = {
+              enable = true;
+              ipv4 = vars.networking.hostsAddr.MGC-DRW-ZBX01.eth.ipv4;
+              fqdn = vars.zabbixFQDN;
             };
           };
         };

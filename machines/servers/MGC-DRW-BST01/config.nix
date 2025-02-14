@@ -28,14 +28,21 @@ nixpkgs.lib.nixosSystem {
         "${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4}" = ["MGC-DRW-HVS02"];
         "${vars.networking.hostsAddr.MGC-DRW-HVS03.eth.ipv4}" = ["MGC-DRW-HVS03"];
         "${vars.networking.hostsAddr.MGC-DRW-DMC01.eth.ipv4}" = ["MGC-DRW-DMC01"];
+        "${vars.networking.hostsAddr.MGC-DRW-ZBX01.eth.ipv4}" = ["MGC-DRW-ZBX01"];
         "192.168.1.99" = ["MGC-DRW-FRW01"];
       };
 
       megacorp = {
         config = {
-          system.hostname = "MGC-DRW-BST01";
-          users.admin-user = vars.adminUser;
-          bootloader.efi.enable = true;
+          system = {
+            enable = true;
+            hostname = "MGC-DRW-BST01";
+          };
+
+          bootloader = {
+            enable = true;
+            efi.enable = true;
+          };
 
           networking.static-ip = {
             enable = true;
@@ -44,6 +51,20 @@ nixpkgs.lib.nixosSystem {
             gateway = vars.networking.defaultGateway;
             nameservers = ["127.0.0.1" "::1"];
             lan-domain = vars.networking.internalDomain;
+          };
+
+          openssh = {
+            enable = true;
+            authorized-ssh-keys = vars.keys.bastionPubKeys;
+            bastion = {
+              enable = true;
+              logo = true;
+            };
+          };
+
+          users = {
+            enable = true;
+            admin-user = vars.adminUser;
           };
         };
 
@@ -56,15 +77,6 @@ nixpkgs.lib.nixosSystem {
           dnsmasq = {
             enable = true;
             domain = vars.networking.internalDomain;
-          };
-
-          sshd = {
-            bastion = {
-              enable = true;
-              logo = true;
-            };
-
-            authorized-ssh-keys = vars.keys.bastionPubKeys;
           };
 
           prometheus = {

@@ -16,9 +16,15 @@ nixpkgs.lib.nixosSystem {
 
       megacorp = {
         config = {
-          system.hostname = "MGC-DRW-HVS02";
-          users.admin-user = vars.adminUser;
-          bootloader.efi.enable = true;
+          system = {
+            enable = true;
+            hostname = "MGC-DRW-HVS02";
+          };
+
+          bootloader = {
+            enable = true;
+            efi.enable = true;
+          };
 
           networking = {
             static-ip = {
@@ -29,6 +35,20 @@ nixpkgs.lib.nixosSystem {
               nameservers = vars.networking.nameServers;
               lan-domain = vars.networking.internalDomain;
               bridge.enable = true;
+            };
+          };
+
+          users = {
+            enable = true;
+            admin-user = vars.adminUser;
+          };
+
+          openssh = {
+            enable = true;
+            authorized-ssh-keys = vars.keys.bastionPubKeys;
+            bastion = {
+              enable = true;
+              logo = true;
             };
           };
 
