@@ -22,6 +22,7 @@ nixpkgs.lib.nixosSystem {
           openssh = {
             enable = true;
             auto-accept-server-keys = true;
+            authorized-ssh-keys = vars.keys.bastionPubKey;
           };
 
           users = {

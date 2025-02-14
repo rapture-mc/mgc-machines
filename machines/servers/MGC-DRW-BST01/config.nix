@@ -55,7 +55,7 @@ nixpkgs.lib.nixosSystem {
 
           openssh = {
             enable = true;
-            authorized-ssh-keys = vars.keys.bastionPubKeys;
+            authorized-ssh-keys = vars.keys.authorizedBastionPubKeys;
             bastion = {
               enable = true;
               logo = true;

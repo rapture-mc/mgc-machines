@@ -11,9 +11,14 @@
   };
 
   # The following keys are permitted to connect to the bastion server over SSH
-  bastionPubKeys = [
+  authorizedBastionPubKeys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKhKBbO3gu8cbKQYOopVAA9gkSHHChkjMYPgfW2NIBrN benny@MGC-LT01"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICkw50I9jIQ89A9l4E+AiZtZzD+gGoya6u0br3FOxfT6 DWN-STZLR-PC10"
+  ];
+
+  # The bastion public key
+  bastionPubKey = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzlYmoWjZYFeCNdMBCHBXmqpzK1IBmRiB3hNlsgEtre benny@MGC-DRW-BST01"
   ];
 
   # The following keys are permitted to connect to remote hosts over SSH to run automated commands through deploy-rs
