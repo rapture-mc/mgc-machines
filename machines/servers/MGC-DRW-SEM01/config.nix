@@ -17,6 +17,8 @@ nixpkgs.lib.nixosSystem {
 
       networking.hostName = "MGC-DRW-SEM01";
 
+      system.stateVersion = "24.11";
+
       megacorp = {
         config = {
           openssh = {

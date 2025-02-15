@@ -37,6 +37,8 @@ nixpkgs.lib.nixosSystem {
         };
       };
 
+      system.stateVersion = "24.11";
+
       megacorp = {
         config = {
           networking.static-ip = {

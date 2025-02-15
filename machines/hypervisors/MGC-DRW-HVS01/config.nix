@@ -18,6 +18,8 @@ nixpkgs.lib.nixosSystem {
 
       networking.hostName = "MGC-DRW-HVS01";
 
+      system.stateVersion = "24.05";
+
       megacorp = {
         config = {
           networking = {
