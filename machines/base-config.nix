@@ -11,6 +11,7 @@
       users = {
         enable = true;
         admin-user = vars.adminUser;
+        shell = "nushell";
       };
 
       nixvim.enable = true;
