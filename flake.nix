@@ -14,6 +14,11 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "megacorp/nixpkgs";
     };
+
+    microvm = {
+      url = "github:astro/microvm.nix";
+      inputs.nixpkgs.follows = "megacorp/nixpkgs";
+    };
   };
 
   outputs = {
@@ -21,6 +26,7 @@
     nixpkgs,
     megacorp,
     deploy-rs,
+    microvm,
     ...
   } @ inputs: let
     vars = import ./vars;
@@ -30,7 +36,7 @@
     # Helper function for importing different nixosConfigurations
     importMachineConfig = machineType: machineName: configType:
       import ./machines/${machineType}/${machineName}/${configType}.nix {
-        inherit inputs self vars megacorp nixpkgs deploy-rs pkgs;
+        inherit inputs self vars megacorp nixpkgs deploy-rs microvm pkgs;
       };
   in {
     # Machines currently managed under this Flake
