@@ -15,6 +15,8 @@ nixpkgs.lib.nixosSystem {
 
       networking.hostName = "MGC-LT02";
 
+      system.stateVersion = "24.05";
+
       megacorp = {
         config = {
           users.regular-user.enable = true;

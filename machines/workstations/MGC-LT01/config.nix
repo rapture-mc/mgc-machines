@@ -15,13 +15,15 @@ nixpkgs.lib.nixosSystem {
 
       networking.hostName = "MGC-LT01";
 
+      system.stateVersion = "24.05";
+
       virtualisation.docker.enable = true;
 
       megacorp = {
         config = {
           openssh = {
             enable = true;
-            authorized-ssh-keys = vars.keys.bastionPubKeys;
+            authorized-ssh-keys = vars.keys.bastionPubKey;
             bastion = {
               enable = true;
               logo = true;
