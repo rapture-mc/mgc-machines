@@ -47,7 +47,7 @@
 
     # Helper function for importing different Terraform configurations
     importTerraformConfig = machineName: action:
-      import ./hypervisors/${machineName}/terranix.nix {
+      import ./infra/${machineName}/terranix.nix {
         inherit terranix pkgs system machineName action vars;
       };
   in {
