@@ -16,8 +16,6 @@ nixpkgs.lib.nixosSystem {
         ./hardware-config.nix
       ];
 
-      services.resolved.enable = false;
-
       networking = {
         hostName = "MGC-DRW-BST01";
 
