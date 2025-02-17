@@ -16,6 +16,8 @@ nixpkgs.lib.nixosSystem {
         ./hardware-config.nix
       ];
 
+      services.resolved.enable = false;
+
       networking = {
         hostName = "MGC-DRW-BST01";
 
@@ -61,9 +63,9 @@ nixpkgs.lib.nixosSystem {
         };
 
         services = {
-          controller = {
-            agent.enable = true;
-            server.public-key = vars.keys.deployPubKeys;
+          comin = {
+            enable = true;
+            repo = "https://github.com/rapture-mc/mgc-machines";
           };
 
           dnsmasq = {
