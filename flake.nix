@@ -14,6 +14,16 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "megacorp/nixpkgs";
     };
+
+    terranix = {
+      url = "github:terranix/terranix";
+      inputs.nixpkgs.follows = "megacorp/nixpkgs";
+    };
+
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "megacorp/nixpkgs";
+    };
   };
 
   outputs = {
@@ -21,6 +31,8 @@
     nixpkgs,
     megacorp,
     deploy-rs,
+    nixos-generators,
+    terranix,
     ...
   } @ inputs: let
     vars = import ./vars;
@@ -31,6 +43,12 @@
     importMachineConfig = machineType: machineName: configType:
       import ./machines/${machineType}/${machineName}/${configType}.nix {
         inherit inputs self vars megacorp nixpkgs deploy-rs pkgs;
+      };
+
+    # Helper function for importing different Terraform configurations
+    importTerraformConfig = machineName: action:
+      import ./hypervisors/${machineName}/terranix.nix {
+        inherit terranix pkgs system machineName action vars;
       };
   in {
     # Machines currently managed under this Flake
@@ -43,5 +61,46 @@
 
     # Check deploy-rs configuration beforehand (recommened by deploy-rs manual)
     checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+
+    # Nix commands to create/destroy Terraform infrastructure
+    # Run with "nix run .#<hypervisor-name>-apply"
+    apps.${system} = import ./infra {inherit importTerraformConfig;};
+
+    # For generating NixOS QCOW EFI images for use with terraform + libvirt
+    # Build with "nix build .#qcow-efi"
+    packages.${system}.qcow-efi = nixos-generators.nixosGenerate {
+      system = "${system}";
+      format = "qcow-efi";
+      modules = [
+        megacorp.nixosModules.default
+        {
+          networking.hostName = "nixos";
+
+          system.stateVersion = "24.11";
+
+          megacorp = {
+            virtualisation.qemu-guest.enable = true;
+            config = {
+              system.enable = true;
+              bootloader.enable = false;  # nixos-generator will handle bootloader configuration instead
+              nixvim.enable = true;
+              packages.enable = true;
+
+              openssh = {
+                enable = true;
+                authorized-ssh-keys = [
+                  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzlYmoWjZYFeCNdMBCHBXmqpzK1IBmRiB3hNlsgEtre benny@MGC-DRW-BST01"
+                ];
+              };
+
+              users = {
+                enable = true;
+                admin-user = "benny";
+              };
+            };
+          };
+        }
+      ];
+    };
   };
 }
