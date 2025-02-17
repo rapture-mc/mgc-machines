@@ -48,6 +48,7 @@ nixpkgs.lib.nixosSystem {
             ipv4 = vars.networking.hostsAddr.MGC-DRW-BST01.eth.ipv4;
             interface = vars.networking.hostsAddr.MGC-DRW-BST01.eth.name;
             gateway = vars.networking.defaultGateway;
+            nameservers = ["8.8.8.8" "8.8.4.4"];
             lan-domain = vars.networking.internalDomain;
           };
 
