@@ -43,6 +43,11 @@ nixpkgs.lib.nixosSystem {
             server.public-key = vars.keys.deployPubKeys;
           };
 
+          comin = {
+            enable = true;
+            repo = "https://github.com/rapture-mc/mgc-machines";
+          };
+
           password-store = {
             enable = true;
             logo = true;
