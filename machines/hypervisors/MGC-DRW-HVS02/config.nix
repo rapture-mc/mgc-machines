@@ -50,6 +50,11 @@ nixpkgs.lib.nixosSystem {
             server.public-key = vars.keys.deployPubKeys;
           };
 
+          comin = {
+            enable = true;
+            repo = "https://github.com/rapture-mc/mgc-machines";
+          };
+
           syncthing = {
             enable = true;
             devices = {
