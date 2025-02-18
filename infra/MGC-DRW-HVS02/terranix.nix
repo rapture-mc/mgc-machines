@@ -11,7 +11,7 @@
   terraformConfiguration = terranix.lib.terranixConfiguration {
     inherit system;
     modules = [
-      # (import ./virtual-machines/MGC-DRW-BST01.nix {inherit vars;})
+      (import ./virtual-machines/MGC-DRW-BST01.nix {inherit vars;})
       (import ./virtual-machines/MGC-DRW-PWS01.nix {inherit vars;})
       # (import ./virtual-machines/MGC-DRW-RST01.nix {inherit vars;})
     ];
