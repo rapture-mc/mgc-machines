@@ -49,6 +49,7 @@ nixpkgs.lib.nixosSystem {
           openssh = {
             enable = true;
             authorized-ssh-keys = vars.keys.bastionPubKey;
+            bastion.enable = true;
           };
 
           desktop = {
