@@ -28,6 +28,8 @@ nixpkgs.lib.nixosSystem {
         wantedBy = ["multi-user.target"];
       };
 
+      environment.systemPackages = [ nixpkgs.legacyPackages.x86_64-linux.hugo ];
+
       megacorp = {
         config = {
           networking = {
