@@ -30,7 +30,6 @@ nixpkgs.lib.nixosSystem {
 
       # Hugo stuff
       environment.systemPackages = [nixpkgs.legacyPackages.x86_64-linux.hugo];
-      networking.firewall.allowedTCPPorts = [1313];
 
       megacorp = {
         config = {
@@ -49,7 +48,6 @@ nixpkgs.lib.nixosSystem {
           openssh = {
             enable = true;
             authorized-ssh-keys = vars.keys.bastionPubKey;
-            bastion.enable = true;
           };
 
           desktop = {
