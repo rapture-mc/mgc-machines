@@ -28,7 +28,9 @@ nixpkgs.lib.nixosSystem {
         wantedBy = ["multi-user.target"];
       };
 
-      environment.systemPackages = [ nixpkgs.legacyPackages.x86_64-linux.hugo ];
+      # Hugo stuff
+      environment.systemPackages = [nixpkgs.legacyPackages.x86_64-linux.hugo];
+      networking.firewall.allowedTCPPorts = [1313];
 
       megacorp = {
         config = {
