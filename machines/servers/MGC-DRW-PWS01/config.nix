@@ -20,6 +20,8 @@ nixpkgs.lib.nixosSystem {
 
       system.stateVersion = "24.11";
 
+      services.resolved.enable = false;
+
       megacorp = {
         config = {
           openssh = {
