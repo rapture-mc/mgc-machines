@@ -19,6 +19,17 @@ nixpkgs.lib.nixosSystem {
 
       system.stateVersion = "24.05";
 
+      systemd.services.fix-ethernet-bug = {
+        enable = true;
+        description = ''
+          This service provides a dirty hack to fix the Ethernet card on the Intel NUC (NUC10i5FNK).
+
+          The card will suddenly stop working if too much data is transmitted over the link at one time. See https://www.reddit.com/r/Proxmox/comments/1drs89s/intel_nic_e1000e_hardware_unit_hang/?rdt=43359 for more info.
+        '';
+        path = [ nixpkgs.legacyPackages.x86_64-linux.ethtool ];
+        serviceConfig.ExecStart = "ethtool -K ${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.name} tso off gso off";
+      };
+
       megacorp = {
         config = {
           networking = {
