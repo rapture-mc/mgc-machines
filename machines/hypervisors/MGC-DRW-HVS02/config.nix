@@ -24,7 +24,7 @@ nixpkgs.lib.nixosSystem {
       systemd.services.fix-ethernet-bug = {
         enable = true;
         description = "This service provides a dirty hack to fix the Ethernet card on the Intel NUC (NUC10i5FNK).";
-        serviceConfig.ExecStart = "${nixpkgs.legacyPackages.x86_64-linux.ethtool}\\bin\\ethtool -K ${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.name} tso off gso off";
+        serviceConfig.ExecStart = "${nixpkgs.legacyPackages.x86_64-linux.ethtool}/bin/ethtool -K ${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.name} tso off gso off";
         unitConfig.After = "network-online.target";
         wantedBy = ["multi-user.target"];
       };
