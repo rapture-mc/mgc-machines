@@ -17,6 +17,8 @@ nixpkgs.lib.nixosSystem {
 
       system.stateVersion = "24.05";
 
+      environment.systemPackages = [nixpkgs.legacyPackages.x86_64-linux.hugo];
+
       virtualisation.docker.enable = true;
 
       megacorp = {
