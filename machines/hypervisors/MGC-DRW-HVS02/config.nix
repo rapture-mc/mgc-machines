@@ -28,8 +28,11 @@ nixpkgs.lib.nixosSystem {
         wantedBy = ["multi-user.target"];
       };
 
-      # Hugo stuff
-      environment.systemPackages = [nixpkgs.legacyPackages.x86_64-linux.hugo];
+      # Extra stuff
+      environment.systemPackages = with nixpkgs.legacyPackages.x86_64-linux; [
+        hugo
+        gimp
+      ];
       networking.firewall.allowedTCPPorts = [80];
 
       megacorp = {
