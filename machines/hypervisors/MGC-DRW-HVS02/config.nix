@@ -30,6 +30,7 @@ nixpkgs.lib.nixosSystem {
 
       # Hugo stuff
       environment.systemPackages = [nixpkgs.legacyPackages.x86_64-linux.hugo];
+      networking.firewall.allowedTCPPorts = [ 1313 ];
 
       megacorp = {
         config = {
