@@ -17,6 +17,12 @@ nixpkgs.lib.nixosSystem {
 
       system.stateVersion = "24.11";
 
+      services.nginx.virtualHosts."megacorp.industries" = {
+        forceSSL = true;
+        enableACME =true;
+        locations."/".proxyPass = "http://${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4}:1313";
+      };
+
       megacorp = {
         config = {
           openssh = {
