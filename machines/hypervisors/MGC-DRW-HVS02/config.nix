@@ -42,6 +42,9 @@ nixpkgs.lib.nixosSystem {
           hostname = vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4;
           http-port = 8080;
         };
+        database = {
+          passwordFile = ./password;
+        };
       };
 
       megacorp = {
