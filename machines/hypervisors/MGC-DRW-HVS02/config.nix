@@ -35,7 +35,7 @@ nixpkgs.lib.nixosSystem {
       ];
       networking.firewall.allowedTCPPorts = [80 8080];
 
-      services.keycloack = {
+      services.keycloak = {
         enable = true;
         initialAdminPassword = "changeme";
         settings = {
