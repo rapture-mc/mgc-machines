@@ -21,7 +21,7 @@ nixpkgs.lib.nixosSystem {
 
       virtualisation.docker.enable = true;
 
-      boot.kernelPackages = nixpkgs.legacyPackages.x86_64-linux.linuxPackages_6_9;
+      boot.kernelPackages = nixpkgs.legacyPackages.x86_64-linux.linuxPackages_latest;
 
       megacorp = {
         config = {
