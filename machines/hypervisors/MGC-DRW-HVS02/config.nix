@@ -33,7 +33,16 @@ nixpkgs.lib.nixosSystem {
         hugo
         gimp
       ];
-      networking.firewall.allowedTCPPorts = [80];
+      networking.firewall.allowedTCPPorts = [80 8080];
+
+      services.keycloack = {
+        enable = true;
+        initialAdminPassword = "changeme";
+        settings = {
+          hostname = "megacorp.industries";
+          http-port = 8080;
+        };
+      };
 
       megacorp = {
         config = {
