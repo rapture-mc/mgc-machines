@@ -39,7 +39,7 @@ nixpkgs.lib.nixosSystem {
         enable = true;
         initialAdminPassword = "changeme";
         settings = {
-          hostname = "megacorp.industries";
+          hostname = vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4;
           http-port = 8080;
         };
       };
