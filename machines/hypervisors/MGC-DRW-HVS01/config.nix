@@ -50,6 +50,8 @@ nixpkgs.lib.nixosSystem {
             enable = true;
             xrdp = true;
           };
+
+          packages.ninja-cli.enable = true;
         };
 
         services = {
