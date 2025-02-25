@@ -59,11 +59,6 @@ nixpkgs.lib.nixosSystem {
             enable = true;
             repo = "https://github.com/rapture-mc/mgc-machines";
           };
-
-          keycloak = {
-            enable = true;
-            fqdn = "cloak.megacorp.industries";
-          };
         };
 
         virtualisation.hypervisor = {
