@@ -2,27 +2,37 @@
   description = "MGC NixOS Infrastructure";
 
   inputs = {
-    megacorp.url = "github:rapture-mc/nixos-module?ref=staging";
-    nixpkgs.follows = "megacorp/nixpkgs";
+    nixpkgs = {
+      type = "github";
+      owner = "nixos";
+      repo = "nixpkgs";
+      ref = "nixos-24.11";
+      rev = "0a2935209750c0d2f4ee9f7803fae476cc0d2854";
+    };
+
+    megacorp = {
+      url = "github:rapture-mc/nixos-module";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     deploy-rs = {
       url = "github:serokell/deploy-rs";
-      inputs.nixpkgs.follows = "megacorp/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "megacorp/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     terranix = {
       url = "github:terranix/terranix";
-      inputs.nixpkgs.follows = "megacorp/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "megacorp/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
