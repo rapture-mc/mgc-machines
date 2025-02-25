@@ -17,12 +17,16 @@ nixpkgs.lib.nixosSystem {
 
       system.stateVersion = "24.11";
 
-      services.nginx.virtualHosts."megacorp.industries" = {
-        forceSSL = true;
-        enableACME =true;
-        locations = {
-          "/".proxyPass = "http://${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4}:80";
-          "/cloak".proxyPass = "http://${vars.networking.hostsAddr.MGC-DRW-HVS01.eth.ipv4}:8300/cloak/";
+      services.nginx.virtualHosts = {
+        "megacorp.industries" = {
+          forceSSL = true;
+          enableACME =true;
+          locations."/".proxyPass = "http://${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4}:80";
+        };
+        "cloak.megacorp.industries" = {
+          forceSSL = true;
+          enableACME =true;
+          locations."/".proxyPass = "http://${vars.networking.hostsAddr.MGC-DRW-HVS01.eth.ipv4}:8300";
         };
       };
 
