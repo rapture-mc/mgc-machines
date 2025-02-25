@@ -7,7 +7,7 @@
       owner = "nixos";
       repo = "nixpkgs";
       ref = "nixos-24.11";
-      rev = "0a2935209750c0d2f4ee9f7803fae476cc0d2854";
+      rev = "04ef94c4c1582fd485bbfdb8c4a8ba250e359195";
     };
 
     megacorp = {
