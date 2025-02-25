@@ -57,7 +57,7 @@ nixpkgs.lib.nixosSystem {
 
           keycloak = {
             enable = true;
-            fqdn = vars.networking.hostsAddr.MGC-DRW-HVS01.eth.ipv4;
+            fqdn = "megacorp.industries";
           };
         };
 

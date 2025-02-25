@@ -385,11 +385,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1740452303,
-        "narHash": "sha256-PxududzCOoe6pAFYJCCHv9KbXn2pvliPr8oju5Xr1qA=",
+        "lastModified": 1740452411,
+        "narHash": "sha256-edbHPw+aizdtwiC8xz3ZAOq61NPjP7ezELWKaYiBcE8=",
         "owner": "rapture-mc",
         "repo": "nixos-module",
-        "rev": "43b3317228f5b96029ec021dd5b2a6953b6b3909",
+        "rev": "1a0c0f223d8d69c5c958d47fb9ed9774c9b15ed6",
         "type": "github"
       },
       "original": {
