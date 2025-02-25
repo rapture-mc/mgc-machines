@@ -57,7 +57,7 @@ nixpkgs.lib.nixosSystem {
 
           keycloak = {
             enable = true;
-            fqdn = "megacorp.industries";
+            fqdn = "cloak.megacorp.industries";
           };
         };
 
