@@ -2,7 +2,7 @@
   description = "MGC NixOS Infrastructure";
 
   inputs = {
-    megacorp.url = "github:rapture-mc/nixos-module";
+    megacorp.url = "github:rapture-mc/nixos-module?ref=staging";
     nixpkgs.follows = "megacorp/nixpkgs";
 
     deploy-rs = {
