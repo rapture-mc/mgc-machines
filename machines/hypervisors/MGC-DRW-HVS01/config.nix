@@ -54,6 +54,11 @@ nixpkgs.lib.nixosSystem {
             enable = true;
             repo = "https://github.com/rapture-mc/mgc-machines";
           };
+
+          keycloak = {
+            enable = true;
+            fqdn = vars.networking.hostsAddr.MGC-DRW-HVS01.eth.ipv4;
+          };
         };
 
         virtualisation.hypervisor = {
