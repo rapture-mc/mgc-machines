@@ -386,11 +386,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1740465124,
-        "narHash": "sha256-UZzXuBZZzrvKeHoKe3L13q3LhdLfNaCpNzO2n3dnFGk=",
+        "lastModified": 1740658475,
+        "narHash": "sha256-HsV7n3dO4vFyqvoBSXUDzFU3kjAmc9T9tQSQakYpjeY=",
         "owner": "rapture-mc",
         "repo": "nixos-module",
-        "rev": "cce08a46e210d25b99c4f2f33374f91518afd9ce",
+        "rev": "56a3d66d790a737c2ce09e38d71bb3d7c2c9ca76",
         "type": "github"
       },
       "original": {
@@ -460,18 +460,18 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1733230980,
-        "narHash": "sha256-ek58yyPYzq098pL0O8xETn9sMqemR2V++mVIjaMPZV4=",
+        "lastModified": 1740339700,
+        "narHash": "sha256-cbrw7EgQhcdFnu6iS3vane53bEagZQy/xyIkDWpCgVE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "0a2935209750c0d2f4ee9f7803fae476cc0d2854",
+        "rev": "04ef94c4c1582fd485bbfdb8c4a8ba250e359195",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
         "ref": "nixos-24.11",
         "repo": "nixpkgs",
-        "rev": "0a2935209750c0d2f4ee9f7803fae476cc0d2854",
+        "rev": "04ef94c4c1582fd485bbfdb8c4a8ba250e359195",
         "type": "github"
       }
     },
