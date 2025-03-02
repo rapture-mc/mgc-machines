@@ -70,6 +70,7 @@ nixpkgs.lib.nixosSystem {
           comin = {
             enable = true;
             repo = "https://github.com/rapture-mc/mgc-machines";
+            branch = "staging";
           };
 
           syncthing = {
