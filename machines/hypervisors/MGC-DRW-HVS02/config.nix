@@ -32,7 +32,6 @@ nixpkgs.lib.nixosSystem {
       environment.systemPackages = with nixpkgs.legacyPackages.x86_64-linux; [
         hugo
         gimp
-        hello
       ];
       networking.firewall.allowedTCPPorts = [80];
 
