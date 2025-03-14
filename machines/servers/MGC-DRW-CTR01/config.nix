@@ -46,7 +46,10 @@ nixpkgs.lib.nixosSystem {
             peers = [
               {
                 publicKey = vars.keys.wireguardPubKeys.MGC-LT01;
-                allowedIPs = ["${vars.networking.hostsAddr.MGC-LT01.wireguard.ipv4}/32"];
+                allowedIPs = [
+                  "${vars.networking.hostsAddr.MGC-LT01.wireguard.ipv4}/32"
+                  "10.100.0.3/32"
+                  ];
               }
             ];
           };
