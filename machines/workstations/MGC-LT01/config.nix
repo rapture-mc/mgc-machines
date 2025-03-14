@@ -17,7 +17,10 @@ nixpkgs.lib.nixosSystem {
 
       system.stateVersion = "24.05";
 
-      environment.systemPackages = [nixpkgs.legacyPackages.x86_64-linux.hugo];
+      environment.systemPackages = with nixpkgs.legacyPackages.x86_64-linux; [
+        hugo
+        gnucash
+      ];
 
       virtualisation.docker.enable = true;
 
