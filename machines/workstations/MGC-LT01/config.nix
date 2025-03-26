@@ -54,6 +54,8 @@ nixpkgs.lib.nixosSystem {
             repo = "https://github.com/rapture-mc/mgc-machines";
             branch = "staging";
           };
+
+          password-store.enable = true;
         };
 
         virtualisation.whonix.enable = true;
