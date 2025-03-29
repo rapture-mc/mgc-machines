@@ -25,6 +25,8 @@ nixpkgs.lib.nixosSystem {
         sioyek
       ];
 
+      nixpkgs.config.allowUnfree = true;
+
       virtualisation.docker.enable = true;
 
       megacorp = {
