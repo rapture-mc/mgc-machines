@@ -4,7 +4,11 @@
   vars,
   ...
 }: let
-pkgs = nixpkgs.legacyPackages.x86_64-linux { config.allowUnfree = true; };
+  system = "x86_64-linux";
+  pkgs = import nixpkgs {
+    inherit system;
+    config.allowUnfree = true;
+  };
 in
 nixpkgs.lib.nixosSystem {
   modules = [
