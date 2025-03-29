@@ -3,7 +3,9 @@
   megacorp,
   vars,
   ...
-}:
+}: let
+pkgs = nixpkgs.legacyPackages.x86_64-linux { config.allowUnfree = true; };
+in
 nixpkgs.lib.nixosSystem {
   modules = [
     megacorp.nixosModules.default
@@ -17,15 +19,13 @@ nixpkgs.lib.nixosSystem {
 
       system.stateVersion = "24.05";
 
-      environment.systemPackages = with nixpkgs.legacyPackages.x86_64-linux; [
+      environment.systemPackages = with pkgs; [
         hugo
         gnucash
         ledger
         spotify
         sioyek
       ];
-
-      nixpkgs.config.allowUnfree = true;
 
       virtualisation.docker.enable = true;
 
