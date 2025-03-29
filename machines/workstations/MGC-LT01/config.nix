@@ -21,8 +21,8 @@ nixpkgs.lib.nixosSystem {
         hugo
         gnucash
         ledger
-        spotify
-        sioyek
+        # spotify
+        # sioyek
       ];
 
       nixpkgs.config.allowUnfree = true;
