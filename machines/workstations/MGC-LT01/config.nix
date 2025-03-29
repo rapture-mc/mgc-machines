@@ -21,6 +21,8 @@ nixpkgs.lib.nixosSystem {
         hugo
         gnucash
         ledger
+        spotify
+        sioyek
       ];
 
       virtualisation.docker.enable = true;
