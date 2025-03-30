@@ -32,6 +32,8 @@ nixpkgs.lib.nixosSystem {
         wine
       ];
 
+      hardware.opengl.enable = true;
+
       virtualisation.docker.enable = true;
 
       megacorp = {
