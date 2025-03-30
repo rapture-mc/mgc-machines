@@ -2,6 +2,7 @@
   nixpkgs,
   megacorp,
   vars,
+  nixos-hardware,
   ...
 }: let
   system = "x86_64-linux";
@@ -13,6 +14,7 @@ in
 nixpkgs.lib.nixosSystem {
   modules = [
     megacorp.nixosModules.default
+    nixos-hardware.nixosModules.lenovo-thinkpad-x13-intel
     {
       imports = [
         (import ../../base-config.nix {inherit vars;})
@@ -33,14 +35,12 @@ nixpkgs.lib.nixosSystem {
         winetricks
       ];
 
-      hardware.opengl.enable = true;
-
-      programs.steam = {
-        enable = true;
-        remotePlay.openFirewall = true;
-        dedicatedServer.openFirewall = true;
-        localNetworkGameTransfers.openFirewall = true;
-      };
+      # programs.steam = {
+      #   enable = true;
+      #   remotePlay.openFirewall = true;
+      #   dedicatedServer.openFirewall = true;
+      #   localNetworkGameTransfers.openFirewall = true;
+      # };
 
       virtualisation.docker.enable = true;
 
