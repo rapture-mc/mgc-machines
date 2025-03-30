@@ -31,18 +31,7 @@ nixpkgs.lib.nixosSystem {
         ledger
         spotify
         sioyek
-        wineWowPackages.stable
-        winetricks
       ];
-
-      hardware.opengl.enable = true;
-
-      # programs.steam = {
-      #   enable = true;
-      #   remotePlay.openFirewall = true;
-      #   dedicatedServer.openFirewall = true;
-      #   localNetworkGameTransfers.openFirewall = true;
-      # };
 
       virtualisation.docker.enable = true;
 
