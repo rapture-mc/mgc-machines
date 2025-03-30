@@ -29,7 +29,8 @@ nixpkgs.lib.nixosSystem {
         ledger
         spotify
         sioyek
-        wine
+        wineWowPackages.stable
+        winetricks
       ];
 
       hardware.opengl.enable = true;
