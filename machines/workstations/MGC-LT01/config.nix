@@ -29,6 +29,7 @@ nixpkgs.lib.nixosSystem {
         ledger
         spotify
         sioyek
+        wine
       ];
 
       virtualisation.docker.enable = true;
