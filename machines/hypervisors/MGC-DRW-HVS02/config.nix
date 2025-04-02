@@ -34,7 +34,15 @@ nixpkgs.lib.nixosSystem {
         gimp
         hello
       ];
+
       networking.firewall.allowedTCPPorts = [80];
+
+      services.nginx = {
+        enable = true;
+        virtualHosts."megacorp.industries" = {
+          root = "/var/www/megacorp.industries";
+        };
+      };
 
       megacorp = {
         config = {
