@@ -42,7 +42,11 @@ nixpkgs.lib.nixosSystem {
             authorized-ssh-keys = vars.keys.bastionPubKey;
           };
 
-          desktop.enable = true;
+          desktop = {
+            enable = true;
+            display-manager = "sddm";
+            desktop-manager = "plasma6";
+          };
         };
 
         services = {

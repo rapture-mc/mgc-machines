@@ -383,14 +383,15 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "plasma-manager": "plasma-manager"
       },
       "locked": {
-        "lastModified": 1743847820,
-        "narHash": "sha256-nPAh6MxLPIseFNhXOdH4doJ9C0fIVmMQF5lV1jhzVfU=",
+        "lastModified": 1743857715,
+        "narHash": "sha256-Y9twKe8gBdImKswRqXkJvimcHXg/6eqSSQxqzGHdoEg=",
         "owner": "rapture-mc",
         "repo": "nixos-module",
-        "rev": "6ebaeccb9850ef5a0f467f1a8786697a74bdf7f4",
+        "rev": "547766e9629897c199f0a5f857c9a79668b05a13",
         "type": "github"
       },
       "original": {
@@ -542,6 +543,31 @@
       "original": {
         "owner": "NuschtOS",
         "repo": "search",
+        "type": "github"
+      }
+    },
+    "plasma-manager": {
+      "inputs": {
+        "home-manager": [
+          "megacorp",
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "megacorp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1742765550,
+        "narHash": "sha256-2vVIh2JrL6GAGfgCeY9e6iNKrBjs0Hw3bGQEAbwVs68=",
+        "owner": "nix-community",
+        "repo": "plasma-manager",
+        "rev": "b70be387276e632fe51232887f9e04e2b6ef8c16",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "plasma-manager",
         "type": "github"
       }
     },
