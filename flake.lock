@@ -386,11 +386,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1743298673,
-        "narHash": "sha256-6MA8H78oUxs0BC6BpQFiT5JVTs8WD6F1uyFwQygxyOs=",
+        "lastModified": 1743816566,
+        "narHash": "sha256-AE4xFwNyaxlD5KKAx69cVdNfjBycPI7BMYo2IyamUAM=",
         "owner": "rapture-mc",
         "repo": "nixos-module",
-        "rev": "1da96a46b45b49cea82b9d0f81d661a1780d7389",
+        "rev": "e3e75b5221e6a1f432ccf958098e09c166900d56",
         "type": "github"
       },
       "original": {
@@ -455,6 +455,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "nixos-generators",
+        "type": "github"
+      }
+    },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1743420942,
+        "narHash": "sha256-b/exDDQSLmENZZgbAEI3qi9yHkuXAXCPbormD8CSJXo=",
+        "owner": "nixos",
+        "repo": "nixos-hardware",
+        "rev": "de6fc5551121c59c01e2a3d45b277a6d05077bc4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "master",
+        "repo": "nixos-hardware",
         "type": "github"
       }
     },
@@ -534,6 +550,7 @@
         "deploy-rs": "deploy-rs",
         "megacorp": "megacorp",
         "nixos-generators": "nixos-generators",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix",
         "terranix": "terranix"
@@ -546,11 +563,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742700801,
-        "narHash": "sha256-ZGlpUDsuBdeZeTNgoMv+aw0ByXT2J3wkYw9kJwkAS4M=",
+        "lastModified": 1743756170,
+        "narHash": "sha256-2b11EYa08oqDmF3zEBLkG1AoNn9rB1k39ew/T/mSvbU=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "67566fe68a8bed2a7b1175fdfb0697ed22ae8852",
+        "rev": "cff8437c5fe8c68fc3a840a21bf1f4dc801da40d",
         "type": "github"
       },
       "original": {
