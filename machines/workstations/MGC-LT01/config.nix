@@ -21,6 +21,14 @@ nixpkgs.lib.nixosSystem {
         ./hardware-config.nix
       ];
 
+      # users = {
+      #   mutableUsers = false;
+      #   users.test-user = {
+      #     isNormalUser = true;
+      #     hashedPassword = "$6$Ey6fzsEaGSkk2286$cUtsv6HcBfo1GRxwEZbVOT23zOT9rOU9XumC14pprvmiiagkQWmxKqYbjTIsAt.d8wPS1NdYas0Dv4khDxG/G0";
+      #   };
+      # };
+
       networking.hostName = "MGC-LT01";
 
       system.stateVersion = "24.05";
@@ -28,7 +36,7 @@ nixpkgs.lib.nixosSystem {
       environment.systemPackages = with pkgs; [
         hugo
         gnucash
-        ledger
+        hledger
         spotify
         sioyek
       ];
