@@ -1,7 +1,7 @@
 {
   defaultGateway = "192.168.1.99";
   privateLANSubnet = "192.168.1.0/24";
-  nameServers = ["192.168.1.35"];
+  nameServers = ["192.168.1.45"];
   internalDomain = "megacorp.industries";
   wireguardPublicIP = "123.243.147.17";
 
@@ -68,7 +68,7 @@
     MGC-DRW-BST01 = {
       eth = {
         name = "ens3";
-        ipv4 = "192.168.1.35";
+        ipv4 = "192.168.1.45";
       };
     };
 

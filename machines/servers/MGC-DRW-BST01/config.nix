@@ -12,7 +12,7 @@ nixpkgs.lib.nixosSystem {
       imports = [
         (import ../../base-config.nix {inherit vars;})
         (import ./backup.nix {inherit vars;})
-        (import ./secrets.nix {inherit inputs;})
+        (import ./secrets.nix {inherit inputs vars;})
         ./hardware-config.nix
       ];
 

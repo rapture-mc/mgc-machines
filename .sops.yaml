@@ -3,7 +3,7 @@ keys:
   - &server_MGC-DRW-SEM01 age1rd0y53lk5hxvwhay5gwx245yrcm8h57jppync6jf85r648xkaqksdey6nl
   - &server_MGC-DRW-PWS01 age1xwp7j76tekk4pxmylct87gkmfs90nq6alsz7u2w0grp54t5283hss9n66r
   - &server_MGC-DRW-FBR01 age1u9cf6kjq9qldjepengff8y9f8nf3vq47ksg7pn5ch4nu7arseyes2dc3g0
-  - &server_MGC-DRW-BST01 age15crdhuawrkt9g3ae45pz6ta74949j28gge42l99sl3q59kp2m3qs9678vc
+  - &server_MGC-DRW-BST01 age1l2zxenr383sdfwc4cyg8s4lqu8fxcj5amjanatv0f5r7w6ytus0qz0us3w
   - &server_MGC-DRW-HVS01 age1sl4wge0wk4dkzsgx57mjft58mfc3wwvalvrvtqac7ct6l7tnafrsdgaevx
 
 creation_rules:
