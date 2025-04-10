@@ -2,27 +2,42 @@
   description = "MGC NixOS Infrastructure";
 
   inputs = {
-    megacorp.url = "github:rapture-mc/nixos-module";
-    nixpkgs.follows = "megacorp/nixpkgs";
+    nixpkgs = {
+      type = "github";
+      owner = "nixos";
+      repo = "nixpkgs";
+      ref = "nixos-24.11";
+      rev = "04ef94c4c1582fd485bbfdb8c4a8ba250e359195";
+    };
+
+    megacorp = {
+      url = "github:rapture-mc/nixos-module";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     deploy-rs = {
       url = "github:serokell/deploy-rs";
-      inputs.nixpkgs.follows = "megacorp/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "megacorp/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     terranix = {
       url = "github:terranix/terranix";
-      inputs.nixpkgs.follows = "megacorp/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "megacorp/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-hardware = {
+      url = "github:nixos/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -33,6 +48,7 @@
     deploy-rs,
     nixos-generators,
     terranix,
+    nixos-hardware,
     ...
   } @ inputs: let
     vars = import ./vars;
@@ -42,7 +58,7 @@
     # Helper function for importing different nixosConfigurations
     importMachineConfig = machineType: machineName: configType:
       import ./machines/${machineType}/${machineName}/${configType}.nix {
-        inherit inputs self vars megacorp nixpkgs deploy-rs pkgs;
+        inherit inputs self vars megacorp nixpkgs deploy-rs nixos-hardware pkgs;
       };
 
     # Helper function for importing different Terraform configurations

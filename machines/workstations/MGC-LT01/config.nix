@@ -2,26 +2,46 @@
   nixpkgs,
   megacorp,
   vars,
+  nixos-hardware,
   ...
-}:
+}: let
+  system = "x86_64-linux";
+  pkgs = import nixpkgs {
+    inherit system;
+    config.allowUnfree = true;
+  };
+in
 nixpkgs.lib.nixosSystem {
   modules = [
     megacorp.nixosModules.default
+    nixos-hardware.nixosModules.lenovo-thinkpad-x13
     {
       imports = [
         (import ../../base-config.nix {inherit vars;})
         ./hardware-config.nix
       ];
 
+      # users = {
+      #   mutableUsers = false;
+      #   users.test-user = {
+      #     isNormalUser = true;
+      #     hashedPassword = "$6$Ey6fzsEaGSkk2286$cUtsv6HcBfo1GRxwEZbVOT23zOT9rOU9XumC14pprvmiiagkQWmxKqYbjTIsAt.d8wPS1NdYas0Dv4khDxG/G0";
+      #   };
+      # };
+
       networking.hostName = "MGC-LT01";
 
       system.stateVersion = "24.05";
 
-      environment.systemPackages = [nixpkgs.legacyPackages.x86_64-linux.hugo];
+      environment.systemPackages = with pkgs; [
+        hugo
+        gnucash
+        hledger
+        spotify
+        sioyek
+      ];
 
       virtualisation.docker.enable = true;
-
-      boot.kernelPackages = nixpkgs.legacyPackages.x86_64-linux.linuxPackages_latest;
 
       megacorp = {
         config = {
@@ -30,7 +50,11 @@ nixpkgs.lib.nixosSystem {
             authorized-ssh-keys = vars.keys.bastionPubKey;
           };
 
-          desktop.enable = true;
+          desktop = {
+            enable = true;
+            display-manager = "sddm";
+            desktop-manager = "plasma6";
+          };
         };
 
         services = {
@@ -54,6 +78,8 @@ nixpkgs.lib.nixosSystem {
             repo = "https://github.com/rapture-mc/mgc-machines";
             branch = "staging";
           };
+
+          password-store.enable = true;
         };
 
         virtualisation.whonix.enable = true;
