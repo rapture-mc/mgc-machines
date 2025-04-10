@@ -58,25 +58,6 @@ nixpkgs.lib.nixosSystem {
             enable = true;
             repo = "https://github.com/rapture-mc/mgc-machines";
           };
-
-          syncthing = {
-            enable = true;
-            devices = {
-              MGC-DRW-HVS02 = {
-                id = vars.keys.syncthingIDs.MGC-DRW-HVS02;
-                autoAcceptFolders = true;
-              };
-            };
-
-            folders = {
-              "Sync" = {
-                path = "/home/${vars.adminUser}/Sync";
-                devices = [
-                  "MGC-DRW-HVS02"
-                ];
-              };
-            };
-          };
         };
       };
     }

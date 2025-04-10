@@ -51,7 +51,7 @@ nixpkgs.lib.nixosSystem {
 
           openssh = {
             enable = true;
-            authorized-ssh-keys = vars.keys.bastionPubKey;
+            authorized-ssh-keys = vars.keys.bastionPubKey ++ ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBDTHyxJfsK8Nb1fJonht3niVbWP2xRR+4ZgqtAMpMw7 benny@MGC-DRW-HVS01"];
           };
 
           desktop = {
@@ -70,25 +70,6 @@ nixpkgs.lib.nixosSystem {
             enable = true;
             repo = "https://github.com/rapture-mc/mgc-machines";
             branch = "staging";
-          };
-
-          syncthing = {
-            enable = true;
-            devices = {
-              MGC-DRW-CTR01 = {
-                id = vars.keys.syncthingIDs.MGC-DRW-CTR01;
-                autoAcceptFolders = true;
-              };
-            };
-
-            folders = {
-              "Sync" = {
-                path = "/home/${vars.adminUser}/Sync";
-                devices = [
-                  "MGC-DRW-CTR01"
-                ];
-              };
-            };
           };
         };
 
