@@ -14,7 +14,7 @@ in
 nixpkgs.lib.nixosSystem {
   modules = [
     megacorp.nixosModules.default
-    nixos-hardware.nixosModules.lenovo-thinkpad-x13
+    # nixos-hardware.nixosModules.lenovo-thinkpad-x13
     {
       imports = [
         (import ../../base-config.nix {inherit vars;})
