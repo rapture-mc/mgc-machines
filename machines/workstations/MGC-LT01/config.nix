@@ -39,6 +39,7 @@ nixpkgs.lib.nixosSystem {
         hledger
         spotify
         sioyek
+        protonmail-bridge-gui
       ];
 
       virtualisation.docker.enable = true;
