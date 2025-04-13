@@ -50,11 +50,7 @@ nixpkgs.lib.nixosSystem {
             authorized-ssh-keys = vars.keys.bastionPubKey;
           };
 
-          desktop = {
-            enable = true;
-            display-manager = "sddm";
-            desktop-manager = "plasma6";
-          };
+          desktop.enable = true;
         };
 
         services = {
@@ -63,15 +59,15 @@ nixpkgs.lib.nixosSystem {
             server.public-key = vars.keys.controllerPubKey;
           };
 
-          wireguard-client = {
-            enable = true;
-            ipv4 = vars.networking.hostsAddr.MGC-LT01.wireguard.ipv4;
-            allowed-ips = ["${vars.networking.privateLANSubnet}"];
-            server = {
-              ipv4 = vars.networking.wireguardPublicIP;
-              public-key = vars.keys.wireguardPubKeys.MGC-DRW-CTR01;
-            };
-          };
+          # wireguard-client = {
+          #   enable = true;
+          #   ipv4 = vars.networking.hostsAddr.MGC-LT01.wireguard.ipv4;
+          #   allowed-ips = ["${vars.networking.privateLANSubnet}"];
+          #   server = {
+          #     ipv4 = vars.networking.wireguardPublicIP;
+          #     public-key = vars.keys.wireguardPubKeys.MGC-DRW-CTR01;
+          #   };
+          # };
 
           comin = {
             enable = true;
