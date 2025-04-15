@@ -1,7 +1,7 @@
 {vars, ...}: {
   terraform.required_providers.libvirt.source = "dmacvicar/libvirt";
 
-  provider.libvirt.uri = "qemu+ssh://controller@${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4}/system";
+  provider.libvirt.uri = "qemu+ssh://${vars.adminUser}@${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4}/system";
 
   module = {
     bastion-server = {
