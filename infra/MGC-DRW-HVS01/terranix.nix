@@ -4,12 +4,15 @@
   system,
   machineName,
   action,
+  vars,
   ...
 }: let
   opentofu = pkgs.opentofu;
   terraformConfiguration = terranix.lib.terranixConfiguration {
     inherit system;
     modules = [
+      (import ./virtual-machines/MGC-DRW-BST01.nix {inherit vars;})
+      (import ./virtual-machines/MGC-DRW-PWS01.nix {inherit vars;})
     ];
   };
 in {
