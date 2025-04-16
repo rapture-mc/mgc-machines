@@ -13,6 +13,8 @@ nixpkgs.lib.nixosSystem {
         ./hardware-config.nix
       ];
 
+      nixpkgs.config.allowUnfree = true;
+
       networking.hostName = "MGC-DRW-HVS03";
 
       system.stateVersion = "24.05";
