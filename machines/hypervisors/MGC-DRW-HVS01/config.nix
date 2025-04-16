@@ -22,11 +22,6 @@ nixpkgs.lib.nixosSystem {
 
       nixpkgs.config.allowUnfree = true;
 
-      services.keycloak.settings = {
-        hostname-strict = false;
-        hostname-strict-https = false;
-      };
-
       megacorp = {
         config = {
           networking = {
