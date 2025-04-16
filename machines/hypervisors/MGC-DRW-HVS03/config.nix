@@ -53,7 +53,14 @@ nixpkgs.lib.nixosSystem {
           };
         };
 
-        virtualisation.whonix.enable = true;
+        virtualisation.hypervisor = {
+          enable = true;
+          logo = true;
+          libvirt-users = [
+            "${vars.adminUser}"
+            "controller"
+          ];
+        };
       };
     }
   ];
