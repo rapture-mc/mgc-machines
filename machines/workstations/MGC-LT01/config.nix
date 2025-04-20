@@ -14,20 +14,12 @@ in
 nixpkgs.lib.nixosSystem {
   modules = [
     megacorp.nixosModules.default
-    # nixos-hardware.nixosModules.lenovo-thinkpad-x13
+    nixos-hardware.nixosModules.lenovo-thinkpad-x13
     {
       imports = [
         (import ../../base-config.nix {inherit vars;})
         ./hardware-config.nix
       ];
-
-      # users = {
-      #   mutableUsers = false;
-      #   users.test-user = {
-      #     isNormalUser = true;
-      #     hashedPassword = "$6$Ey6fzsEaGSkk2286$cUtsv6HcBfo1GRxwEZbVOT23zOT9rOU9XumC14pprvmiiagkQWmxKqYbjTIsAt.d8wPS1NdYas0Dv4khDxG/G0";
-      #   };
-      # };
 
       networking.hostName = "MGC-LT01";
 
