@@ -29,6 +29,7 @@ nixpkgs.lib.nixosSystem {
         hugo
         gnucash
         hledger
+        qbittorrent
         spotify
         sioyek
       ];
