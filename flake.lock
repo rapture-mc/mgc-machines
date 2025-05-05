@@ -387,11 +387,11 @@
         "plasma-manager": "plasma-manager"
       },
       "locked": {
-        "lastModified": 1746414877,
-        "narHash": "sha256-5dGKfe8VxmH3/5qZJLKwqF0AI8HStKnzyvV/yXxBj6E=",
+        "lastModified": 1746416783,
+        "narHash": "sha256-ghE8Hfmy428lWtJlz4KjCH6FpJ74Yz4/2ZgXYygOvOQ=",
         "owner": "rapture-mc",
         "repo": "nixos-module",
-        "rev": "321e70d7c0e7331083e2b24d69ee7fe812eef8dc",
+        "rev": "20f8e45e84c666a33e501f9352c995fc7295fabf",
         "type": "github"
       },
       "original": {
