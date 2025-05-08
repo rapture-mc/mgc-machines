@@ -26,15 +26,23 @@ nixpkgs.lib.nixosSystem {
       system.stateVersion = "24.05";
 
       environment.systemPackages = with pkgs; [
-        hugo
+        flameshot
         gnucash
         hledger
+        hugo
         qbittorrent
         spotify
         sioyek
       ];
 
       virtualisation.docker.enable = true;
+
+      services.nginx = {
+        enable = true;
+        virtualHosts."localhost" = {
+          root = "/var/www/doco";
+        };
+      };
 
       megacorp = {
         config = {
