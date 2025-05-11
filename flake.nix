@@ -58,7 +58,7 @@
     # Helper function for importing different nixosConfigurations
     importMachineConfig = machineType: machineName: configType:
       import ./machines/${machineType}/${machineName}/${configType}.nix {
-        inherit inputs self vars megacorp nixpkgs deploy-rs nixos-hardware pkgs;
+        inherit inputs self vars megacorp nixpkgs deploy-rs nixos-hardware pkgs terranix;
       };
 
     # Helper function for importing different Terraform configurations
@@ -82,11 +82,11 @@
     # Run with "nix run .#<hypervisor-name>-apply"
     apps.${system} = import ./infra {inherit importTerraformConfig;};
 
-    # For generating NixOS QCOW EFI images for use with terraform + libvirt
-    # Build with "nix build .#qcow-efi"
-    packages.${system}.qcow-efi = nixos-generators.nixosGenerate {
+    # For generating NixOS QCOW images for use with terraform + libvirt
+    # Build with "nix build .#qcow"
+    packages.${system}.qcow = nixos-generators.nixosGenerate {
       system = "${system}";
-      format = "qcow-efi";
+      format = "qcow";
       modules = [
         megacorp.nixosModules.default
         {
@@ -98,7 +98,7 @@
             virtualisation.qemu-guest.enable = true;
             config = {
               system.enable = true;
-              bootloader.enable = false;  # nixos-generator will handle bootloader configuration instead
+              bootloader.enable = false; # nixos-generator will handle bootloader configuration instead
               nixvim.enable = true;
               packages.enable = true;
 
