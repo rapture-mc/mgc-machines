@@ -1,11 +1,10 @@
 {
-  nixpkgs,
+  pkgs,
   vars,
   terranix,
   ...
 }: let
   system = "x86_64-linux";
-  pkgs = nixpkgs.legacyPackages.${system};
   terraformConfiguration = terranix.lib.terranixConfiguration {
     inherit system;
     modules = [

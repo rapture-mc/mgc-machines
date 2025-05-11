@@ -1,5 +1,6 @@
 {
   nixpkgs,
+  pkgs,
   megacorp,
   vars,
   terranix,
@@ -13,7 +14,7 @@ in
       {
         imports = [
           (import ../../base-config.nix {inherit vars;})
-          (import ./infra.nix {inherit nixpkgs vars terranix;})
+          (import ./infra.nix {inherit pkgs vars terranix;})
           ./hardware-config.nix
         ];
 
