@@ -2,9 +2,9 @@
   pkgs,
   vars,
   terranix,
+  system,
   ...
 }: let
-  system = "x86_64-linux";
   terraformConfiguration = terranix.lib.terranixConfiguration {
     inherit system;
     modules = [

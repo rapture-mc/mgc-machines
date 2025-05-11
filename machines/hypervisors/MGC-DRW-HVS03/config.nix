@@ -4,6 +4,7 @@
   megacorp,
   vars,
   terranix,
+  system,
   ...
 }: let
   lib = nixpkgs.lib;
@@ -14,7 +15,7 @@ in
       {
         imports = [
           (import ../../base-config.nix {inherit vars;})
-          (import ./infra.nix {inherit pkgs vars terranix;})
+          (import ./infra.nix {inherit pkgs vars terranix system;})
           ./hardware-config.nix
         ];
 

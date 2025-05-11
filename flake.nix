@@ -58,7 +58,7 @@
     # Helper function for importing different nixosConfigurations
     importMachineConfig = machineType: machineName: configType:
       import ./machines/${machineType}/${machineName}/${configType}.nix {
-        inherit inputs self vars megacorp nixpkgs deploy-rs nixos-hardware pkgs terranix;
+        inherit inputs self vars megacorp nixpkgs deploy-rs nixos-hardware pkgs terranix system;
       };
 
     # Helper function for importing different Terraform configurations
