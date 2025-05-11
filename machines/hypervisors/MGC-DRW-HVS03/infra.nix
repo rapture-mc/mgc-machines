@@ -17,7 +17,7 @@
         module = {
           password-server = {
             source = "${vars.terraformModuleSource}";
-            vm_hostname_prefix = "PWS";
+            vm_hostname_prefix = "MGC-DRW-PWS";
             uefi_enabled = false;
             autostart = true;
             vm_count = 1;
