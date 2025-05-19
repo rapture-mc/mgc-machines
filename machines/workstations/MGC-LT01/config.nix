@@ -42,6 +42,8 @@ in
           ];
         };
 
+        xdg.portal.enable = true;
+
         virtualisation.docker.enable = true;
 
         services.nginx = {
