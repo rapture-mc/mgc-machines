@@ -30,6 +30,7 @@ in
           gnucash
           hledger
           hugo
+          intel-media-sdk
           qbittorrent
           spotify
           sioyek
