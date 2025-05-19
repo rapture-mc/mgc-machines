@@ -42,7 +42,10 @@ in
           ];
         };
 
-        xdg.portal.enable = true;
+        xdg.portal = {
+          enable = true;
+          wlr.enable = true;
+        };
 
         virtualisation.docker.enable = true;
 
