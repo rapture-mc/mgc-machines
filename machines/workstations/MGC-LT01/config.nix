@@ -35,6 +35,8 @@ in
           sioyek
         ];
 
+        programs.obs-studio.enable = true;
+
         virtualisation.docker.enable = true;
 
         services.nginx = {
