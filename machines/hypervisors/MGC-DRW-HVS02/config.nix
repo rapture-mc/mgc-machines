@@ -19,6 +19,13 @@ nixpkgs.lib.nixosSystem {
 
       system.stateVersion = "24.05";
 
+      security.ipa = {
+        enable = true;
+        server = "MGC-DRW-HVS02.megacorp.industries";
+        domain = "megacorp.industries";
+        realm = "MEGACORP.INDUSTRIES";
+      };
+
       # The Ethernet card will suddenly stop working if too much data is transmitted over the link at one time. See https://www.reddit.com/r/Proxmox/comments/1drs89s/intel_nic_e1000e_hardware_unit_hang/?rdt=43359 for more info.
       systemd.services.fix-ethernet-bug = {
         enable = true;
