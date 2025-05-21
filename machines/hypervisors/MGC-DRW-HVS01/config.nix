@@ -74,6 +74,7 @@ nixpkgs.lib.nixosSystem {
           "dc=megacorp,dc=industries" = ''
             dn: ou=users,dc=megacorp,dc=industries
             objectClass = organizationalUnit
+            objectClass = top
             ou: users
           '';
         };
