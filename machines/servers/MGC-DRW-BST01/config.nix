@@ -16,6 +16,10 @@ nixpkgs.lib.nixosSystem {
         ./hardware-config.nix
       ];
 
+      services.openldap = {
+        enable = true;
+      };
+
       networking = {
         hostName = "MGC-DRW-BST01";
 
