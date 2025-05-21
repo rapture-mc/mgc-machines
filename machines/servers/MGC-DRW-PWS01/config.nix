@@ -3,6 +3,7 @@
   megacorp,
   vars,
   inputs,
+  pkgs,
   ...
 }:
 nixpkgs.lib.nixosSystem {
@@ -19,6 +20,18 @@ nixpkgs.lib.nixosSystem {
       networking.hostName = "MGC-DRW-PWS01";
 
       system.stateVersion = "24.11";
+
+      security.ipa = {
+        enable = true;
+        server = "MGC-DRW-HVS02.megacorp.industries";
+        domain = "megacorp.industries";
+        realm = "MEGACORP.INDUSTRIES";
+        certificate = pkgs.fetchurl {
+          url = "http://localhost/ipa/config/ca.crt";
+          sha256 = "";
+        };
+        basedn = "dc=megacorp,dc=industries";
+      };
 
       megacorp = {
         config = {
