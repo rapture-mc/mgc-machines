@@ -73,8 +73,8 @@ nixpkgs.lib.nixosSystem {
         declarativeContents = {
           "dc=megacorp,dc=industries" = ''
             dn: ou=users,dc=megacorp,dc=industries
-            objectClass = organizationalUnit
-            objectClass = top
+            objectClass: organizationalUnit
+            objectClass: top
             ou: users
           '';
         };
