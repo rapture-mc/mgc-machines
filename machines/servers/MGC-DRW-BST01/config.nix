@@ -44,7 +44,7 @@ nixpkgs.lib.nixosSystem {
               olcSuffix = "dc=megacorp,dc=industries";
 
               /* your admin account, do not use writeText on a production system */
-              olcRootDN = "cn=admin,dc=example,dc=com";
+              olcRootDN = "cn=admin,dc=megacorp,dc=industries";
               olcRootPW.path = pkgs.writeText "olcRootPW" "lolol";
 
               olcAccess = [
