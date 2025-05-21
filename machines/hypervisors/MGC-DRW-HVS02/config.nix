@@ -27,7 +27,7 @@ nixpkgs.lib.nixosSystem {
         realm = "MEGACORP.INDUSTRIES";
         certificate = pkgs.fetchurl {
           url = "http://localhost/ipa/config/ca.crt";
-          sha256 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+          sha256 = "";
         };
       };
 
