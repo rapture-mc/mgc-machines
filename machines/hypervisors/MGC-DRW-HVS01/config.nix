@@ -5,8 +5,31 @@
   inputs,
   pkgs,
   ...
-}:
-nixpkgs.lib.nixosSystem {
+}: let
+
+version = "2.10.4";
+
+godap = pkgs.buildGoModule {
+  pname = "godap";
+  inherit version;
+
+  src = pkgs.fetchFromGitHub {
+    owner = "Macmod";
+    repo = "godap";
+    rev = "v${version}";
+    hash = "sha256-mvzVOuFZABGE7DH3AkhOXvsvSZzgpW0aJUdXW6N6hf0=";
+  };
+
+  vendorHash = "sha256-NiNhKbf5bU1SQXFTZCp8/yNPc89ss8go6M2867ziqq4=";
+
+  meta = with nixpkgs.lib; {
+    homepage = "https://github.com/Macmod/godap";
+    description = "TUI for LDAP";
+    license = licenses.mit;
+  };
+};
+
+in nixpkgs.lib.nixosSystem {
   modules = [
     megacorp.nixosModules.default
     {
@@ -22,6 +45,8 @@ nixpkgs.lib.nixosSystem {
       system.stateVersion = "24.05";
 
       nixpkgs.config.allowUnfree = true;
+
+      environment.systemPackages = [ godap ];
 
       networking.firewall.allowedTCPPorts = [ 389 ];
 
@@ -53,7 +78,7 @@ nixpkgs.lib.nixosSystem {
 
               /* your admin account, do not use writeText on a production system */
               olcRootDN = "cn=admin,dc=megacorp,dc=industries";
-              olcRootPW.path = pkgs.writeText "olcRootPW" "lolol";
+              olcRootPW.path = pkgs.writeText "olcRootPW" "password";
 
               olcAccess = [
                 /* custom access rules for userPassword attributes */
@@ -71,15 +96,9 @@ nixpkgs.lib.nixosSystem {
         };
 
         declarativeContents = {
-          "dc=megacorp,dc=industries" = ''
-            dn= dn: dc=megacorp,dc=industries
-            objectClass: domain
-            dc: megacorp
-
-            dn: ou=users,dc=megacorp,dc=industries
-            objectClass = organizationalUnit
-            ou: users
-          '';
+          "dc=megacorp,dc=industries" = 
+            import ./ldap/ou-structure.nix +
+            import ./ldap/users.nix;
         };
       };
 
