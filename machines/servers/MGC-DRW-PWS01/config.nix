@@ -20,6 +20,10 @@ nixpkgs.lib.nixosSystem {
 
       system.stateVersion = "24.11";
 
+      users.ldap = {
+        enable = true;
+      };
+
       megacorp = {
         config = {
           openssh = {
