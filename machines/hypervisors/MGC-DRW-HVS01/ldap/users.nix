@@ -9,4 +9,9 @@
   cn: John Smith
   sn: Smith
 
+  dn: cn=Heath Hamburger,ou=Finance,ou=Users,dc=megacorp,dc=industries
+  objectClass: person
+  cn: Heath Hamburger
+  sn: Hamburger
+
 ''
