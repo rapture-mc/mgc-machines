@@ -78,7 +78,7 @@ in nixpkgs.lib.nixosSystem {
 
               /* your admin account, do not use writeText on a production system */
               olcRootDN = "cn=admin,dc=megacorp,dc=industries";
-              olcRootPW.path = pkgs.writeText "olcRootPW" "password";
+              olcRootPW.path = "/run/secrets/olcRootPW";
 
               olcAccess = [
                 /* custom access rules for userPassword attributes */
