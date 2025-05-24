@@ -23,6 +23,7 @@ nixpkgs.lib.nixosSystem {
       users.ldap = {
         enable = true;
         server = "ldap://mgc-drw-hvs01";
+        base = "dc=megacorp,dc=industries";
       };
 
       megacorp = {
