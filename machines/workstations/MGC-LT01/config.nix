@@ -66,11 +66,6 @@ in
           };
 
           services = {
-            controller = {
-              agent.enable = true;
-              server.public-key = vars.keys.controllerPubKey;
-            };
-
             # wireguard-client = {
             #   enable = true;
             #   ipv4 = vars.networking.hostsAddr.MGC-LT01.wireguard.ipv4;

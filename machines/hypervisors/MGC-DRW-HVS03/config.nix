@@ -53,11 +53,6 @@ in
           };
 
           services = {
-            controller = {
-              agent.enable = true;
-              server.public-key = vars.keys.controllerPubKey;
-            };
-
             comin = {
               enable = true;
               repo = "https://github.com/rapture-mc/mgc-machines";
