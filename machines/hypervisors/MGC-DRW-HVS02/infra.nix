@@ -39,6 +39,19 @@
             bridge = "br0";
             dhcp = true;
           };
+
+          desktop-gateway = {
+            source = "${vars.terraformModuleSource}";
+            vm_hostname_prefix = "MGC-DRW-DGW";
+            uefi_enabled = false;
+            autostart = true;
+            vm_count = 1;
+            memory = "4096";
+            vcpu = 2;
+            system_volume = 100;
+            bridge = "br0";
+            dhcp = true;
+          };
         };
       }
     ];
