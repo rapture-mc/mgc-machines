@@ -57,7 +57,7 @@
     # For generating NixOS QCOW images for use with terraform + libvirt
     # Build with "nix build .#qcow"
     packages.${system}.qcow = nixos-generators.nixosGenerate {
-      system = "${system}";
+      system = system;
       format = "qcow";
       modules = [
         megacorp.nixosModules.default
@@ -68,6 +68,7 @@
 
           megacorp = {
             virtualisation.qemu-guest.enable = true;
+
             config = {
               system.enable = true;
               bootloader.enable = false; # nixos-generator will handle bootloader configuration instead
@@ -76,9 +77,7 @@
 
               openssh = {
                 enable = true;
-                authorized-ssh-keys = [
-                  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzlYmoWjZYFeCNdMBCHBXmqpzK1IBmRiB3hNlsgEtre benny@MGC-DRW-BST01"
-                ];
+                authorized-ssh-keys = vars.keys.bastionPubKey;
               };
 
               users = {
