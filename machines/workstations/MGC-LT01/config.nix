@@ -57,6 +57,11 @@ in
 
         megacorp = {
           config = {
+            bootloader = {
+              enable = true;
+              efi.enable = true;
+            };
+
             openssh = {
               enable = true;
               authorized-ssh-keys = vars.keys.bastionPubKey;

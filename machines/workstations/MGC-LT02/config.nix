@@ -19,6 +19,11 @@ nixpkgs.lib.nixosSystem {
 
       megacorp = {
         config = {
+          bootloader = {
+            enable = true;
+            efi.enable = true;
+          };
+
           users.regular-user.enable = true;
 
           desktop.enable = true;
