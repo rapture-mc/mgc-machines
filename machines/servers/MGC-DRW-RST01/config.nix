@@ -19,10 +19,7 @@ nixpkgs.lib.nixosSystem {
 
       megacorp = {
         config = {
-          openssh = {
-            enable = true;
-            authorized-ssh-keys = vars.keys.bastionPubKey;
-          };
+          bootloader.enable = true;
 
           networking.static-ip = {
             enable = true;
@@ -31,6 +28,11 @@ nixpkgs.lib.nixosSystem {
             gateway = vars.networking.defaultGateway;
             nameservers = vars.networking.nameServers;
             lan-domain = vars.networking.internalDomain;
+          };
+
+          openssh = {
+            enable = true;
+            authorized-ssh-keys = vars.keys.bastionPubKey;
           };
         };
 

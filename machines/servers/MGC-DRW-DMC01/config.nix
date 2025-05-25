@@ -24,6 +24,8 @@ nixpkgs.lib.nixosSystem {
 
       megacorp = {
         config = {
+          bootloader.enable = true;
+
           networking.static-ip = {
             enable = true;
             ipv4 = vars.networking.hostsAddr.MGC-DRW-DMC01.eth.ipv4;
@@ -31,8 +33,6 @@ nixpkgs.lib.nixosSystem {
             gateway = vars.networking.defaultGateway;
             lan-domain = vars.networking.internalDomain;
           };
-
-          bootloader.efi.enable = nixpkgs.lib.mkForce false;
 
           openssh = {
             enable = true;

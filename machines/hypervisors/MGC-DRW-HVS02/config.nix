@@ -50,6 +50,11 @@ nixpkgs.lib.nixosSystem {
 
       megacorp = {
         config = {
+          bootloader = {
+            enable = true;
+            efi.enable = true;
+          };
+
           networking = {
             static-ip = {
               enable = true;

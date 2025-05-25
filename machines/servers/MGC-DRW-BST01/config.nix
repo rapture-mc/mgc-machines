@@ -13,7 +13,7 @@ nixpkgs.lib.nixosSystem {
         (import ../../base-config.nix {inherit vars;})
         (import ./backup.nix {inherit vars;})
         (import ./secrets.nix {inherit inputs vars;})
-        ./hardware-config.nix
+        ../../qemu-hardware-config.nix
       ];
 
       networking.hostName = "MGC-DRW-BST01";
@@ -22,6 +22,8 @@ nixpkgs.lib.nixosSystem {
 
       megacorp = {
         config = {
+          bootloader.enable = true;
+
           networking.static-ip = {
             enable = true;
             ipv4 = vars.networking.hostsAddr.MGC-DRW-BST01.eth.ipv4;
