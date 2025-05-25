@@ -3,6 +3,7 @@
 {
   networking.hosts = {
     "${vars.networking.hostsAddr.MGC-DRW-DGW01.eth.ipv4}" = ["MGC-DRW-DGW01"];
+    "${vars.networking.hostsAddr.MGC-DRW-BST01.eth.ipv4}" = ["MGC-DRW-BST01"];
     "${vars.networking.hostsAddr.MGC-DRW-PWS01.eth.ipv4}" = ["MGC-DRW-PWS01"];
     "${vars.networking.hostsAddr.MGC-DRW-RST01.eth.ipv4}" = ["MGC-DRW-RST01"];
     "${vars.networking.hostsAddr.MGC-DRW-RVP01.eth.ipv4}" = ["MGC-DRW-RVP01"];
