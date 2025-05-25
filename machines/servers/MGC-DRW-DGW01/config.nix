@@ -1,5 +1,6 @@
 {
   nixpkgs,
+  pkgs,
   megacorp,
   vars,
   inputs,
@@ -17,6 +18,10 @@ nixpkgs.lib.nixosSystem {
       networking.hostName = "MGC-DRW-DGW01";
 
       system.stateVersion = "24.11";
+
+      environment.systemPackages = with pkgs; [
+        freerdp
+      ];
 
       megacorp = {
         config = {
