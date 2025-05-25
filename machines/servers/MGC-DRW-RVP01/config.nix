@@ -55,7 +55,7 @@ nixpkgs.lib.nixosSystem {
             logo = true;
             guacamole = {
               enable = true;
-              ipv4 = vars.networking.hostsAddr.MGC-DRW-GUC01.eth.ipv4;
+              ipv4 = vars.networking.hostsAddr.MGC-DRW-DGW01.eth.ipv4;
               fqdn = vars.guacamoleFQDN;
             };
           };
