@@ -2,15 +2,9 @@
   # Servers
   MGC-DRW-BST01 = importMachineConfig "servers" "MGC-DRW-BST01" "config";
   MGC-DRW-DMC01 = importMachineConfig "servers" "MGC-DRW-DMC01" "config";
-  MGC-DRW-CTR01 = importMachineConfig "servers" "MGC-DRW-CTR01" "config";
-  MGC-DRW-GUC01 = importMachineConfig "servers" "MGC-DRW-GUC01" "config";
-  MGC-DRW-GRF01 = importMachineConfig "servers" "MGC-DRW-GRF01" "config";
-  MGC-DRW-FBR01 = importMachineConfig "servers" "MGC-DRW-FBR01" "config";
   MGC-DRW-PWS01 = importMachineConfig "servers" "MGC-DRW-PWS01" "config";
   MGC-DRW-RST01 = importMachineConfig "servers" "MGC-DRW-RST01" "config";
   MGC-DRW-RVP01 = importMachineConfig "servers" "MGC-DRW-RVP01" "config";
-  MGC-DRW-SEM01 = importMachineConfig "servers" "MGC-DRW-SEM01" "config";
-  MGC-DRW-ZBX01 = importMachineConfig "servers" "MGC-DRW-ZBX01" "config";
 
   # Hypervisors
   MGC-DRW-HVS01 = importMachineConfig "hypervisors" "MGC-DRW-HVS01" "config";

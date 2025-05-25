@@ -1,9 +1,6 @@
 keys:
-  - &server_MGC-DRW-CTR01 age13tw3g5x7jd6svaldh57un0xjy65yhxrpau8kkjag2afml83c39wsqy8lvy
   - &server_MGC-DRW-DMC01 age13ycsdrpwydpw89ae5tpmmwzwplgs2ne20k9ypyvknpz6faya7evquq4nmv
-  - &server_MGC-DRW-SEM01 age1rd0y53lk5hxvwhay5gwx245yrcm8h57jppync6jf85r648xkaqksdey6nl
   - &server_MGC-DRW-PWS01 age1kldg9c698z3sup4z3uzj8ytmd7jh5k4l53s23pv3h6yk7mdn8u0szlqvm4
-  - &server_MGC-DRW-FBR01 age1u9cf6kjq9qldjepengff8y9f8nf3vq47ksg7pn5ch4nu7arseyes2dc3g0
   - &server_MGC-DRW-BST01 age174jz0vs3zs06ck59krz3qazrszr8lnst4w8h4shmdj8ccaur84dsea6fkr
   - &server_MGC-DRW-HVS01 age103qqt3eacmhxestkspwqzrgaekzh6gmquuxa7djradah46zuzfkq6qhu7l
   - &server_MGC-DRW-HVS03 age14tclpesd3fn0g073knxch6mt9syd06f85sl5gv5hjl3l42f92alq733v4d
@@ -12,11 +9,8 @@ creation_rules:
   - path_regex: sops/secrets/default.yaml
     key_groups:
     - age:
-      - *server_MGC-DRW-CTR01
       - *server_MGC-DRW-DMC01
-      - *server_MGC-DRW-SEM01
       - *server_MGC-DRW-PWS01
-      - *server_MGC-DRW-FBR01
       - *server_MGC-DRW-BST01
       - *server_MGC-DRW-HVS01
       - *server_MGC-DRW-HVS03

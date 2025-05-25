@@ -15,11 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,7 +40,6 @@
     self,
     nixpkgs,
     megacorp,
-    deploy-rs,
     nixos-generators,
     terranix,
     nixos-hardware,
@@ -58,29 +52,13 @@
     # Helper function for importing different nixosConfigurations
     importMachineConfig = machineType: machineName: configType:
       import ./machines/${machineType}/${machineName}/${configType}.nix {
-        inherit inputs self vars megacorp nixpkgs deploy-rs nixos-hardware pkgs terranix system;
-      };
-
-    # Helper function for importing different Terraform configurations
-    importTerraformConfig = machineName: action:
-      import ./infra/${machineName}/terranix.nix {
-        inherit terranix pkgs system machineName action vars;
+        inherit inputs self vars megacorp nixpkgs nixos-hardware pkgs terranix system;
       };
   in {
+
     # Machines currently managed under this Flake
     # Rebuild locally with "sudo nixos-rebuild switch --flake .#<machine-hostname>"
     nixosConfigurations = import ./machines {inherit importMachineConfig;};
-
-    # Machines that are managed with deploy-rs
-    # Deploy with "deploy-rs .#<machine-hostname> -s"
-    deploy.nodes = import ./machines/deploy.nix {inherit importMachineConfig;};
-
-    # Check deploy-rs configuration beforehand (recommened by deploy-rs manual)
-    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
-
-    # Nix commands to create/destroy Terraform infrastructure
-    # Run with "nix run .#<hypervisor-name>-apply"
-    apps.${system} = import ./infra {inherit importTerraformConfig;};
 
     # For generating NixOS QCOW images for use with terraform + libvirt
     # Build with "nix build .#qcow"
