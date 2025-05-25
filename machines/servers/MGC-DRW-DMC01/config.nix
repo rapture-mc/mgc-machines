@@ -11,11 +11,11 @@ nixpkgs.lib.nixosSystem {
     megacorp.nixosModules.default
     {
       imports = [
+        ../../qemu-hardware-config.nix
         (import ../../base-config.nix {inherit vars;})
-        (import ./ldap {inherit nixpkgs pkgs;})
         (import ./secrets.nix {inherit inputs vars;})
+        (import ./ldap {inherit nixpkgs pkgs;})
         (import ./dns.nix {inherit megacorp vars;})
-        ./hardware-config.nix
       ];
 
       networking.hostName = "MGC-DRW-DMC01";
