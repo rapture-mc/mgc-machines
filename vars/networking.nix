@@ -48,21 +48,10 @@
       };
     };
 
-    MGC-DRW-GUC01 = {
+    MGC-DRW-DGW01 = {
       eth = {
         name = "ens3";
         ipv4 = "192.168.1.33";
-      };
-    };
-
-    MGC-DRW-CTR01 = {
-      eth = {
-        name = "ens3";
-        ipv4 = "192.168.1.34";
-      };
-
-      wireguard = {
-        ipv4 = "10.100.0.1";
       };
     };
 
@@ -77,40 +66,6 @@
       eth = {
         name = "ens3";
         ipv4 = "192.168.1.36";
-      };
-    };
-
-    MGC-DRW-FBR01 = {
-      eth = {
-        name = "ens3";
-        ipv4 = "192.168.1.38";
-      };
-    };
-
-    MGC-DRW-SEM01 = {
-      eth = {
-        name = "ens3";
-        ipv4 = "192.168.1.39";
-      };
-    };
-
-    MGC-DRW-GRF01 = {
-      eth = {
-        name = "ens3";
-        ipv4 = "192.168.1.40";
-      };
-    };
-
-    MGC-DRW-ZBX01 = {
-      eth = {
-        name = "ens3";
-        ipv4 = "192.168.1.41";
-      };
-    };
-
-    MGC-LT01 = {
-      wireguard = {
-        ipv4 = "10.100.0.2";
       };
     };
   };

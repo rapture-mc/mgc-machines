@@ -2,6 +2,7 @@
   nixpkgs,
   megacorp,
   vars,
+  inputs,
   ...
 }:
 nixpkgs.lib.nixosSystem {
@@ -13,17 +14,9 @@ nixpkgs.lib.nixosSystem {
         ./hardware-config.nix
       ];
 
-      networking.hostName = "MGC-DRW-RVP01";
+      networking.hostName = "MGC-DRW-DGW01";
 
       system.stateVersion = "24.11";
-
-      services.nginx.virtualHosts = {
-        "megacorp.industries" = {
-          forceSSL = true;
-          enableACME = true;
-          locations."/".proxyPass = "http://${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4}:80";
-        };
-      };
 
       megacorp = {
         config = {
@@ -34,8 +27,8 @@ nixpkgs.lib.nixosSystem {
 
           networking.static-ip = {
             enable = true;
-            ipv4 = vars.networking.hostsAddr.MGC-DRW-RVP01.eth.ipv4;
-            interface = vars.networking.hostsAddr.MGC-DRW-RVP01.eth.name;
+            ipv4 = vars.networking.hostsAddr.MGC-DRW-DGW01.eth.ipv4;
+            interface = vars.networking.hostsAddr.MGC-DRW-DGW01.eth.name;
             gateway = vars.networking.defaultGateway;
             nameservers = vars.networking.nameServers;
             lan-domain = vars.networking.internalDomain;
@@ -48,14 +41,10 @@ nixpkgs.lib.nixosSystem {
             repo = "https://github.com/rapture-mc/mgc-machines";
           };
 
-          nginx = {
+          guacamole = {
             enable = true;
             logo = true;
-            guacamole = {
-              enable = true;
-              ipv4 = vars.networking.hostsAddr.MGC-DRW-GUC01.eth.ipv4;
-              fqdn = vars.guacamoleFQDN;
-            };
+            reverse-proxied = true;
           };
         };
       };
