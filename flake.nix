@@ -6,8 +6,7 @@
       type = "github";
       owner = "nixos";
       repo = "nixpkgs";
-      ref = "nixos-24.11";
-      rev = "04ef94c4c1582fd485bbfdb8c4a8ba250e359195";
+      ref = "nixos-25.05";
     };
 
     megacorp = {
