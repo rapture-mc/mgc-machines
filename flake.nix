@@ -29,11 +29,6 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixos-hardware = {
-      url = "github:nixos/nixos-hardware/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -42,7 +37,6 @@
     megacorp,
     nixos-generators,
     terranix,
-    nixos-hardware,
     ...
   } @ inputs: let
     vars = import ./vars;
@@ -52,7 +46,7 @@
     # Helper function for importing different nixosConfigurations
     importMachineConfig = machineType: machineName: configType:
       import ./machines/${machineType}/${machineName}/${configType}.nix {
-        inherit inputs self vars megacorp nixpkgs nixos-hardware pkgs terranix system;
+        inherit inputs self vars megacorp nixpkgs pkgs terranix system;
       };
   in {
 
