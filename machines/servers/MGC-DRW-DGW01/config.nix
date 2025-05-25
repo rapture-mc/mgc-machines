@@ -11,7 +11,7 @@ nixpkgs.lib.nixosSystem {
     {
       imports = [
         (import ../../base-config.nix {inherit vars;})
-        ./hardware-config.nix
+        ../../qemu-hardware-config.nix
       ];
 
       networking.hostName = "MGC-DRW-DGW01";
