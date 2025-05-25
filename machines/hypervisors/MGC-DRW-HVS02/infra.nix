@@ -13,21 +13,21 @@
 
         provider.libvirt.uri = "qemu:///system";
 
-        # module = {
-        #   password-server = {
-        #     source = "${vars.terraformModuleSource}";
-        #     vm_hostname_prefix = "MGC-DRW-BST";
-        #     uefi_enabled = false;
-        #     index_start = 2;
-        #     autostart = true;
-        #     vm_count = 1;
-        #     memory = "4096";
-        #     vcpu = 2;
-        #     system_volume = 100;
-        #     bridge = "br0";
-        #     dhcp = true;
-        #   };
-        # };
+        module = {
+          password-server = {
+            source = "${vars.terraformModuleSource}";
+            vm_hostname_prefix = "MGC-DRW-BST";
+            uefi_enabled = false;
+            index_start = 2;
+            autostart = true;
+            vm_count = 1;
+            memory = "4096";
+            vcpu = 2;
+            system_volume = 100;
+            bridge = "br0";
+            dhcp = true;
+          };
+        };
       }
     ];
   };
