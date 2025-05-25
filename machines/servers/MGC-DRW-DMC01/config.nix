@@ -3,6 +3,8 @@
   pkgs,
   megacorp,
   vars,
+  lib,
+  inputs,
   ...
 }:
 nixpkgs.lib.nixosSystem {
@@ -12,6 +14,7 @@ nixpkgs.lib.nixosSystem {
       imports = [
         (import ../../base-config.nix {inherit vars;})
         (import ./ldap {inherit nixpkgs pkgs;})
+        (import ./secrets.nix {inherit inputs vars;})
         ./hardware-config.nix
       ];
 
@@ -47,6 +50,8 @@ nixpkgs.lib.nixosSystem {
             gateway = vars.networking.defaultGateway;
             lan-domain = vars.networking.internalDomain;
           };
+
+          bootloader.efi.enable = lib.mkForce false;
 
           openssh = {
             enable = true;
