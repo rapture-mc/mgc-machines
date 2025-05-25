@@ -5,11 +5,6 @@
     MGC-LT01 = "WybmIIlnKoaSpJZVLkw34RwhRhogfTbKXNEchGhrAXE=";
   };
 
-  syncthingIDs = {
-    MGC-DRW-CTR01 = "LHBQWNB-OP6DESP-AYQ3MN7-J2UPXDN-UKXWBFT-PQTZKIM-IA3MY3A-M4WL5Q7";
-    MGC-DRW-HVS02 = "VGZKTPR-QCDTIDB-2AOG3Q3-XMOEYWT-XOP2GBO-NEMAUKK-ILCDONT-R2USHQJ";
-  };
-
   # The following keys are permitted to connect to the bastion server over SSH
   authorizedBastionPubKeys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKhKBbO3gu8cbKQYOopVAA9gkSHHChkjMYPgfW2NIBrN benny@MGC-LT01"
@@ -19,11 +14,6 @@
   # The bastion public key
   bastionPubKey = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzlYmoWjZYFeCNdMBCHBXmqpzK1IBmRiB3hNlsgEtre benny@MGC-DRW-BST01"
-  ];
-
-  # The following keys are permitted to connect to remote hosts over SSH to run automated commands
-  controllerPubKey = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBDTHyxJfsK8Nb1fJonht3niVbWP2xRR+4ZgqtAMpMw7 benny@MGC-DRW-HVS01"
   ];
 
   # The following keys are permitted to connect to the Restic server to upload backups
