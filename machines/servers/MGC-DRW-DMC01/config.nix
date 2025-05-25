@@ -3,7 +3,6 @@
   pkgs,
   megacorp,
   vars,
-  lib,
   inputs,
   ...
 }:
@@ -51,7 +50,7 @@ nixpkgs.lib.nixosSystem {
             lan-domain = vars.networking.internalDomain;
           };
 
-          bootloader.efi.enable = lib.mkForce false;
+          bootloader.efi.enable = nixpkgs.lib.mkForce false;
 
           openssh = {
             enable = true;
