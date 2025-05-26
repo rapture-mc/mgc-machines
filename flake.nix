@@ -49,7 +49,6 @@
         inherit inputs self vars megacorp nixpkgs pkgs terranix system;
       };
   in {
-
     # Machines currently managed under this Flake
     # Rebuild locally with "sudo nixos-rebuild switch --flake .#<machine-hostname>"
     nixosConfigurations = import ./machines {inherit importMachineConfig;};

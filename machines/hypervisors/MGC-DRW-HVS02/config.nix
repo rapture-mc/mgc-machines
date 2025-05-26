@@ -13,7 +13,7 @@ nixpkgs.lib.nixosSystem {
     {
       imports = [
         (import ../../base-config.nix {inherit vars;})
-          (import ./infra.nix {inherit pkgs vars terranix system;})
+        (import ./infra.nix {inherit pkgs vars terranix system;})
         ./hardware-config.nix
       ];
 

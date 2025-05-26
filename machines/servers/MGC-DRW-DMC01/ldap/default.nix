@@ -1,28 +1,31 @@
-{ nixpkgs, pkgs, ... }: let
+{
+  nixpkgs,
+  pkgs,
+  ...
+}: let
+  version = "2.10.4";
 
-version = "2.10.4";
+  godap = pkgs.buildGoModule {
+    pname = "godap";
+    inherit version;
 
-godap = pkgs.buildGoModule {
-  pname = "godap";
-  inherit version;
+    src = pkgs.fetchFromGitHub {
+      owner = "Macmod";
+      repo = "godap";
+      rev = "v${version}";
+      hash = "sha256-mvzVOuFZABGE7DH3AkhOXvsvSZzgpW0aJUdXW6N6hf0=";
+    };
 
-  src = pkgs.fetchFromGitHub {
-    owner = "Macmod";
-    repo = "godap";
-    rev = "v${version}";
-    hash = "sha256-mvzVOuFZABGE7DH3AkhOXvsvSZzgpW0aJUdXW6N6hf0=";
+    vendorHash = "sha256-NiNhKbf5bU1SQXFTZCp8/yNPc89ss8go6M2867ziqq4=";
+
+    meta = with nixpkgs.lib; {
+      homepage = "https://github.com/Macmod/godap";
+      description = "TUI for LDAP";
+      license = licenses.mit;
+    };
   };
-
-  vendorHash = "sha256-NiNhKbf5bU1SQXFTZCp8/yNPc89ss8go6M2867ziqq4=";
-
-  meta = with nixpkgs.lib; {
-    homepage = "https://github.com/Macmod/godap";
-    description = "TUI for LDAP";
-    license = licenses.mit;
-  };
-};
 in {
-  environment.systemPackages = [ godap ];
+  environment.systemPackages = [godap];
 
   networking.firewall.allowedTCPPorts = [
     389
@@ -32,7 +35,9 @@ in {
   services.openldap = {
     enable = true;
 
-    /* enable plain connections only */
+    /*
+    enable plain connections only
+    */
     urlList = [
       "ldap:///"
       # "ldaps:///"
@@ -42,7 +47,9 @@ in {
       attrs = {
         olcLogLevel = "conns config";
 
-        /* settings for acme ssl */
+        /*
+        settings for acme ssl
+        */
         # olcTLSCACertificateFile = "/var/lib/acme/MGC-DRW-HVS01/full.pem";
         # olcTLSCertificateFile = "/var/lib/acme/MGC-DRW-HVS01/cert.pem";
         # olcTLSCertificateKeyFile = "/var/lib/acme/MGC-DRW-HVS01/key.pem";
@@ -61,7 +68,7 @@ in {
         ];
 
         "olcDatabase={1}mdb".attrs = {
-          objectClass = [ "olcDatabaseConfig" "olcMdbConfig" ];
+          objectClass = ["olcDatabaseConfig" "olcMdbConfig"];
 
           olcDatabase = "{1}mdb";
           olcDbDirectory = "/var/lib/openldap/data";
@@ -72,28 +79,34 @@ in {
           olcRootPW.path = "/run/secrets/olcRootPW";
 
           olcAccess = [
-            /* custom access rules for userPassword attributes */
-            ''{0}to attrs=userPassword
-                by self write
-                by anonymous auth
-                by * none''
+            /*
+            custom access rules for userPassword attributes
+            */
+            ''              {0}to attrs=userPassword
+                              by self write
+                              by anonymous auth
+                              by * none''
 
-            /* allow read on anything else */
-            ''{1}to *
-                by * read''
+            /*
+            allow read on anything else
+            */
+            ''              {1}to *
+                              by * read''
           ];
         };
       };
     };
 
     declarativeContents = {
-      "dc=megacorp,dc=industries" = 
-        import ./ou-structure.nix +
-        import ./users.nix;
+      "dc=megacorp,dc=industries" =
+        import ./ou-structure.nix
+        + import ./users.nix;
     };
   };
 
-  /* ensure openldap is launched after certificates are created */
+  /*
+  ensure openldap is launched after certificates are created
+  */
   # systemd.services.openldap = {
   #   wants = [ "acme-MGC-DRW-HVS01.service" ];
   #   after = [ "acme-MGC-DRW-HVS01.service" ];

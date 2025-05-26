@@ -1,6 +1,4 @@
-{ vars, ... }:
-
-{
+{vars, ...}: {
   networking.hosts = {
     "${vars.networking.hostsAddr.MGC-DRW-DGW01.eth.ipv4}" = ["MGC-DRW-DGW01"];
     "${vars.networking.hostsAddr.MGC-DRW-BST01.eth.ipv4}" = ["MGC-DRW-BST01"];
