@@ -14,7 +14,6 @@ nixpkgs.lib.nixosSystem {
         ../../qemu-hardware-config.nix
         (import ../../base-config.nix {inherit vars;})
         (import ./secrets.nix {inherit inputs vars;})
-        # (import ./ldap {inherit nixpkgs pkgs;})
         (import ./dns.nix {inherit megacorp vars;})
       ];
 
@@ -46,7 +45,7 @@ nixpkgs.lib.nixosSystem {
             repo = "https://github.com/rapture-mc/mgc-machines";
           };
 
-          domain-controller = {
+          openldap = {
             enable = true;
             domain-component = "dc=megacorp,dc=industries";
             logo = true;
