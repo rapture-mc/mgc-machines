@@ -31,7 +31,6 @@ nixpkgs.lib.nixosSystem {
                 gateway = vars.networking.defaultGateway;
                 nameservers = vars.networking.nameServers;
                 lan-domain = vars.networking.internalDomain;
-                bridge.enable = true;
               };
             };
 
