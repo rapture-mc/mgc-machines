@@ -1,12 +1,12 @@
 {
   nixpkgs,
-  pkgs,
   megacorp,
   vars,
   inputs,
   ...
-}:
-nixpkgs.lib.nixosSystem {
+}: let
+  domain-component = "dc=megacorp,dc=industries";
+in nixpkgs.lib.nixosSystem {
   modules = [
     megacorp.nixosModules.default
     {
@@ -47,8 +47,14 @@ nixpkgs.lib.nixosSystem {
 
           openldap = {
             enable = true;
-            domain-component = "dc=megacorp,dc=industries";
+            domain-component = domain-component;
             logo = true;
+            extra-declarative-contents = ''
+              dn: cn=John Smith,ou=IT,ou=Users,${domain-component}
+              objectClass: person
+              cn: John Smith
+              sn: Smith
+            '';
           };
         };
 
