@@ -2,7 +2,6 @@
   nixpkgs,
   megacorp,
   vars,
-  inputs,
   ...
 }:
 nixpkgs.lib.nixosSystem {
@@ -33,7 +32,7 @@ nixpkgs.lib.nixosSystem {
 
           openssh = {
             enable = true;
-            authorized-ssh-keys = vars.keys.authorizedBastionPubKeys;
+            authorized-ssh-keys = vars.keys.bastionPubKey;
           };
         };
 
