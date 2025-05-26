@@ -239,11 +239,11 @@
         "plasma-manager": "plasma-manager"
       },
       "locked": {
-        "lastModified": 1748166774,
-        "narHash": "sha256-wmX2jc2lMT/lzxOQ9OcSGGWLVFUneVW4iLqfglMKUwk=",
+        "lastModified": 1748220482,
+        "narHash": "sha256-v64k572D5leqBmDiHKFOg/ANAGs194DHx8St2OK8Z78=",
         "owner": "rapture-mc",
         "repo": "nixos-module",
-        "rev": "38bc3e983f0fd52d9d6aef58c41404ae2c568639",
+        "rev": "ac1378e053b81e4dad98e47a49ba097bad36d14e",
         "type": "github"
       },
       "original": {
@@ -290,17 +290,18 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1747953325,
-        "narHash": "sha256-y2ZtlIlNTuVJUZCqzZAhIw5rrKP4DOSklev6c8PyCkQ=",
+        "lastModified": 1747496534,
+        "narHash": "sha256-SaFz1UDu0qdkrzOMxivImwx9UHyhtFGk9eJzl7HWYl8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "55d1f923c480dadce40f5231feb472e81b0bab48",
+        "rev": "da303f71c4f9673a7d718396fb23f74679ae4fb0",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
         "ref": "nixos-25.05",
         "repo": "nixpkgs",
+        "rev": "da303f71c4f9673a7d718396fb23f74679ae4fb0",
         "type": "github"
       }
     },
@@ -315,11 +316,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1748088865,
-        "narHash": "sha256-xfAT2ykSAWcYgxkyZN5n6xRHab93u56zbBjuhoDFKFg=",
+        "lastModified": 1748197130,
+        "narHash": "sha256-WkUknPbMYFeusz3GKkhnklGF0r9bz4Z4bpU8h0t1Ddc=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "2c0a9ff1e2bcc6aab15caa504a7c9670f6e0a929",
+        "rev": "b37d429468c1f5133743e967caf97d92dc35ef5b",
         "type": "github"
       },
       "original": {
@@ -364,11 +365,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742765550,
-        "narHash": "sha256-2vVIh2JrL6GAGfgCeY9e6iNKrBjs0Hw3bGQEAbwVs68=",
+        "lastModified": 1748196248,
+        "narHash": "sha256-1iHjsH6/5UOerJEoZKE+Gx1BgAoge/YcnUsOA4wQ/BU=",
         "owner": "nix-community",
         "repo": "plasma-manager",
-        "rev": "b70be387276e632fe51232887f9e04e2b6ef8c16",
+        "rev": "b7697abe89967839b273a863a3805345ea54ab56",
         "type": "github"
       },
       "original": {
