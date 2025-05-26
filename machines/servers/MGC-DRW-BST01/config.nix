@@ -10,10 +10,10 @@ nixpkgs.lib.nixosSystem {
     megacorp.nixosModules.default
     {
       imports = [
+        ../../qemu-hardware-config.nix
         (import ../../base-config.nix {inherit vars;})
         (import ./backup.nix {inherit vars;})
         (import ./secrets.nix {inherit inputs vars;})
-        ../../qemu-hardware-config.nix
       ];
 
       networking.hostName = "MGC-DRW-BST01";
