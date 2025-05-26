@@ -48,6 +48,8 @@ nixpkgs.lib.nixosSystem {
             fqdn = "file-browser.megacorp.industries";
           };
         };
+
+        virtualisation.qemu-guest.enable = true;
       };
     }
   ];
