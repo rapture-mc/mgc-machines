@@ -19,6 +19,8 @@ nixpkgs.lib.nixosSystem {
 
         system.stateVersion = "24.05";
 
+        boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
+
         megacorp = {
           config = {
             bootloader.enable = true;
