@@ -1,15 +1,10 @@
 {
   nixpkgs,
-  pkgs,
   megacorp,
   vars,
-  terranix,
-  system,
   ...
-}: let
-  lib = nixpkgs.lib;
-in
-  nixpkgs.lib.nixosSystem {
+}:
+nixpkgs.lib.nixosSystem {
     modules = [
       megacorp.nixosModules.default
       {
@@ -56,15 +51,6 @@ in
               enable = true;
               repo = "https://github.com/rapture-mc/mgc-machines";
             };
-          };
-
-          virtualisation.hypervisor = {
-            enable = true;
-            logo = true;
-            libvirt-users = [
-              "${vars.adminUser}"
-              "controller"
-            ];
           };
         };
       }
