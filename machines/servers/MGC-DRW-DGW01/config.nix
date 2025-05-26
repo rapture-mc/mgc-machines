@@ -54,6 +54,8 @@ nixpkgs.lib.nixosSystem {
             reverse-proxied = true;
           };
         };
+
+        virtualisation.qemu-guest.enable = true;
       };
     }
   ];

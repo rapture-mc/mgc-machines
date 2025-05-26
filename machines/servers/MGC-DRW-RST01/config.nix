@@ -48,6 +48,8 @@ nixpkgs.lib.nixosSystem {
             authorized-keys = vars.keys.resticPubKeys;
           };
         };
+
+        virtualisation.qemu-guest.enable = true;
       };
     }
   ];

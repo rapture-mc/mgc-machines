@@ -46,6 +46,8 @@ nixpkgs.lib.nixosSystem {
             repo = "https://github.com/rapture-mc/mgc-machines";
           };
         };
+
+        virtualisation.qemu-guest.enable = true;
       };
     }
   ];

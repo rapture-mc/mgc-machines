@@ -56,6 +56,8 @@ nixpkgs.lib.nixosSystem {
             logo = true;
           };
         };
+
+        virtualisation.qemu-guest.enable = true;
       };
     }
   ];
