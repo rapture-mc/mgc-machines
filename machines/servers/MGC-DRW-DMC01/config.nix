@@ -72,6 +72,11 @@ in nixpkgs.lib.nixosSystem {
               objectClass: person
               cn: John Smith
               sn: Smith
+
+              dn: cn=Tony Poo,ou=IT,ou=Users,${domain-component}
+              objectClass: person
+              cn: Tony Poo
+              sn: Poo
             '';
           };
         };
