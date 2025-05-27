@@ -14,7 +14,7 @@ in nixpkgs.lib.nixosSystem {
         ../../qemu-hardware-config.nix
         (import ../../base-config.nix {inherit vars;})
         (import ./secrets.nix {inherit inputs vars;})
-        (import ./dns.nix {inherit megacorp vars;})
+        # (import ./dns.nix {inherit megacorp vars;})
       ];
 
       networking.hostName = "MGC-DRW-DMC01";
@@ -49,6 +49,7 @@ in nixpkgs.lib.nixosSystem {
             enable = true;
             domain = vars.networking.internalDomain;
             hosts = ''
+              127.0.0.1 localhost
               ${vars.networking.hostsAddr.MGC-DRW-DGW01.eth.ipv4} MGC-DRW-DGW01
               ${vars.networking.hostsAddr.MGC-DRW-BST01.eth.ipv4} MGC-DRW-BST01
               ${vars.networking.hostsAddr.MGC-DRW-PWS01.eth.ipv4} MGC-DRW-PWS01
