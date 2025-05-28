@@ -78,6 +78,19 @@
             bridge = "br0";
             dhcp = true;
           };
+
+          test-vm = {
+            source = "${vars.terraformModuleSource}";
+            vm_hostname_prefix = "test";
+            uefi_enabled = false;
+            autostart = true;
+            vm_count = 1;
+            memory = "4096";
+            vcpu = 1;
+            system_volume = 100;
+            bridge = "br0";
+            dhcp = true;
+          };
         };
       }
     ];
