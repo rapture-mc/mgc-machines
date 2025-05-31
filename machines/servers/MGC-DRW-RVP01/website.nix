@@ -1,13 +1,24 @@
 { pkgs }: let
-hugo-website = pkgs.fetchFromGitHub {
-  owner = "rapture-mc";
-  repo = "hugo-website";
-  rev = "a012c0e14b21621100093deaeceb030e53db9f6d";
-  hash = "sha256-tgNiwmupVlI61Hly1h1pTbhmN3QJenlPflqux6k9hL8=";
-};
 
 website-root = "/var/www/megacorp.industries";
 
+hugo-website = pkgs.stdenv.mkDeriviation {
+  name = "hugo-website";
+
+  src = pkgs.fetchFromGitHub {
+    owner = "rapture-mc";
+    repo = "hugo-website";
+    rev = "a012c0e14b21621100093deaeceb030e53db9f6d";
+    hash = "sha256-tgNiwmupVlI62Hly1h1pTbhmN3QJenlPflqux6k9hL8=";
+  };
+
+  installPhase = ''
+    mkdir $out
+
+    ${pkgs.rsync}/bin/rsync -avz --delete public/ ${website-root}
+    chown -R nginx:nginx ${website-root}
+  '';
+};
 in {
 
   services.nginx.virtualHosts = {
