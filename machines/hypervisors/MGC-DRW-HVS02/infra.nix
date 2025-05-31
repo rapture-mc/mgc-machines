@@ -20,7 +20,7 @@
             uefi_enabled = false;
             autostart = true;
             vm_count = 1;
-            memory = "4096";
+            memory = "6144";
             vcpu = 2;
             system_volume = 100;
             bridge = "br0";
