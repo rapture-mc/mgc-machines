@@ -15,7 +15,7 @@ hugo-website = pkgs.stdenv.mkDerivation {
   buildPhase = ''
     mkdir $out
 
-    ${pkgs.hugo}/bin/hugo
+    ${pkgs.hugo}/bin/hugo -d $out
   '';
 
   installPhase = ''
