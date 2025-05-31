@@ -33,20 +33,12 @@ nixpkgs.lib.nixosSystem {
       };
 
       # Extra stuff
-      environment.systemPackages = with nixpkgs.legacyPackages.x86_64-linux; [
-        hugo
+      environment.systemPackages = with pkgs; [
         gimp
         sioyek
       ];
 
       networking.firewall.allowedTCPPorts = [80];
-
-      services.nginx = {
-        enable = true;
-        virtualHosts."megacorp.industries" = {
-          root = "/var/www/megacorp.industries";
-        };
-      };
 
       megacorp = {
         config = {
@@ -69,7 +61,7 @@ nixpkgs.lib.nixosSystem {
 
           openssh = {
             enable = true;
-            authorized-ssh-keys = vars.keys.bastionPubKey ++ ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBDTHyxJfsK8Nb1fJonht3niVbWP2xRR+4ZgqtAMpMw7 benny@MGC-DRW-HVS01"];
+            authorized-ssh-keys = vars.keys.bastionPubKey;
           };
 
           desktop = {

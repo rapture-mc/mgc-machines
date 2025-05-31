@@ -27,7 +27,6 @@ in {
     "megacorp.industries" = {
       forceSSL = true;
       enableACME = true;
-      # locations."/".proxyPass = "http://${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4}:80";
       root = website-root;
     };
   };
