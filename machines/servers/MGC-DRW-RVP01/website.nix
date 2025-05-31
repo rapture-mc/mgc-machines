@@ -8,17 +8,15 @@ hugo-website = pkgs.stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "rapture-mc";
     repo = "hugo-website";
-    rev = "0b13905f4c1b8922a506780ad95795b4d3eeed2e";
-    hash = "sha256-OyCkG5wOB3vlVppUOgLNRhFaCjYl7C8PyNUzxd9TZds=";
+    rev = "e4a87ad3ed7ed4ec81849c04e5eb2b1f55c648ee";
+    hash = "sha256-s3l6WmJwc30W8SnHLuXjGKItbERtTwVbELNN9furDq8=";
   };
 
-  buildPhase = ''
+  installPhase = ''
     mkdir $out
 
     ${pkgs.hugo}/bin/hugo
-  '';
 
-  installPhase = ''
     cp -rv public $out
   '';
 };
