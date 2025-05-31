@@ -12,11 +12,13 @@ hugo-website = pkgs.stdenv.mkDerivation {
     hash = "sha256-tgNiwmupVlI61Hly1h1pTbhmN3QJenlPflqux6k9hL8=";
   };
 
-  installPhase = ''
+  buildPhase = ''
     mkdir $out
 
     ${pkgs.hugo}/bin/hugo
+  '';
 
+  installPhase = ''
     cp -rv $src/public $out
   '';
 };
