@@ -43,7 +43,7 @@ in {
         chown nginx:nginx ${website-root}
       fi
 
-      ${pkgs.rsync}/bin/rsync -avz --delete ${hugo-website}/public/ ${website-root}
+      ${pkgs.rsync}/bin/rsync -avz --delete ${hugo-website} ${website-root}
       chown -R nginx:nginx ${website-root}
     '';
     unitConfig.Before = "nginx.service";
