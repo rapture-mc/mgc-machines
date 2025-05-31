@@ -1,5 +1,6 @@
 {
   nixpkgs,
+  pkgs,
   megacorp,
   vars,
   ...
@@ -11,19 +12,12 @@ nixpkgs.lib.nixosSystem {
       imports = [
         ../../qemu-hardware-config.nix
         (import ../../base-config.nix {inherit vars;})
+        (import ./website.nix {inherit pkgs;})
       ];
 
       networking.hostName = "MGC-DRW-RVP01";
 
       system.stateVersion = "24.11";
-
-      services.nginx.virtualHosts = {
-        "megacorp.industries" = {
-          forceSSL = true;
-          enableACME = true;
-          locations."/".proxyPass = "http://${vars.networking.hostsAddr.MGC-DRW-HVS02.eth.ipv4}:80";
-        };
-      };
 
       megacorp = {
         config = {
