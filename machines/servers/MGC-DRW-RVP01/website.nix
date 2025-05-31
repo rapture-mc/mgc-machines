@@ -3,7 +3,7 @@ hugo-website = pkgs.fetchFromGitHub {
   owner = "rapture-mc";
   repo = "hugo-website";
   rev = "a012c0e14b21621100093deaeceb030e53db9f6d";
-  hash = "";
+  hash = "sha256-tgNiwmupVlI61Hly1h1pTbhmN3QJenlPflqux6k9hL8=";
 };
 
 website-root = "/var/www/megacorp.industries";
