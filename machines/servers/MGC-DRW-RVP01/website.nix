@@ -2,6 +2,7 @@
 hugo-website = pkgs.fetchFromGitHub {
   owner = "rapture-mc";
   repo = "hugo-website";
+  rev = "a012c0e14b21621100093deaeceb030e53db9f6d";
   hash = "";
 };
 
