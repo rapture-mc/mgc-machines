@@ -9,7 +9,7 @@ hugo-website = pkgs.stdenv.mkDerivation {
     owner = "rapture-mc";
     repo = "hugo-website";
     rev = "0b13905f4c1b8922a506780ad95795b4d3eeed2e";
-    hash = "sha256-tgNiwmupVlI61Hly1h1pTbhmN3QJenlPflqux6k9hL8=";
+    hash = "";
   };
 
   buildPhase = ''
