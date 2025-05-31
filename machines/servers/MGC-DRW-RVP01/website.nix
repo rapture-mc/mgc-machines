@@ -8,7 +8,7 @@ hugo-website = pkgs.stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "rapture-mc";
     repo = "hugo-website";
-    rev = "a012c0e14b21621100093deaeceb030e53db9f6d";
+    rev = "0b13905f4c1b8922a506780ad95795b4d3eeed2e";
     hash = "sha256-tgNiwmupVlI61Hly1h1pTbhmN3QJenlPflqux6k9hL8=";
   };
 
