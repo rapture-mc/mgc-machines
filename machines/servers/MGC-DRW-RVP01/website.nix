@@ -2,7 +2,7 @@
 
 website-root = "/var/www/megacorp.industries";
 
-hugo-website = pkgs.stdenv.mkDeriviation {
+hugo-website = pkgs.stdenv.mkDerivation {
   name = "hugo-website";
 
   src = pkgs.fetchFromGitHub {
@@ -15,12 +15,12 @@ hugo-website = pkgs.stdenv.mkDeriviation {
   installPhase = ''
     mkdir $out
 
-    ${pkgs.rsync}/bin/rsync -avz --delete public/ ${website-root}
-    chown -R nginx:nginx ${website-root}
+    ${pkgs.hugo}/bin/hugo
+
+    cp -rv $src/public $out
   '';
 };
 in {
-
   services.nginx.virtualHosts = {
     "megacorp.industries" = {
       forceSSL = true;
@@ -42,9 +42,7 @@ in {
         chown nginx:nginx ${website-root}
       fi
 
-      cd ${hugo-website}
-      ${pkgs.hugo}/bin/hugo 
-      ${pkgs.rsync}/bin/rsync -avz --delete public/ ${website-root}
+      ${pkgs.rsync}/bin/rsync -avz --delete ${hugo-website}/public/ ${website-root}
       chown -R nginx:nginx ${website-root}
     '';
     unitConfig.Before = "nginx.service";
