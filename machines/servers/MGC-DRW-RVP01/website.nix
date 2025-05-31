@@ -36,7 +36,7 @@ in {
     enable = true;
     description = "Rebuilds hugo website";
     script = ''
-      if [ -d ${website-root} ]; then
+      if [ ! -d ${website-root} ]; then
         echo "Website directory doesn't exist, creating..."
         mkdir -p ${website-root}
 
