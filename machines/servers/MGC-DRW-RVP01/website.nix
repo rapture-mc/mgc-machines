@@ -8,8 +8,8 @@ hugo-website = pkgs.stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "rapture-mc";
     repo = "hugo-website";
-    rev = "f594a1b0f7d36073c6be5d251cb78291ad22562e";
-    hash = "sha256-Uxu/9mW1PdNeISqXbLSqDSdOxWaWPR1u+Md9pnE5CdQ=";
+    rev = "4e4ebc646d1686b56abfa702073278ed23199411";
+    hash = "sha256-EEnbyO3hBjJcWBU0G+Q0woYrIvjz2i+Z7X+i/fjt8+I=";
   };
 
   installPhase = ''
