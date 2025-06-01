@@ -51,7 +51,7 @@ in
         services.nginx = {
           enable = true;
           virtualHosts."localhost" = {
-            root = "/var/www/megacorp.industries";
+            root = "/var/www/doco";
           };
         };
 
