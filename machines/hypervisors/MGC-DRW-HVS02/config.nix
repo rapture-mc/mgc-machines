@@ -38,8 +38,6 @@ nixpkgs.lib.nixosSystem {
         sioyek
       ];
 
-      networking.firewall.allowedTCPPorts = [80];
-
       megacorp = {
         config = {
           bootloader = {
@@ -82,7 +80,6 @@ nixpkgs.lib.nixosSystem {
           logo = true;
           libvirt-users = [
             "${vars.adminUser}"
-            "controller"
           ];
         };
       };
