@@ -24,6 +24,11 @@ nixpkgs.lib.nixosSystem {
 
       nixpkgs.config.allowUnfree = true;
 
+      services.rustdesk-server = {
+        enable = true;
+        openFirewall = true;
+      };
+
       megacorp = {
         config = {
           bootloader = {
