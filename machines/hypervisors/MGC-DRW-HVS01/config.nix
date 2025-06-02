@@ -28,7 +28,7 @@ nixpkgs.lib.nixosSystem {
         enable = true;
         openFirewall = true;
         signal.relayHosts = [
-          "8.8.8.8"
+          "127.0.0.1"
         ];
       };
 
