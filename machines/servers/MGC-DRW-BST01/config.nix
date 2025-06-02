@@ -50,6 +50,8 @@ nixpkgs.lib.nixosSystem {
             enable = true;
             repo = "https://github.com/rapture-mc/mgc-machines";
           };
+
+          password-store.enable = true;
         };
 
         virtualisation.qemu-guest.enable = true;
