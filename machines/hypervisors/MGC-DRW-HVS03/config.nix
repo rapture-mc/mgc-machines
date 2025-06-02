@@ -5,55 +5,55 @@
   ...
 }:
 nixpkgs.lib.nixosSystem {
-    modules = [
-      megacorp.nixosModules.default
-      {
-        imports = [
-          ./hardware-config.nix
-          (import ../../base-config.nix {inherit vars;})
-        ];
+  modules = [
+    megacorp.nixosModules.default
+    {
+      imports = [
+        ./hardware-config.nix
+        (import ../../base-config.nix {inherit vars;})
+      ];
 
-        nixpkgs.config.allowUnfree = true;
+      nixpkgs.config.allowUnfree = true;
 
-        networking.hostName = "MGC-DRW-HVS03";
+      networking.hostName = "MGC-DRW-HVS03";
 
-        system.stateVersion = "24.05";
+      system.stateVersion = "24.05";
 
-        megacorp = {
-          config = {
-            bootloader.enable = true;
+      megacorp = {
+        config = {
+          bootloader.enable = true;
 
-            networking = {
-              static-ip = {
-                enable = true;
-                ipv4 = vars.networking.hostsAddr.MGC-DRW-HVS03.eth.ipv4;
-                interface = vars.networking.hostsAddr.MGC-DRW-HVS03.eth.name;
-                gateway = vars.networking.defaultGateway;
-                nameservers = vars.networking.nameServers;
-                lan-domain = vars.networking.internalDomain;
-              };
-            };
-
-            openssh = {
+          networking = {
+            static-ip = {
               enable = true;
-              authorized-ssh-keys = vars.keys.bastionPubKey;
-            };
-
-            desktop = {
-              enable = true;
-              xrdp = true;
+              ipv4 = vars.networking.hostsAddr.MGC-DRW-HVS03.eth.ipv4;
+              interface = vars.networking.hostsAddr.MGC-DRW-HVS03.eth.name;
+              gateway = vars.networking.defaultGateway;
+              nameservers = vars.networking.nameServers;
+              lan-domain = vars.networking.internalDomain;
             };
           };
 
-          services = {
-            comin = {
-              enable = true;
-              repo = "https://github.com/rapture-mc/mgc-machines";
-            };
+          openssh = {
+            enable = true;
+            authorized-ssh-keys = vars.keys.bastionPubKey;
           };
 
-          virtualisation.whonix.enable = true;
+          desktop = {
+            enable = true;
+            xrdp = true;
+          };
         };
-      }
-    ];
-  }
+
+        services = {
+          comin = {
+            enable = true;
+            repo = "https://github.com/rapture-mc/mgc-machines";
+          };
+        };
+
+        virtualisation.whonix.enable = true;
+      };
+    }
+  ];
+}

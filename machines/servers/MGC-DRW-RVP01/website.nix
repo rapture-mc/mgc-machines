@@ -1,25 +1,24 @@
-{ pkgs }: let
+{pkgs}: let
+  website-root = "/var/www/megacorp.industries";
 
-website-root = "/var/www/megacorp.industries";
+  hugo-website = pkgs.stdenv.mkDerivation {
+    name = "hugo-website";
 
-hugo-website = pkgs.stdenv.mkDerivation {
-  name = "hugo-website";
+    src = pkgs.fetchFromGitHub {
+      owner = "rapture-mc";
+      repo = "hugo-website";
+      rev = "97f3f328c096acdf291480cf4007def939a7ad0e";
+      hash = "sha256-UCM8M5yuYeqPU9xMEJiteqaoDpNZXEOua4Zwc+wDYxc=";
+    };
 
-  src = pkgs.fetchFromGitHub {
-    owner = "rapture-mc";
-    repo = "hugo-website";
-    rev = "97f3f328c096acdf291480cf4007def939a7ad0e";
-    hash = "sha256-UCM8M5yuYeqPU9xMEJiteqaoDpNZXEOua4Zwc+wDYxc=";
+    installPhase = ''
+      mkdir $out
+
+      ${pkgs.hugo}/bin/hugo
+
+      cp -rv public $out
+    '';
   };
-
-  installPhase = ''
-    mkdir $out
-
-    ${pkgs.hugo}/bin/hugo
-
-    cp -rv public $out
-  '';
-};
 in {
   services.nginx.virtualHosts = {
     "megacorp.industries" = {
