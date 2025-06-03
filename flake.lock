@@ -239,11 +239,11 @@
         "plasma-manager": "plasma-manager"
       },
       "locked": {
-        "lastModified": 1748930740,
-        "narHash": "sha256-OCdOu/YIHewXga7nLJwmGfVwZpU1PIGDXNbVFPFLb2Y=",
+        "lastModified": 1748956741,
+        "narHash": "sha256-3MIJEuLe3Kr0LHqyDiOZAnejvJwTuyBHu+Jnbq7uQP0=",
         "owner": "rapture-mc",
         "repo": "nixos-module",
-        "rev": "db3218ae8f1f613868eb5ece1ffbe6b51ac38cb8",
+        "rev": "b9b44ee3229e51ef96978adbdc7384258ae07c02",
         "type": "github"
       },
       "original": {
@@ -316,11 +316,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1748884506,
-        "narHash": "sha256-P/ldKE0SCGKH6pEVJoW2MJJo2dZCZe10d/h1ree66c0=",
+        "lastModified": 1748942960,
+        "narHash": "sha256-gJf3WxvDbvCpzIBVju/5GY/olW7zs/B1zDmB52AWMUM=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "d063d0dd5e0b82d8be4dd4bc00b887ac1f92e4b2",
+        "rev": "9328f4437d5f788d1c066b274a0aea492dc5fde2",
         "type": "github"
       },
       "original": {
