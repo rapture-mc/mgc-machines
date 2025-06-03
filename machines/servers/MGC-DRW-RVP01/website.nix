@@ -25,6 +25,9 @@ in {
       forceSSL = true;
       enableACME = true;
       root = website-root;
+      extraConfig = ''
+        error_page 404 /404.html
+      '';
     };
   };
 
