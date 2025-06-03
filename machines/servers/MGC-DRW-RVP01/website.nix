@@ -26,7 +26,7 @@ in {
       enableACME = true;
       root = website-root;
       extraConfig = ''
-        error_page 404 /404.html
+        error_page 404 /404.html;
       '';
     };
   };
