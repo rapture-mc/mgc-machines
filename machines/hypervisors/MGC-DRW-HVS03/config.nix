@@ -1,5 +1,6 @@
 {
   nixpkgs,
+  pkgs,
   megacorp,
   vars,
   ...
