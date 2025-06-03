@@ -7,8 +7,8 @@
     src = pkgs.fetchFromGitHub {
       owner = "rapture-mc";
       repo = "hugo-website";
-      rev = "97f3f328c096acdf291480cf4007def939a7ad0e";
-      hash = "sha256-UCM8M5yuYeqPU9xMEJiteqaoDpNZXEOua4Zwc+wDYxc=";
+      rev = "bdaa632f6f27587fcee26f9ea80f85a0a34d250a";
+      hash = "sha256-BXl1LKBs9iLsSUMYZijGP5+HUT0RyLyiLz3ib9i+cn8=";
     };
 
     installPhase = ''
