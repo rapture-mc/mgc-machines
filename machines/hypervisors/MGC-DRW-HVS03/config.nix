@@ -19,6 +19,11 @@ nixpkgs.lib.nixosSystem {
 
       system.stateVersion = "24.05";
 
+      environment.systemPackages = with pkgs; [
+        devenv
+        direnv
+      ];
+
       megacorp = {
         config = {
           bootloader.enable = true;
