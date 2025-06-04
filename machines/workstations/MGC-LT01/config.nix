@@ -34,18 +34,6 @@ in
           sioyek
         ];
 
-        programs.obs-studio = {
-          enable = true;
-          plugins = with pkgs.obs-studio-plugins; [
-            wlrobs
-          ];
-        };
-
-        xdg.portal = {
-          enable = true;
-          wlr.enable = true;
-        };
-
         virtualisation.docker.enable = true;
 
         services.nginx = {
@@ -54,6 +42,8 @@ in
             root = "/var/www/doco";
           };
         };
+
+        services.displayManager.defaultSession = "plasmax11";
 
         megacorp = {
           config = {
