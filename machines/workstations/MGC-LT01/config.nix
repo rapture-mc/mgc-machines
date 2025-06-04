@@ -43,6 +43,7 @@ in
           };
         };
 
+        services.xserver.enable = true;
         services.displayManager.sddm.wayland.enable = false;
         services.displayManager.defaultSession = "plasmax11";
 
