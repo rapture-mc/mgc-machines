@@ -23,6 +23,7 @@ nixpkgs.lib.nixosSystem {
       environment.systemPackages = with pkgs; [
         devenv
         direnv
+        gst_all_1.gstreamer
       ];
 
       megacorp = {
