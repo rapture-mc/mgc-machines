@@ -23,6 +23,7 @@ nixpkgs.lib.nixosSystem {
       environment.systemPackages = with pkgs; [
         devenv
         direnv
+        hugo
       ];
 
       services.xserver.enable = true;
