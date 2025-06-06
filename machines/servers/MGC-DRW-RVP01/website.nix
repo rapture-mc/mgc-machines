@@ -1,7 +1,7 @@
 {pkgs}: let
   hugo-website-root = "/var/www/megacorp.industries";
 
-  about-website-root = "/var/www/cloak.megacorp.industries";
+  about-website-root = "/var/www/cv.megacorp.industries";
 
   hugo-website = pkgs.stdenv.mkDerivation {
     name = "hugo-website";
@@ -9,8 +9,8 @@
     src = pkgs.fetchFromGitHub {
       owner = "rapture-mc";
       repo = "hugo-website";
-      rev = "60edb6a7cc732c96068b392e37572a3897f6d635";
-      hash = "sha256-u9Umpzn+x+fdEOnCXIIGiDQfkGY85Agh0dkm1BOxUPM=";
+      rev = "1541ab82434fcff25501cdf7b9151ad0f9a7c5db";
+      hash = "sha256-aMxz28mFker1EfMydc7rlsqT7yzJq7zYgptaCL2oboY=";
     };
 
     installPhase = ''
@@ -51,7 +51,7 @@ in {
       '';
     };
 
-    "cloak.megacorp.industries" = {
+    "cv.megacorp.industries" = {
       forceSSL = true;
       enableACME = true;
       root = about-website-root;
