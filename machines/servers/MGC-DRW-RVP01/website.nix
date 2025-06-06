@@ -23,13 +23,13 @@
   };
 
   about-website = pkgs.stdenv.mkDerivation {
-    name = "hugo-website";
+    name = "about-website";
 
     src = pkgs.fetchFromGitHub {
       owner = "rapture-mc";
       repo = "about-website";
-      rev = "0c3da0ce20dd626077648edf710ac2f0ca369170";
-      hash = "";
+      rev = "8f7610c2b4c31105d3ea27b86ba3fa9e9031a61d";
+      hash = "sha256-pkK/ldOAgfq8jTBLRCvR38yLHA4On8/Ww42ex6colFk=";
     };
 
     installPhase = ''
