@@ -28,8 +28,8 @@
     src = pkgs.fetchFromGitHub {
       owner = "rapture-mc";
       repo = "hugo-terminal";
-      rev = "2c45ec6e8c3a70e68c16252149ecf6b4ae825588";
-      hash = "sha256-qu48k85FZRBm5eMHQgeKiZb3QnnOXzsR2/BYrF7nEAI=";
+      rev = "25321bf93d871f532dd68a793507577a44c5c344";
+      hash = "sha256-PTzjaNFYXI3hmFzP/O7C6dvMV3UjIUs6LWFrEL9IiMM=";
     };
 
     installPhase = ''
