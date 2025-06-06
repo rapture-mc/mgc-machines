@@ -27,9 +27,9 @@
 
     src = pkgs.fetchFromGitHub {
       owner = "rapture-mc";
-      repo = "hugo-terminal";
-      rev = "33cec042d2add77b7cdcf5b8a179e97be1005d26";
-      hash = "sha256-ABjPLMYEdL6r20FYvJmbFRFXWf0qqwYDcpnFb2J8Zic=";
+      repo = "hugo-cv";
+      rev = "52d944ecbdcbd4d5c4e73b21f57890761f914bb6";
+      hash = "sha256-xa9d+97/bIz93HH4LMtbs0otV5RnXK5CzDuVqoGesIM=";
     };
 
     installPhase = ''
