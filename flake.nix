@@ -44,8 +44,8 @@
     pkgs = nixpkgs.legacyPackages.${system};
 
     # Helper function for importing different nixosConfigurations
-    importMachineConfig = machineType: machineName: configType:
-      import ./machines/${machineType}/${machineName}/${configType}.nix {
+    importMachineConfig = machineType: machineName:
+      import ./machines/${machineType}/${machineName} {
         inherit inputs self vars megacorp nixpkgs pkgs terranix system;
       };
   in {
