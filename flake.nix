@@ -54,40 +54,8 @@
     # Rebuild locally with "sudo nixos-rebuild switch --flake .#<machine-hostname>"
     nixosConfigurations = import ./machines {inherit importMachineConfig;};
 
-    # For generating NixOS QCOW images for use with terraform + libvirt
-    # Build with "nix build .#qcow"
-    packages.${system}.qcow = nixos-generators.nixosGenerate {
-      system = system;
-      format = "qcow";
-      modules = [
-        megacorp.nixosModules.default
-        {
-          networking.hostName = "nixos";
-
-          system.stateVersion = "24.11";
-
-          megacorp = {
-            virtualisation.qemu-guest.enable = true;
-
-            config = {
-              system.enable = true;
-              bootloader.enable = false; # nixos-generator will handle bootloader configuration instead
-              nixvim.enable = true;
-              packages.enable = true;
-
-              openssh = {
-                enable = true;
-                authorized-ssh-keys = vars.keys.bastionPubKey;
-              };
-
-              users = {
-                enable = true;
-                admin-user = "benny";
-              };
-            };
-          };
-        }
-      ];
-    };
+    # For generating Megacorp NixOS VM images
+    # Build with "nix build .#<image-type>"
+    packages.${system} = import ./images.nix {inherit system megacorp nixos-generators vars;};
   };
 }
