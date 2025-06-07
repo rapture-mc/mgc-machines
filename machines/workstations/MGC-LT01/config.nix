@@ -24,11 +24,11 @@ in
         system.stateVersion = "24.05";
 
         environment.systemPackages = with pkgs; [
+          discord
           flameshot
           gnucash
           hledger
           hugo
-          intel-media-sdk
           qbittorrent
           spotify
           sioyek
