@@ -1,5 +1,9 @@
-{ megacorp, nixos-generators, system, vars}: let
-
+{
+  megacorp,
+  nixos-generators,
+  system,
+  vars,
+}: let
   common-config = {
     networking.hostName = "nixos";
 
@@ -42,7 +46,7 @@ in {
       common-config
       megacorp.nixosModules.default
       ({...}: {
-        virtualisation.diskSize = 16 * 1024;  # See https://github.com/nix-community/nixos-generators/issues/150
+        virtualisation.diskSize = 16 * 1024; # See https://github.com/nix-community/nixos-generators/issues/150
       })
     ];
   };
