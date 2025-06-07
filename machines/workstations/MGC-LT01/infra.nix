@@ -20,6 +20,12 @@
           aws_s3_bucket.example_bucket = {
             bucket = "sickest-bucket-out";
           };
+
+          # aws_s3_bucket_acl.example_acl = {
+          #   depends_on = ["aws_s3_bucket.example_bucket"];
+          #   bucket = "\${ aws_s3_bucket.example_bucket.id }";
+          #   acl = "private";
+          # };
         };
       }
     ];
