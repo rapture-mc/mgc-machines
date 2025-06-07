@@ -27,7 +27,6 @@ in
           awscli2
           discord
           flameshot
-          gnucash
           hledger
           hugo
           qbittorrent
