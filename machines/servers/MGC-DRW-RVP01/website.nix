@@ -1,51 +1,59 @@
 {pkgs}: let
-  hugo-website-root = "/var/www/megacorp.industries";
+  main-website-root = "/var/www/megacorp.industries";
 
-  about-website-root = "/var/www/cv.megacorp.industries";
+  cv-website-root = "/var/www/cv.megacorp.industries";
 
-  hugo-website = pkgs.stdenv.mkDerivation {
-    name = "hugo-website";
+  # Helper function to build hugo website deriviationn
+  build-website = repo: rev: hash:
+    pkgs.stdenv.mkDerivation {
+      name = repo;
 
-    src = pkgs.fetchFromGitHub {
-      owner = "rapture-mc";
-      repo = "hugo-website";
-      rev = "1541ab82434fcff25501cdf7b9151ad0f9a7c5db";
-      hash = "sha256-aMxz28mFker1EfMydc7rlsqT7yzJq7zYgptaCL2oboY=";
+      src = pkgs.fetchFromGitHub {
+        owner = "rapture-mc";
+        repo = repo;
+        rev = rev;
+        hash = hash;
+      };
+
+      installPhase = ''
+        mkdir $out
+
+        ${pkgs.hugo}/bin/hugo
+
+        cp -rv public $out
+      '';
     };
 
-    installPhase = ''
-      mkdir $out
+  # Helper function to generate systemd service that deploys built hugo website to nginx root folder
+  rebuild-website = website-root: website-source: {
+    enable = true;
+    description = "Rebuilds hugo website";
+    script = ''
+      if [ ! -d ${website-root} ]; then
+        echo "Website directory doesn't exist, creating..."
+        mkdir -p ${website-root}
 
-      ${pkgs.hugo}/bin/hugo
+        echo "Setting permissions on newly created directory..."
+        chown nginx:nginx ${website-root}
+      fi
 
-      cp -rv public $out
+      ${pkgs.rsync}/bin/rsync -avz --delete ${website-source}/public/ ${website-root}
+      chown -R nginx:nginx ${website-root}
     '';
+    unitConfig.Before = "nginx.service";
+    wantedBy = ["multi-user.target"];
   };
 
-  about-website = pkgs.stdenv.mkDerivation {
-    name = "about-website";
+  # Deriviations containing the built hugo website
+  built-hugo-root-website = build-website "hugo-website" "1541ab82434fcff25501cdf7b9151ad0f9a7c5db" "sha256-aMxz28mFker1EfMydc7rlsqT7yzJq7zYgptaCL2oboY=";
 
-    src = pkgs.fetchFromGitHub {
-      owner = "rapture-mc";
-      repo = "hugo-terminal";
-      rev = "fe9d1cbc033f0fc14e554f9e437ce1f03560d511";
-      hash = "sha256-u4ab3eYSlBwRevOohCZ5w2LB3JWXnST+khMPikcCK2U=";
-    };
-
-    installPhase = ''
-      mkdir $out
-
-      ${pkgs.hugo}/bin/hugo
-
-      cp -rv public $out
-    '';
-  };
+  built-hugo-cv-website = build-website "hugo-terminal" "fe9d1cbc033f0fc14e554f9e437ce1f03560d511" "sha256-u4ab3eYSlBwRevOohCZ5w2LB3JWXnST+khMPikcCK2U=";
 in {
   services.nginx.virtualHosts = {
     "megacorp.industries" = {
       forceSSL = true;
       enableACME = true;
-      root = hugo-website-root;
+      root = main-website-root;
       extraConfig = ''
         error_page 404 /404.html;
       '';
@@ -54,47 +62,13 @@ in {
     "cv.megacorp.industries" = {
       forceSSL = true;
       enableACME = true;
-      root = about-website-root;
+      root = cv-website-root;
     };
   };
 
   systemd.services = {
-    rebuild-hugo-website = {
-      enable = true;
-      description = "Rebuilds hugo website";
-      script = ''
-        if [ ! -d ${hugo-website-root} ]; then
-          echo "Website directory doesn't exist, creating..."
-          mkdir -p ${hugo-website-root}
+    rebuild-hugo-website = rebuild-website main-website-root built-hugo-root-website;
 
-          echo "Setting permissions on newly created directory..."
-          chown nginx:nginx ${hugo-website-root}
-        fi
-
-        ${pkgs.rsync}/bin/rsync -avz --delete ${hugo-website}/public/ ${hugo-website-root}
-        chown -R nginx:nginx ${hugo-website-root}
-      '';
-      unitConfig.Before = "nginx.service";
-      wantedBy = ["multi-user.target"];
-    };
-
-    rebuild-about-website = {
-      enable = true;
-      description = "Rebuilds about website";
-      script = ''
-        if [ ! -d ${about-website-root} ]; then
-          echo "Website directory doesn't exist, creating..."
-          mkdir -p ${about-website-root}
-
-          echo "Setting permissions on newly created directory..."
-          chown nginx:nginx ${about-website-root}
-        fi
-
-        ${pkgs.rsync}/bin/rsync -avz --delete ${about-website}/public/ ${about-website-root}
-        chown -R nginx:nginx ${about-website-root}
-      '';
-      unitConfig.Before = "nginx.service";
-      wantedBy = ["multi-user.target"];
-    };
+    rebuild-about-website = rebuild-website cv-website-root built-hugo-cv-website;
   };
 }
