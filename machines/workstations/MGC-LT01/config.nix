@@ -1,10 +1,11 @@
 {
   nixpkgs,
   megacorp,
+  system,
+  terranix,
   vars,
   ...
 }: let
-  system = "x86_64-linux";
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
@@ -16,6 +17,7 @@ in
       {
         imports = [
           (import ../../base-config.nix {inherit vars;})
+          (import ./infra.nix {inherit pkgs terranix system;})
           ./hardware-config.nix
         ];
 
