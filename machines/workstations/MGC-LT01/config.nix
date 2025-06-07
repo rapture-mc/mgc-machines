@@ -24,6 +24,7 @@ in
         system.stateVersion = "24.05";
 
         environment.systemPackages = with pkgs; [
+          awscli2
           discord
           flameshot
           gnucash
