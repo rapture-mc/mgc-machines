@@ -56,6 +56,6 @@
 
     # For generating Megacorp NixOS VM images
     # Build with "nix build .#<image-type>"
-    packages.${system} = import ./images.nix {inherit system megacorp nixos-generators vars;};
+    packages.${system} = import ./nixos-images.nix {inherit system megacorp nixos-generators vars;};
   };
 }
