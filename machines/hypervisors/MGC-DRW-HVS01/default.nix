@@ -2,8 +2,6 @@
   nixpkgs,
   megacorp,
   vars,
-  inputs,
-  pkgs,
   ...
 }:
 nixpkgs.lib.nixosSystem {
@@ -13,8 +11,6 @@ nixpkgs.lib.nixosSystem {
       imports = [
         (import ../../base-config.nix {inherit vars;})
         (import ./backup.nix {inherit vars;})
-        (import ./secrets.nix {inherit inputs vars;})
-        (import ./ldap {inherit nixpkgs pkgs;})
         ./hardware-config.nix
       ];
 

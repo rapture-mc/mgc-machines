@@ -37,8 +37,9 @@
     megacorp,
     nixos-generators,
     terranix,
+    sops-nix,
     ...
-  } @ inputs: let
+  }: let
     vars = import ./vars;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -46,7 +47,7 @@
     # Helper function for importing different nixosConfigurations
     importMachineConfig = machineType: machineName:
       import ./machines/${machineType}/${machineName} {
-        inherit inputs self vars megacorp nixpkgs pkgs terranix system;
+        inherit self vars megacorp sops-nix nixpkgs pkgs terranix system;
       };
   in {
     # Machines currently managed under this Flake

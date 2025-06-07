@@ -2,18 +2,19 @@
   nixpkgs,
   megacorp,
   vars,
-  inputs,
+  sops-nix,
   ...
 }:
 nixpkgs.lib.nixosSystem {
   modules = [
     megacorp.nixosModules.default
+    sops-nix.nixosModules.sops
     {
       imports = [
         ../../qemu-hardware-config.nix
         (import ../../base-config.nix {inherit vars;})
         (import ./backup.nix {inherit vars;})
-        (import ./secrets.nix {inherit inputs vars;})
+        (import ./secrets.nix {inherit vars;})
       ];
 
       networking.hostName = "MGC-DRW-BST01";

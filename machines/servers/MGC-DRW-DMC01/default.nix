@@ -1,8 +1,8 @@
 {
   nixpkgs,
   megacorp,
+  sops-nix,
   vars,
-  inputs,
   ...
 }: let
   domain-component = "dc=megacorp,dc=industries";
@@ -10,12 +10,12 @@ in
   nixpkgs.lib.nixosSystem {
     modules = [
       megacorp.nixosModules.default
+      sops-nix.nixosModules.sops
       {
         imports = [
           ../../qemu-hardware-config.nix
           (import ../../base-config.nix {inherit vars;})
-          (import ./secrets.nix {inherit inputs vars;})
-          # (import ./dns.nix {inherit megacorp vars;})
+          (import ./secrets.nix {inherit vars;})
         ];
 
         networking.hostName = "MGC-DRW-DMC01";
@@ -52,7 +52,6 @@ in
               hosts = ''
                 ${vars.networking.hostsAddr.MGC-DRW-DGW01.eth.ipv4} MGC-DRW-DGW01
                 ${vars.networking.hostsAddr.MGC-DRW-BST01.eth.ipv4} MGC-DRW-BST01
-                ${vars.networking.hostsAddr.MGC-DRW-PWS01.eth.ipv4} MGC-DRW-PWS01
                 ${vars.networking.hostsAddr.MGC-DRW-RST01.eth.ipv4} MGC-DRW-RST01
                 ${vars.networking.hostsAddr.MGC-DRW-RVP01.eth.ipv4} MGC-DRW-RVP01
                 ${vars.networking.hostsAddr.MGC-DRW-HVS01.eth.ipv4} MGC-DRW-HVS01

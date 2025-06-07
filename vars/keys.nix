@@ -18,7 +18,6 @@
 
   # The following keys are permitted to connect to the Restic server to upload backups
   resticPubKeys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPtoZpA5PAW7Ofpu2bQt6leqV++raEMX0tH7P6HOgNIT root@MGC-DRW-PWS01"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIF4qf0OthXgzD4gh2PiVpeRkEmAG7R5nKdl1ueypCY/ root@MGC-DRW-FBR01"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINwErc2Z0OV1ngHR04nAS5w0H3lcFisfQZpiDwe3BMFb root@MGC-DRW-BST01"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINmPP8QGT8FbY2iJFIgJJH7lVMkIZmeyDJeMf2lwQ+Lw root@MGC-DRW-HVS01"
